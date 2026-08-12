@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-07-25",
+  "base": {
+    "playerId": "203076",
+    "playerName": "Anthony Davis",
+    "season": "2016-17",
+    "stats": {
+      "ppg": 28,
+      "rpg": 11.8,
+      "apg": 2.1,
+      "blk": 2.2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG",
+        "15+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "MVP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ PPG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        }
+      ],
+      "labels": [
+        "9+ RPG"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 6
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "6+ RPG",
+        "10+ PPG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "South Carolina"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "South Carolina",
+        "10+ PPG"
+      ]
+    }
+  }
+}

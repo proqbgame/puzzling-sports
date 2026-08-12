@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-07-25",
+  "base": {
+    "playerId": "00-0022821",
+    "playerName": "Michael Turner",
+    "season": "2008",
+    "stats": {
+      "rushYds": 1699,
+      "rushTd": 17,
+      "recYds": 41,
+      "recTd": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1400
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "1400+ RUSH YDS",
+        "14+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 6
+        }
+      ],
+      "labels": [
+        "6+ RUSH TD"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "8+ RUSH TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 300
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "300+ REC YDS",
+        "1100+ RUSH YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 2
+        }
+      ],
+      "labels": [
+        "2+ REC TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Michigan"
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 2
+        }
+      ],
+      "labels": [
+        "Michigan",
+        "2+ REC TD"
+      ]
+    }
+  }
+}

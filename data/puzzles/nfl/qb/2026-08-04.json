@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-08-04",
+  "base": {
+    "playerId": "00-0029263",
+    "playerName": "Russell Wilson",
+    "season": "2019",
+    "stats": {
+      "passYds": 4110,
+      "passTd": 31,
+      "compPct": 66.1,
+      "interceptions": 5
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Virginia"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "Virginia",
+        "15+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "draftPick",
+          "pick": 1
+        }
+      ],
+      "labels": [
+        "1st Pick"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "5+ Seasons",
+        "Undrafted"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ INT"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "passYdsAtLeast",
+          "min": 4500
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "4500+ PASS YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

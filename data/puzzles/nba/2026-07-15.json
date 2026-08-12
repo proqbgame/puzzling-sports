@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-07-15",
+  "base": {
+    "playerId": "77936",
+    "playerName": "Robert Reid",
+    "season": "1986-87",
+    "stats": {
+      "ppg": 13.7,
+      "rpg": 3.9,
+      "apg": 4.3,
+      "blk": 0.3
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        },
+        {
+          "type": "apgAtLeast",
+          "min": 6
+        }
+      ],
+      "labels": [
+        "15+ PPG",
+        "6+ APG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ PPG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Arizona"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Arizona",
+        "10+ PPG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 6
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "6+ RPG",
+        "15+ PPG"
+      ]
+    }
+  }
+}

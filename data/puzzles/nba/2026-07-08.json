@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-07-08",
+  "base": {
+    "playerId": "1627750",
+    "playerName": "Jamal Murray",
+    "season": "2018-19",
+    "stats": {
+      "ppg": 18.2,
+      "rpg": 4.2,
+      "apg": 4.8,
+      "blk": 0.4
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "20+ PPG",
+        "Top 5 Pick"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ PPG"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 10
+        },
+        {
+          "type": "rpgAtLeast",
+          "min": 6
+        }
+      ],
+      "labels": [
+        "10+ PPG",
+        "6+ RPG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Kansas State"
+        }
+      ],
+      "labels": [
+        "Kansas State"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 6
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "6+ RPG",
+        "5+ Seasons"
+      ]
+    }
+  }
+}

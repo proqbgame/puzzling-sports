@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-07-20",
+  "base": {
+    "playerId": "00-0001477",
+    "playerName": "Marty Booker",
+    "season": "2001",
+    "stats": {
+      "recYds": 1071,
+      "recTd": 8,
+      "receptions": 100,
+      "targets": 157
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 6
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "6+ REC TD",
+        "90+ TGT"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 800
+        }
+      ],
+      "labels": [
+        "800+ REC YDS"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 6
+        }
+      ],
+      "labels": [
+        "6+ REC TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 120
+        }
+      ],
+      "labels": [
+        "1100+ REC YDS",
+        "120+ TGT"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Penn State"
+        }
+      ],
+      "labels": [
+        "Penn State"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 900
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "900+ REC YDS",
+        "90+ REC"
+      ]
+    }
+  }
+}

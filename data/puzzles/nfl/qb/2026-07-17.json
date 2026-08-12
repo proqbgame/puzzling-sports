@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-07-17",
+  "base": {
+    "playerId": "00-0026143",
+    "playerName": "Matt Ryan",
+    "season": "2011",
+    "stats": {
+      "passYds": 4177,
+      "passTd": 29,
+      "compPct": 61.3,
+      "interceptions": 12
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "15+ INT"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ INT"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "passTdAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "25+ PASS TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Georgia"
+        },
+        {
+          "type": "compPctAtLeast",
+          "min": 60
+        }
+      ],
+      "labels": [
+        "Georgia",
+        "60+ COMP %"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 60
+        }
+      ],
+      "labels": [
+        "60+ COMP %"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 84
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "84+ COMP %",
+        "5+ Seasons"
+      ]
+    }
+  }
+}

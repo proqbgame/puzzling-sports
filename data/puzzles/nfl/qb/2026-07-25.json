@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-07-25",
+  "base": {
+    "playerId": "00-0022942",
+    "playerName": "Philip Rivers",
+    "season": "2010",
+    "stats": {
+      "passYds": 4710,
+      "passTd": 30,
+      "compPct": 66,
+      "interceptions": 13
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3500
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "3500+ PASS YDS",
+        "10+ INT"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ INT"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 70
+        }
+      ],
+      "labels": [
+        "70+ COMP %"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 4000
+        }
+      ],
+      "labels": [
+        "4000+ PASS YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 100
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "100+ COMP %",
+        "15+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Florida State"
+        }
+      ],
+      "labels": [
+        "Florida State"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 60
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "60+ COMP %",
+        "10+ Seasons"
+      ]
+    }
+  }
+}

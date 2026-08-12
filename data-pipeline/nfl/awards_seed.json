@@ -1,0 +1,1334 @@
+{
+  "version": 1,
+  "notes": {
+    "mvp": "AP NFL Most Valuable Player by NFL season year",
+    "sbMvp": "Super Bowl MVP keyed to the NFL season of that Super Bowl (not the calendar year of the game)",
+    "allPro": "AP first-team All-Pro quarterbacks only",
+    "allProWr": "AP first-team All-Pro wide receivers (maps to season honors.allPro)",
+    "proBowl": "Pro Bowl / Pro Bowl Games QB selections for that NFL season (starters, reserves, listed alternates). Selection counts as True even if the player sat out.",
+    "proBowlWr": "Pro Bowl / Pro Bowl Games WR selections for that NFL season (starters, reserves, listed alternates). Built from Wikipedia rosters with team-name noise removed; 2013\u20132015 curated for draft-format Pro Bowl pages. Selection counts as True even if the player sat out.",
+    "champion": "Not in seed \u2014 derived from nflverse schedules Super Bowl winner joined to load_rosters QB+WR+RB for that season/team",
+    "allProRb": "AP first-team All-Pro running backs (maps to season honors.allPro)",
+    "proBowlRb": "Pro Bowl / Pro Bowl Games RB selections for that NFL season (starters, reserves, listed alternates). Built from Wikipedia rosters with team-name noise removed; 2013\u20132015 curated for draft-format Pro Bowl pages. Selection counts as True even if the player sat out."
+  },
+  "mvp": {
+    "1999": [
+      "Kurt Warner"
+    ],
+    "2000": [
+      "Marshall Faulk"
+    ],
+    "2001": [
+      "Kurt Warner"
+    ],
+    "2002": [
+      "Rich Gannon"
+    ],
+    "2003": [
+      "Peyton Manning",
+      "Steve McNair"
+    ],
+    "2004": [
+      "Peyton Manning"
+    ],
+    "2005": [
+      "Shaun Alexander"
+    ],
+    "2006": [
+      "LaDainian Tomlinson"
+    ],
+    "2007": [
+      "Tom Brady"
+    ],
+    "2008": [
+      "Peyton Manning"
+    ],
+    "2009": [
+      "Peyton Manning"
+    ],
+    "2010": [
+      "Tom Brady"
+    ],
+    "2011": [
+      "Aaron Rodgers"
+    ],
+    "2012": [
+      "Adrian Peterson"
+    ],
+    "2013": [
+      "Peyton Manning"
+    ],
+    "2014": [
+      "Aaron Rodgers"
+    ],
+    "2015": [
+      "Cam Newton"
+    ],
+    "2016": [
+      "Matt Ryan"
+    ],
+    "2017": [
+      "Tom Brady"
+    ],
+    "2018": [
+      "Patrick Mahomes"
+    ],
+    "2019": [
+      "Lamar Jackson"
+    ],
+    "2020": [
+      "Aaron Rodgers"
+    ],
+    "2021": [
+      "Aaron Rodgers"
+    ],
+    "2022": [
+      "Patrick Mahomes"
+    ],
+    "2023": [
+      "Lamar Jackson"
+    ],
+    "2024": [
+      "Josh Allen"
+    ],
+    "2025": [
+      "Matthew Stafford"
+    ]
+  },
+  "sbMvp": {
+    "1999": [
+      "Kurt Warner"
+    ],
+    "2000": [
+      "Ray Lewis"
+    ],
+    "2001": [
+      "Tom Brady"
+    ],
+    "2002": [
+      "Dexter Jackson"
+    ],
+    "2003": [
+      "Tom Brady"
+    ],
+    "2004": [
+      "Deion Branch"
+    ],
+    "2005": [
+      "Hines Ward"
+    ],
+    "2006": [
+      "Peyton Manning"
+    ],
+    "2007": [
+      "Eli Manning"
+    ],
+    "2008": [
+      "Santonio Holmes"
+    ],
+    "2009": [
+      "Drew Brees"
+    ],
+    "2010": [
+      "Aaron Rodgers"
+    ],
+    "2011": [
+      "Eli Manning"
+    ],
+    "2012": [
+      "Joe Flacco"
+    ],
+    "2013": [
+      "Malcolm Smith"
+    ],
+    "2014": [
+      "Tom Brady"
+    ],
+    "2015": [
+      "Von Miller"
+    ],
+    "2016": [
+      "Tom Brady"
+    ],
+    "2017": [
+      "Nick Foles"
+    ],
+    "2018": [
+      "Julian Edelman"
+    ],
+    "2019": [
+      "Patrick Mahomes"
+    ],
+    "2020": [
+      "Tom Brady"
+    ],
+    "2021": [
+      "Cooper Kupp"
+    ],
+    "2022": [
+      "Patrick Mahomes"
+    ],
+    "2023": [
+      "Patrick Mahomes"
+    ],
+    "2024": [
+      "Jalen Hurts"
+    ],
+    "2025": [
+      "Kenneth Walker III"
+    ]
+  },
+  "allPro": {
+    "1999": [
+      "Kurt Warner"
+    ],
+    "2000": [
+      "Donovan McNabb"
+    ],
+    "2001": [
+      "Kurt Warner"
+    ],
+    "2002": [
+      "Rich Gannon"
+    ],
+    "2003": [
+      "Peyton Manning"
+    ],
+    "2004": [
+      "Peyton Manning"
+    ],
+    "2005": [
+      "Peyton Manning"
+    ],
+    "2006": [
+      "Drew Brees"
+    ],
+    "2007": [
+      "Tom Brady"
+    ],
+    "2008": [
+      "Peyton Manning"
+    ],
+    "2009": [
+      "Peyton Manning"
+    ],
+    "2010": [
+      "Tom Brady"
+    ],
+    "2011": [
+      "Aaron Rodgers"
+    ],
+    "2012": [
+      "Peyton Manning"
+    ],
+    "2013": [
+      "Peyton Manning"
+    ],
+    "2014": [
+      "Aaron Rodgers"
+    ],
+    "2015": [
+      "Cam Newton"
+    ],
+    "2016": [
+      "Matt Ryan"
+    ],
+    "2017": [
+      "Tom Brady"
+    ],
+    "2018": [
+      "Patrick Mahomes"
+    ],
+    "2019": [
+      "Lamar Jackson"
+    ],
+    "2020": [
+      "Aaron Rodgers"
+    ],
+    "2021": [
+      "Aaron Rodgers"
+    ],
+    "2022": [
+      "Patrick Mahomes"
+    ],
+    "2023": [
+      "Lamar Jackson"
+    ],
+    "2024": [
+      "Lamar Jackson"
+    ],
+    "2025": [
+      "Matthew Stafford"
+    ]
+  },
+  "proBowl": {
+    "1999": [
+      "Kurt Warner",
+      "Peyton Manning",
+      "Brad Johnson",
+      "Rich Gannon",
+      "Mark Brunell",
+      "Jeff Blake"
+    ],
+    "2000": [
+      "Daunte Culpepper",
+      "Peyton Manning",
+      "Donovan McNabb",
+      "Rich Gannon",
+      "Elvis Grbac"
+    ],
+    "2001": [
+      "Kurt Warner",
+      "Brett Favre",
+      "Aaron Brooks",
+      "Tom Brady",
+      "Rich Gannon",
+      "Kordell Stewart"
+    ],
+    "2002": [
+      "Jeff Garcia",
+      "Donovan McNabb",
+      "Michael Vick",
+      "Rich Gannon",
+      "Drew Bledsoe",
+      "Peyton Manning"
+    ],
+    "2003": [
+      "Daunte Culpepper",
+      "Donovan McNabb",
+      "Michael Vick",
+      "Peyton Manning",
+      "Steve McNair",
+      "Tom Brady"
+    ],
+    "2004": [
+      "Daunte Culpepper",
+      "Donovan McNabb",
+      "Michael Vick",
+      "Peyton Manning",
+      "Tom Brady",
+      "Drew Brees"
+    ],
+    "2005": [
+      "Michael Vick",
+      "Donovan McNabb",
+      "Matt Hasselbeck",
+      "Peyton Manning",
+      "Tom Brady",
+      "Carson Palmer"
+    ],
+    "2006": [
+      "Drew Brees",
+      "Marc Bulger",
+      "Matt Hasselbeck",
+      "Peyton Manning",
+      "Carson Palmer",
+      "Tom Brady"
+    ],
+    "2007": [
+      "Tony Romo",
+      "Brett Favre",
+      "Drew Brees",
+      "Tom Brady",
+      "Peyton Manning",
+      "Ben Roethlisberger"
+    ],
+    "2008": [
+      "Drew Brees",
+      "Kurt Warner",
+      "Eli Manning",
+      "Peyton Manning",
+      "Tony Romo",
+      "Jay Cutler"
+    ],
+    "2009": [
+      "Drew Brees",
+      "Aaron Rodgers",
+      "Brett Favre",
+      "Peyton Manning",
+      "Tom Brady",
+      "Philip Rivers"
+    ],
+    "2010": [
+      "Aaron Rodgers",
+      "Drew Brees",
+      "Michael Vick",
+      "Tom Brady",
+      "Philip Rivers",
+      "Peyton Manning"
+    ],
+    "2011": [
+      "Aaron Rodgers",
+      "Drew Brees",
+      "Eli Manning",
+      "Tom Brady",
+      "Philip Rivers",
+      "Ben Roethlisberger"
+    ],
+    "2012": [
+      "Aaron Rodgers",
+      "Matt Ryan",
+      "Robert Griffin III",
+      "Tom Brady",
+      "Peyton Manning",
+      "Matt Schaub"
+    ],
+    "2013": [
+      "Aaron Rodgers",
+      "Drew Brees",
+      "Russell Wilson",
+      "Peyton Manning",
+      "Tom Brady",
+      "Philip Rivers",
+      "Andrew Luck"
+    ],
+    "2014": [
+      "Aaron Rodgers",
+      "Tony Romo",
+      "Russell Wilson",
+      "Tom Brady",
+      "Ben Roethlisberger",
+      "Andrew Luck",
+      "Joe Flacco"
+    ],
+    "2015": [
+      "Carson Palmer",
+      "Aaron Rodgers",
+      "Drew Brees",
+      "Cam Newton",
+      "Tom Brady",
+      "Ben Roethlisberger",
+      "Derek Carr"
+    ],
+    "2016": [
+      "Aaron Rodgers",
+      "Dak Prescott",
+      "Matt Ryan",
+      "Tom Brady",
+      "Derek Carr",
+      "Ben Roethlisberger",
+      "Andy Dalton"
+    ],
+    "2017": [
+      "Russell Wilson",
+      "Drew Brees",
+      "Carson Wentz",
+      "Tom Brady",
+      "Ben Roethlisberger",
+      "Alex Smith",
+      "Derek Carr"
+    ],
+    "2018": [
+      "Drew Brees",
+      "Aaron Rodgers",
+      "Dak Prescott",
+      "Kirk Cousins",
+      "Patrick Mahomes",
+      "Tom Brady",
+      "Philip Rivers",
+      "Ben Roethlisberger",
+      "Andrew Luck"
+    ],
+    "2019": [
+      "Russell Wilson",
+      "Aaron Rodgers",
+      "Kirk Cousins",
+      "Dak Prescott",
+      "Drew Brees",
+      "Patrick Mahomes",
+      "Lamar Jackson",
+      "Deshaun Watson",
+      "Ryan Tannehill"
+    ],
+    "2020": [
+      "Aaron Rodgers",
+      "Russell Wilson",
+      "Kyler Murray",
+      "Tom Brady",
+      "Patrick Mahomes",
+      "Josh Allen",
+      "Deshaun Watson",
+      "Derek Carr",
+      "Lamar Jackson"
+    ],
+    "2021": [
+      "Aaron Rodgers",
+      "Tom Brady",
+      "Kyler Murray",
+      "Matthew Stafford",
+      "Dak Prescott",
+      "Josh Allen",
+      "Patrick Mahomes",
+      "Justin Herbert",
+      "Ryan Tannehill",
+      "Lamar Jackson"
+    ],
+    "2022": [
+      "Jalen Hurts",
+      "Kirk Cousins",
+      "Jared Goff",
+      "Tua Tagovailoa",
+      "Joe Burrow",
+      "Justin Herbert",
+      "Trevor Lawrence",
+      "Patrick Mahomes",
+      "Josh Allen"
+    ],
+    "2023": [
+      "Dak Prescott",
+      "Jared Goff",
+      "Brock Purdy",
+      "Matthew Stafford",
+      "Lamar Jackson",
+      "Josh Allen",
+      "Tua Tagovailoa",
+      "Patrick Mahomes",
+      "Jordan Love"
+    ],
+    "2024": [
+      "Josh Allen",
+      "Lamar Jackson",
+      "Joe Burrow",
+      "Patrick Mahomes",
+      "Jared Goff",
+      "Jayden Daniels",
+      "Sam Darnold",
+      "Baker Mayfield",
+      "Bo Nix"
+    ],
+    "2025": [
+      "Matthew Stafford",
+      "Drake Maye",
+      "Josh Allen",
+      "Jared Goff",
+      "Baker Mayfield",
+      "Jalen Hurts"
+    ]
+  },
+  "allProWr": {
+    "1999": [
+      "Marvin Harrison",
+      "Cris Carter"
+    ],
+    "2000": [
+      "Randy Moss",
+      "Terrell Owens"
+    ],
+    "2001": [
+      "David Boston",
+      "Terrell Owens"
+    ],
+    "2002": [
+      "Marvin Harrison",
+      "Terrell Owens"
+    ],
+    "2003": [
+      "Randy Moss",
+      "Torry Holt"
+    ],
+    "2004": [
+      "Muhsin Muhammad",
+      "Terrell Owens"
+    ],
+    "2005": [
+      "Steve Smith",
+      "Chad Johnson"
+    ],
+    "2006": [
+      "Marvin Harrison",
+      "Chad Johnson"
+    ],
+    "2007": [
+      "Randy Moss",
+      "Terrell Owens"
+    ],
+    "2008": [
+      "Andre Johnson",
+      "Larry Fitzgerald"
+    ],
+    "2009": [
+      "Andre Johnson",
+      "Wes Welker"
+    ],
+    "2010": [
+      "Roddy White",
+      "Reggie Wayne"
+    ],
+    "2011": [
+      "Calvin Johnson",
+      "Wes Welker"
+    ],
+    "2012": [
+      "Calvin Johnson",
+      "Brandon Marshall"
+    ],
+    "2013": [
+      "Calvin Johnson",
+      "Josh Gordon"
+    ],
+    "2014": [
+      "Antonio Brown",
+      "Dez Bryant"
+    ],
+    "2015": [
+      "Antonio Brown",
+      "Julio Jones"
+    ],
+    "2016": [
+      "Antonio Brown",
+      "Julio Jones"
+    ],
+    "2017": [
+      "Antonio Brown",
+      "DeAndre Hopkins"
+    ],
+    "2018": [
+      "Michael Thomas",
+      "DeAndre Hopkins"
+    ],
+    "2019": [
+      "Michael Thomas",
+      "DeAndre Hopkins"
+    ],
+    "2020": [
+      "Davante Adams",
+      "Stefon Diggs",
+      "Tyreek Hill"
+    ],
+    "2021": [
+      "Davante Adams",
+      "Cooper Kupp",
+      "Deebo Samuel Sr."
+    ],
+    "2022": [
+      "Justin Jefferson",
+      "Tyreek Hill",
+      "Davante Adams"
+    ],
+    "2023": [
+      "Tyreek Hill",
+      "CeeDee Lamb",
+      "Amon-Ra St. Brown"
+    ],
+    "2024": [
+      "Ja'Marr Chase",
+      "Justin Jefferson",
+      "Amon-Ra St. Brown"
+    ],
+    "2025": [
+      "Ja'Marr Chase",
+      "Amon-Ra St. Brown"
+    ]
+  },
+  "proBowlWr": {
+    "1999": [
+      "Marvin Harrison",
+      "Jimmy Smith",
+      "Keyshawn Johnson",
+      "Tim Brown",
+      "Terry Glenn",
+      "Cris Carter",
+      "Isaac Bruce",
+      "Muhsin Muhammad",
+      "Randy Moss"
+    ],
+    "2000": [
+      "Marvin Harrison",
+      "Eric Moulds",
+      "Jimmy Smith",
+      "Rod Smith",
+      "Isaac Bruce",
+      "Randy Moss",
+      "Cris Carter",
+      "Terrell Owens",
+      "Joe Horn",
+      "Torry Holt"
+    ],
+    "2001": [
+      "Marvin Harrison",
+      "Rod Smith",
+      "Tim Brown",
+      "Jimmy Smith",
+      "Troy Brown",
+      "Hines Ward",
+      "David Boston",
+      "Terrell Owens",
+      "Isaac Bruce",
+      "Keyshawn Johnson",
+      "Joe Horn",
+      "Torry Holt"
+    ],
+    "2002": [
+      "Marvin Harrison",
+      "Jerry Rice",
+      "Eric Moulds",
+      "Hines Ward",
+      "Joe Horn",
+      "Terrell Owens",
+      "Marty Booker",
+      "Randy Moss",
+      "Donald Driver"
+    ],
+    "2003": [
+      "Marvin Harrison",
+      "Chad Johnson",
+      "Derrick Mason",
+      "Hines Ward",
+      "Torry Holt",
+      "Randy Moss",
+      "Anquan Boldin",
+      "Terrell Owens",
+      "Keenan McCardell",
+      "Laveranues Coles"
+    ],
+    "2004": [
+      "Marvin Harrison",
+      "Chad Johnson",
+      "Andre Johnson",
+      "Hines Ward",
+      "Muhsin Muhammad",
+      "Joe Horn",
+      "Javon Walker",
+      "Terrell Owens",
+      "Torry Holt"
+    ],
+    "2005": [
+      "Marvin Harrison",
+      "Chad Johnson",
+      "Chris Chambers",
+      "Rod Smith",
+      "Santana Moss",
+      "Steve Smith",
+      "Larry Fitzgerald",
+      "Torry Holt"
+    ],
+    "2006": [
+      "Andre Johnson",
+      "Chad Johnson",
+      "Marvin Harrison",
+      "Reggie Wayne",
+      "Torry Holt",
+      "Steve Smith",
+      "Donald Driver",
+      "Anquan Boldin",
+      "Roy Williams"
+    ],
+    "2007": [
+      "Randy Moss",
+      "Reggie Wayne",
+      "Braylon Edwards",
+      "T.J. Houshmandzadeh",
+      "Chad Johnson",
+      "Larry Fitzgerald",
+      "Terrell Owens",
+      "Donald Driver",
+      "Torry Holt"
+    ],
+    "2008": [
+      "Andre Johnson",
+      "Brandon Marshall",
+      "Reggie Wayne",
+      "Wes Welker",
+      "Larry Fitzgerald",
+      "Anquan Boldin",
+      "Steve Smith",
+      "Roddy White"
+    ],
+    "2009": [
+      "Andre Johnson",
+      "Reggie Wayne",
+      "Brandon Marshall",
+      "Wes Welker",
+      "Chad Johnson",
+      "Vincent Jackson",
+      "Larry Fitzgerald",
+      "DeSean Jackson",
+      "Sidney Rice",
+      "Miles Austin",
+      "Steve Smith",
+      "Roddy White"
+    ],
+    "2010": [
+      "Andre Johnson",
+      "Reggie Wayne",
+      "Brandon Lloyd",
+      "Dwayne Bowe",
+      "Wes Welker",
+      "Roddy White",
+      "Calvin Johnson",
+      "DeSean Jackson",
+      "Greg Jennings",
+      "Donald Driver",
+      "Larry Fitzgerald",
+      "Miles Austin"
+    ],
+    "2011": [
+      "Wes Welker",
+      "Mike Wallace",
+      "A.J. Green",
+      "Brandon Marshall",
+      "Vincent Jackson",
+      "Calvin Johnson",
+      "Larry Fitzgerald",
+      "Steve Smith",
+      "Greg Jennings",
+      "Roddy White"
+    ],
+    "2012": [
+      "A.J. Green",
+      "Andre Johnson",
+      "Reggie Wayne",
+      "Wes Welker",
+      "Demaryius Thomas",
+      "Calvin Johnson",
+      "Brandon Marshall",
+      "Julio Jones",
+      "Victor Cruz",
+      "Vincent Jackson",
+      "Larry Fitzgerald"
+    ],
+    "2013": [
+      "A.J. Green",
+      "Andre Johnson",
+      "Josh Gordon",
+      "Antonio Brown",
+      "Demaryius Thomas",
+      "Calvin Johnson",
+      "Brandon Marshall",
+      "Dez Bryant",
+      "Alshon Jeffery",
+      "Larry Fitzgerald",
+      "DeSean Jackson"
+    ],
+    "2014": [
+      "Antonio Brown",
+      "A.J. Green",
+      "T.Y. Hilton",
+      "Jordy Nelson",
+      "Odell Beckham Jr.",
+      "Golden Tate",
+      "Randall Cobb",
+      "Emmanuel Sanders",
+      "Julio Jones",
+      "Dez Bryant",
+      "Calvin Johnson",
+      "Demaryius Thomas",
+      "Jeremy Maclin"
+    ],
+    "2015": [
+      "Odell Beckham Jr.",
+      "Antonio Brown",
+      "Amari Cooper",
+      "A.J. Green",
+      "T.Y. Hilton",
+      "DeAndre Hopkins",
+      "Julio Jones",
+      "Allen Robinson",
+      "Jarvis Landry",
+      "Brandon Marshall",
+      "Larry Fitzgerald",
+      "Calvin Johnson"
+    ],
+    "2016": [
+      "Antonio Brown",
+      "Amari Cooper",
+      "T.Y. Hilton",
+      "A.J. Green",
+      "Emmanuel Sanders",
+      "Jarvis Landry",
+      "Demaryius Thomas",
+      "Julio Jones",
+      "Odell Beckham Jr.",
+      "Larry Fitzgerald",
+      "Mike Evans",
+      "Dez Bryant",
+      "Doug Baldwin"
+    ],
+    "2017": [
+      "DeAndre Hopkins",
+      "Antonio Brown",
+      "Keenan Allen",
+      "A.J. Green",
+      "T.Y. Hilton",
+      "Jarvis Landry",
+      "Julio Jones",
+      "Adam Thielen",
+      "Larry Fitzgerald",
+      "Michael Thomas",
+      "Davante Adams",
+      "Doug Baldwin"
+    ],
+    "2018": [
+      "DeAndre Hopkins",
+      "Tyreek Hill",
+      "Keenan Allen",
+      "Antonio Brown",
+      "JuJu Smith-Schuster",
+      "Jarvis Landry",
+      "Michael Thomas",
+      "Julio Jones",
+      "Davante Adams",
+      "Adam Thielen",
+      "Mike Evans",
+      "Amari Cooper"
+    ],
+    "2019": [
+      "DeAndre Hopkins",
+      "Keenan Allen",
+      "Jarvis Landry",
+      "Tyreek Hill",
+      "Courtland Sutton",
+      "DJ Chark",
+      "Julio Jones",
+      "Michael Thomas",
+      "Mike Evans",
+      "Chris Godwin Jr.",
+      "Amari Cooper",
+      "Kenny Golladay",
+      "Davante Adams"
+    ],
+    "2020": [
+      "Tyreek Hill",
+      "Stefon Diggs",
+      "Keenan Allen",
+      "A.J. Brown",
+      "Davante Adams",
+      "DeAndre Hopkins",
+      "DK Metcalf",
+      "Justin Jefferson"
+    ],
+    "2021": [
+      "Tyreek Hill",
+      "Ja'Marr Chase",
+      "Stefon Diggs",
+      "Keenan Allen",
+      "Hunter Renfrow",
+      "Diontae Johnson",
+      "Cooper Kupp",
+      "Davante Adams",
+      "Justin Jefferson",
+      "Deebo Samuel Sr.",
+      "Mike Evans",
+      "CeeDee Lamb"
+    ],
+    "2022": [
+      "Tyreek Hill",
+      "Stefon Diggs",
+      "Ja'Marr Chase",
+      "Davante Adams",
+      "Justin Jefferson",
+      "A.J. Brown",
+      "CeeDee Lamb",
+      "Terry McLaurin",
+      "Amon-Ra St. Brown"
+    ],
+    "2023": [
+      "Tyreek Hill",
+      "Amari Cooper",
+      "Keenan Allen",
+      "Ja'Marr Chase",
+      "Stefon Diggs",
+      "CeeDee Lamb",
+      "A.J. Brown",
+      "Mike Evans",
+      "Puka Nacua",
+      "Amon-Ra St. Brown",
+      "DK Metcalf"
+    ],
+    "2024": [
+      "Ja'Marr Chase",
+      "Jerry Jeudy",
+      "Nico Collins",
+      "Zay Flowers",
+      "Brian Thomas Jr.",
+      "Justin Jefferson",
+      "Amon-Ra St. Brown",
+      "CeeDee Lamb",
+      "Terry McLaurin",
+      "Malik Nabers",
+      "Mike Evans",
+      "Jaxon Smith-Njigba"
+    ],
+    "2025": [
+      "Ja'Marr Chase",
+      "Nico Collins",
+      "Zay Flowers",
+      "Courtland Sutton",
+      "Tee Higgins",
+      "Puka Nacua",
+      "Jaxon Smith-Njigba",
+      "George Pickens",
+      "Amon-Ra St. Brown",
+      "CeeDee Lamb"
+    ]
+  },
+  "allProRb": {
+    "1999": [
+      "Edgerrin James"
+    ],
+    "2000": [
+      "Edgerrin James"
+    ],
+    "2001": [
+      "Priest Holmes"
+    ],
+    "2002": [
+      "Ricky Williams"
+    ],
+    "2003": [
+      "Jamal Lewis",
+      "Priest Holmes"
+    ],
+    "2004": [
+      "LaDainian Tomlinson",
+      "Curtis Martin"
+    ],
+    "2005": [
+      "Shaun Alexander",
+      "Tiki Barber"
+    ],
+    "2006": [
+      "LaDainian Tomlinson"
+    ],
+    "2007": [
+      "LaDainian Tomlinson"
+    ],
+    "2008": [
+      "Adrian Peterson",
+      "DeAngelo Williams"
+    ],
+    "2009": [
+      "Chris Johnson",
+      "Adrian Peterson"
+    ],
+    "2010": [
+      "Arian Foster",
+      "Adrian Peterson"
+    ],
+    "2011": [
+      "Maurice Jones-Drew",
+      "LeSean McCoy"
+    ],
+    "2012": [
+      "Adrian Peterson",
+      "Marshawn Lynch"
+    ],
+    "2013": [
+      "Jamaal Charles",
+      "LeSean McCoy"
+    ],
+    "2014": [
+      "DeMarco Murray",
+      "Le'Veon Bell"
+    ],
+    "2015": [
+      "Adrian Peterson",
+      "Todd Gurley"
+    ],
+    "2016": [
+      "Ezekiel Elliott",
+      "David Johnson"
+    ],
+    "2017": [
+      "Todd Gurley",
+      "Le'Veon Bell"
+    ],
+    "2018": [
+      "Todd Gurley",
+      "Saquon Barkley",
+      "Christian McCaffrey"
+    ],
+    "2019": [
+      "Christian McCaffrey",
+      "Derrick Henry"
+    ],
+    "2020": [
+      "Derrick Henry",
+      "Dalvin Cook",
+      "Alvin Kamara"
+    ],
+    "2021": [
+      "Jonathan Taylor"
+    ],
+    "2022": [
+      "Josh Jacobs",
+      "Nick Chubb"
+    ],
+    "2023": [
+      "Christian McCaffrey"
+    ],
+    "2024": [
+      "Saquon Barkley",
+      "Derrick Henry",
+      "Josh Jacobs"
+    ],
+    "2025": [
+      "Saquon Barkley"
+    ]
+  },
+  "proBowlRb": {
+    "1999": [
+      "Edgerrin James",
+      "Corey Dillon",
+      "Eddie George",
+      "Marshall Faulk",
+      "Emmitt Smith",
+      "Stephen Davis"
+    ],
+    "2000": [
+      "Edgerrin James",
+      "Eddie George",
+      "Corey Dillon",
+      "Marshall Faulk",
+      "Charlie Garner",
+      "Robert Smith",
+      "Stephen Davis",
+      "Warrick Dunn"
+    ],
+    "2001": [
+      "Curtis Martin",
+      "Jerome Bettis",
+      "Priest Holmes",
+      "Corey Dillon",
+      "Marshall Faulk",
+      "Ahman Green",
+      "Garrison Hearst"
+    ],
+    "2002": [
+      "Priest Holmes",
+      "Ricky Williams",
+      "LaDainian Tomlinson",
+      "Travis Henry",
+      "Deuce McAllister",
+      "Marshall Faulk",
+      "Ahman Green",
+      "Michael Bennett"
+    ],
+    "2003": [
+      "Jamal Lewis",
+      "Priest Holmes",
+      "Clinton Portis",
+      "Ahman Green",
+      "Stephen Davis",
+      "Deuce McAllister",
+      "Shaun Alexander"
+    ],
+    "2004": [
+      "Curtis Martin",
+      "LaDainian Tomlinson",
+      "Edgerrin James",
+      "Corey Dillon",
+      "Rudi Johnson",
+      "Jerome Bettis",
+      "Tiki Barber",
+      "Ahman Green",
+      "Shaun Alexander",
+      "Brian Westbrook"
+    ],
+    "2005": [
+      "Edgerrin James",
+      "Larry Johnson",
+      "LaDainian Tomlinson",
+      "Shaun Alexander",
+      "Tiki Barber",
+      "Warrick Dunn"
+    ],
+    "2006": [
+      "LaDainian Tomlinson",
+      "Larry Johnson",
+      "Willie Parker",
+      "Frank Gore",
+      "Tiki Barber",
+      "Steven Jackson"
+    ],
+    "2007": [
+      "LaDainian Tomlinson",
+      "Joseph Addai",
+      "Willie Parker",
+      "Fred Taylor",
+      "Willis McGahee",
+      "Adrian Peterson",
+      "Marion Barber",
+      "Brian Westbrook"
+    ],
+    "2008": [
+      "Thomas Jones",
+      "Chris Johnson",
+      "Ronnie Brown",
+      "Marshawn Lynch",
+      "Adrian Peterson",
+      "Michael Turner",
+      "Clinton Portis"
+    ],
+    "2009": [
+      "Chris Johnson",
+      "Maurice Jones-Drew",
+      "Ray Rice",
+      "Adrian Peterson",
+      "Steven Jackson",
+      "DeAngelo Williams",
+      "Frank Gore"
+    ],
+    "2010": [
+      "Maurice Jones-Drew",
+      "Arian Foster",
+      "Jamaal Charles",
+      "Chris Johnson",
+      "Michael Turner",
+      "Adrian Peterson",
+      "Steven Jackson"
+    ],
+    "2011": [
+      "Ray Rice",
+      "Maurice Jones-Drew",
+      "Arian Foster",
+      "Willis McGahee",
+      "Ryan Mathews",
+      "LeSean McCoy",
+      "Matt Forte",
+      "Frank Gore",
+      "Marshawn Lynch"
+    ],
+    "2012": [
+      "Arian Foster",
+      "Jamaal Charles",
+      "Ray Rice",
+      "C.J. Spiller",
+      "Adrian Peterson",
+      "Marshawn Lynch",
+      "Frank Gore",
+      "Doug Martin"
+    ],
+    "2013": [
+      "Jamaal Charles",
+      "Matt Forte",
+      "Marshawn Lynch",
+      "LeSean McCoy",
+      "Adrian Peterson",
+      "Knowshon Moreno",
+      "Eddie Lacy",
+      "DeMarco Murray",
+      "Frank Gore"
+    ],
+    "2014": [
+      "DeMarco Murray",
+      "Le'Veon Bell",
+      "Arian Foster",
+      "Jamaal Charles",
+      "Marshawn Lynch",
+      "Matt Forte",
+      "Justin Forsett",
+      "Eddie Lacy",
+      "Jeremy Hill",
+      "C.J. Anderson",
+      "Mark Ingram",
+      "Alfred Morris"
+    ],
+    "2015": [
+      "Adrian Peterson",
+      "Todd Gurley",
+      "Devonta Freeman",
+      "Doug Martin",
+      "Latavius Murray",
+      "Jonathan Stewart",
+      "Darren McFadden",
+      "Chris Ivory",
+      "Danny Woodhead",
+      "David Johnson",
+      "Lamar Miller"
+    ],
+    "2016": [
+      "Le'Veon Bell",
+      "LeSean McCoy",
+      "DeMarco Murray",
+      "Jay Ajayi",
+      "Melvin Gordon",
+      "Ezekiel Elliott",
+      "Devonta Freeman",
+      "David Johnson",
+      "Jordan Howard",
+      "Darren Sproles"
+    ],
+    "2017": [
+      "Le'Veon Bell",
+      "LeSean McCoy",
+      "Kareem Hunt",
+      "Todd Gurley",
+      "Mark Ingram",
+      "Alvin Kamara"
+    ],
+    "2018": [
+      "James Conner",
+      "Melvin Gordon",
+      "Phillip Lindsay",
+      "Lamar Miller",
+      "Todd Gurley",
+      "Saquon Barkley",
+      "Ezekiel Elliott",
+      "Alvin Kamara"
+    ],
+    "2019": [
+      "Nick Chubb",
+      "Derrick Henry",
+      "Mark Ingram",
+      "Dalvin Cook",
+      "Christian McCaffrey",
+      "Ezekiel Elliott",
+      "Alvin Kamara"
+    ],
+    "2020": [
+      "Derrick Henry",
+      "Nick Chubb",
+      "Josh Jacobs",
+      "Dalvin Cook",
+      "Alvin Kamara",
+      "Aaron Jones"
+    ],
+    "2021": [
+      "Jonathan Taylor",
+      "Nick Chubb",
+      "Joe Mixon",
+      "Najee Harris",
+      "Dalvin Cook",
+      "James Conner",
+      "Alvin Kamara"
+    ],
+    "2022": [
+      "Nick Chubb",
+      "Josh Jacobs",
+      "Derrick Henry",
+      "Saquon Barkley",
+      "Tony Pollard",
+      "Miles Sanders",
+      "Dalvin Cook",
+      "Christian McCaffrey"
+    ],
+    "2023": [
+      "Raheem Mostert",
+      "James Cook",
+      "Derrick Henry",
+      "Christian McCaffrey",
+      "D'Andre Swift",
+      "Kyren Williams",
+      "Jahmyr Gibbs"
+    ],
+    "2024": [
+      "Derrick Henry",
+      "Joe Mixon",
+      "Jonathan Taylor",
+      "James Cook",
+      "Saquon Barkley",
+      "Jahmyr Gibbs",
+      "Josh Jacobs",
+      "Bijan Robinson"
+    ],
+    "2025": [
+      "Jonathan Taylor",
+      "De'Von Achane",
+      "James Cook",
+      "Jahmyr Gibbs",
+      "Christian McCaffrey",
+      "Bijan Robinson"
+    ]
+  }
+}

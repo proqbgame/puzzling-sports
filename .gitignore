@@ -1,0 +1,30 @@
+# Node
+node_modules/
+dist/
+
+# Copied for Vite — source of truth is data/ (synced on build)
+public/data/nba/*.json
+public/data/nfl/*.json
+public/data/puzzles/**/*.json
+!public/data/**/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Pipeline cache (large, rebuildable)
+data-pipeline/**/cache/**
+!data-pipeline/**/cache/.gitkeep
+data-pipeline/**/.venv/
+
+# Puzzle solutions (contain answers — keep puzzle JSON, ignore solutions)
+data/puzzles/**/*.solution.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vercel

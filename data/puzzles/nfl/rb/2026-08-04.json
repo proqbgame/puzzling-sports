@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-08-04",
+  "base": {
+    "playerId": "00-0023545",
+    "playerName": "Brandon Jacobs",
+    "season": "2008",
+    "stats": {
+      "rushYds": 1089,
+      "rushTd": 15,
+      "recYds": 36,
+      "recTd": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Oregon"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Oregon",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        }
+      ],
+      "labels": [
+        "3+ REC TD"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "college",
+          "school": "Oregon"
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD",
+        "Oregon"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 18
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1500
+        }
+      ],
+      "labels": [
+        "18+ RUSH TD",
+        "1500+ RUSH YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "1000+ RUSH YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

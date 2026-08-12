@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-08-03",
+  "base": {
+    "playerId": "00-0036972",
+    "playerName": "Mac Jones",
+    "season": "2021",
+    "stats": {
+      "passYds": 3801,
+      "passTd": 22,
+      "compPct": 67.6,
+      "interceptions": 13
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 68
+        },
+        {
+          "type": "passYdsAtLeast",
+          "min": 3500
+        }
+      ],
+      "labels": [
+        "68+ COMP %",
+        "3500+ PASS YDS"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 66
+        }
+      ],
+      "labels": [
+        "66+ COMP %"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "5+ Seasons",
+        "Undrafted"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Alabama"
+        }
+      ],
+      "labels": [
+        "Alabama"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "draftPick",
+          "pick": 1
+        }
+      ],
+      "labels": [
+        "1st Pick"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "passTdAtLeast",
+          "min": 40
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "40+ PASS TD"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

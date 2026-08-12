@@ -1,0 +1,37 @@
+{
+  "name": "puzzling-sports",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:data": "tsx scripts/sync-public-data.ts",
+    "build:puzzle-index": "tsx scripts/build-puzzle-index.ts",
+    "generate:daily": "tsx scripts/generate-daily-all.ts",
+    "dev": "npm run sync:data && vite",
+    "build": "npm run sync:data && vite build",
+    "preview": "vite preview",
+    "build:scripts": "tsc",
+    "test:data": "tsx scripts/smoke-test-data.ts",
+    "test:rules": "tsx scripts/smoke-test-rules.ts",
+    "test:nfl-rules": "tsx scripts/smoke-test-nfl-rules.ts",
+    "test:validate": "tsx scripts/smoke-test-validate.ts",
+    "test:puzzle": "tsx scripts/smoke-test-puzzle.ts",
+    "test:nfl-puzzle": "tsx scripts/smoke-test-nfl-puzzle.ts",
+    "generate:puzzle": "tsx scripts/generate-puzzle.ts",
+    "generate:nfl-puzzle": "tsx scripts/generate-nfl-puzzle.ts"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.49.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}

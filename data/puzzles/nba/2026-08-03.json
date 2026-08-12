@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-08-03",
+  "base": {
+    "playerId": "78331",
+    "playerName": "Mychal Thompson",
+    "season": "1980-81",
+    "stats": {
+      "ppg": 17,
+      "rpg": 8.7,
+      "apg": 3.6,
+      "blk": 2.2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "NBA Champion"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "20+ PPG"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ RPG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Houston"
+        }
+      ],
+      "labels": [
+        "Houston"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "25+ PPG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "apgAtLeast",
+          "min": 9
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "9+ APG",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

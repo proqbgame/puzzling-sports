@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-08-03",
+  "base": {
+    "playerId": "00-0030431",
+    "playerName": "Robert Woods",
+    "season": "2018",
+    "stats": {
+      "recYds": 1219,
+      "recTd": 6,
+      "receptions": 86,
+      "targets": 130
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "14+ REC TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Eastern Washington"
+        }
+      ],
+      "labels": [
+        "Eastern Washington"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 110
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "110+ REC"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1300
+        }
+      ],
+      "labels": [
+        "1300+ REC YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ REC TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "Top 5 Pick"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "1200+ REC YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

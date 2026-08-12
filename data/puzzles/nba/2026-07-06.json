@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-07-06",
+  "base": {
+    "playerId": "893",
+    "playerName": "Michael Jordan",
+    "season": "1995-96",
+    "stats": {
+      "ppg": 30.4,
+      "rpg": 6.6,
+      "apg": 4.3,
+      "blk": 0.5
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        { "type": "everAllStar" },
+        { "type": "ppgAtLeast", "min": 15 }
+      ],
+      "labels": ["All-Star (career)", "15+ PPG"]
+    },
+    "top-middle": {
+      "criteria": [{ "type": "seasonsPlayed", "min": 10 }],
+      "labels": ["10+ Seasons"]
+    },
+    "top-right": {
+      "criteria": [
+        { "type": "allStar" },
+        { "type": "rpgAtLeast", "min": 6 }
+      ],
+      "labels": ["All-Star", "6+ RPG"]
+    },
+    "middle-left": {
+      "criteria": [{ "type": "topDraftPick", "maxPick": 5 }],
+      "labels": ["Top 5 Pick"]
+    },
+    "middle-right": {
+      "criteria": [{ "type": "seasonsPlayed", "min": 5 }],
+      "labels": ["5+ Seasons"]
+    },
+    "bottom-left": {
+      "criteria": [
+        { "type": "ppgAtLeast", "min": 10 },
+        { "type": "seasonsPlayed", "min": 5 }
+      ],
+      "labels": ["10+ PPG", "5+ Seasons"]
+    },
+    "bottom-middle": {
+      "criteria": [{ "type": "seasonsPlayed", "min": 10 }],
+      "labels": ["10+ Seasons"]
+    },
+    "bottom-right": {
+      "criteria": [
+        { "type": "ppgAtLeast", "min": 15 },
+        { "type": "topDraftPick", "maxPick": 5 }
+      ],
+      "labels": ["15+ PPG", "Top 5 Pick"]
+    }
+  }
+}

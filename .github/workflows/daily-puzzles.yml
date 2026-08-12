@@ -1,0 +1,101 @@
+# Generate daily puzzles at 12:00 AM Eastern (America/New_York).
+#
+# GitHub Actions cron is UTC-only, so we run at both 04:00 UTC (EDT midnight)
+# and 05:00 UTC (EST midnight). The job only generates when Eastern local hour
+# is 0, and skips grids that already exist for that Eastern date.
+
+name: Daily puzzles
+
+on:
+  schedule:
+    - cron: "5 4 * * *"
+    - cron: "5 5 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Optional YYYY-MM-DD (Eastern). Defaults to Eastern today."
+        required: false
+        type: string
+      force:
+        description: "Regenerate even if puzzle files already exist"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Decide whether to generate
+        id: gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          HOUR=$(TZ=America/New_York date +%H)
+          TODAY=$(TZ=America/New_York date +%F)
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            DATE_INPUT="${{ inputs.date }}"
+            FORCE_INPUT="${{ inputs.force }}"
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            if [ -n "$DATE_INPUT" ]; then
+              echo "date=$DATE_INPUT" >> "$GITHUB_OUTPUT"
+            else
+              echo "date=$TODAY" >> "$GITHUB_OUTPUT"
+            fi
+            if [ "$FORCE_INPUT" = "true" ]; then
+              echo "force=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "force=false" >> "$GITHUB_OUTPUT"
+            fi
+            exit 0
+          fi
+
+          # Scheduled: only act during the Eastern midnight hour.
+          if [ "$HOUR" != "00" ]; then
+            echo "Eastern hour is $HOUR — skipping (waiting for midnight ET)."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "run=true" >> "$GITHUB_OUTPUT"
+          echo "date=$TODAY" >> "$GITHUB_OUTPUT"
+          echo "force=false" >> "$GITHUB_OUTPUT"
+
+      - name: Generate daily puzzles
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          ARGS="${{ steps.gate.outputs.date }}"
+          if [ "${{ steps.gate.outputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          npm run generate:daily -- $ARGS
+
+      - name: Commit and push puzzle files
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Source of truth is data/puzzles; public/ is synced at build (npm run build).
+          git add data/puzzles
+          if git diff --staged --quiet; then
+            echo "No puzzle changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: daily puzzles for ${{ steps.gate.outputs.date }} (Eastern)"
+          git push

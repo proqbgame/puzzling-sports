@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-07-25",
+  "base": {
+    "playerId": "00-0036196",
+    "playerName": "Gabe Davis",
+    "season": "2022",
+    "stats": {
+      "recYds": 836,
+      "recTd": 7,
+      "receptions": 48,
+      "targets": 93
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Tennessee"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Tennessee",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "180+ TGT"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "All-Pro"
+      ]
+    }
+  }
+}

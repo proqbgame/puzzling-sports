@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-07-21",
+  "base": {
+    "playerId": "00-0000745",
+    "playerName": "Tiki Barber",
+    "season": "2001",
+    "stats": {
+      "rushYds": 865,
+      "rushTd": 4,
+      "recYds": 577,
+      "recTd": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "16+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 300
+        }
+      ],
+      "labels": [
+        "300+ REC YDS"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 6
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 300
+        }
+      ],
+      "labels": [
+        "6+ REC TD",
+        "300+ REC YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Syracuse"
+        }
+      ],
+      "labels": [
+        "Syracuse"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 400
+        }
+      ],
+      "labels": [
+        "4+ REC TD",
+        "400+ REC YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 300
+        }
+      ],
+      "labels": [
+        "300+ REC YDS"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1300
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "1300+ RUSH YDS",
+        "10+ Seasons"
+      ]
+    }
+  }
+}

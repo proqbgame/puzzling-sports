@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-08-03",
+  "base": {
+    "playerId": "00-0031285",
+    "playerName": "Devonta Freeman",
+    "season": "2017",
+    "stats": {
+      "rushYds": 865,
+      "rushTd": 7,
+      "recYds": 317,
+      "recTd": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "16+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "8+ RUSH TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Florida"
+        }
+      ],
+      "labels": [
+        "Florida"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "1000+ RUSH YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD",
+        "Undrafted"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "1100+ RUSH YDS"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "3+ REC TD"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
