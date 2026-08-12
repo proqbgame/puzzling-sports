@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-08-12",
+  "base": {
+    "playerId": "00-0027864",
+    "playerName": "Ryan Mathews",
+    "season": "2013",
+    "stats": {
+      "rushYds": 1255,
+      "rushTd": 6,
+      "recYds": 189,
+      "recTd": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1300
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "1300+ RUSH YDS",
+        "14+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 400
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "400+ REC YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "1000+ RUSH YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "3+ REC TD",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ RUSH TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "college",
+          "school": "Texas"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Texas"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

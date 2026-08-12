@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-08-12",
+  "base": {
+    "playerId": "201954",
+    "playerName": "Darren Collison",
+    "season": "2012-13",
+    "stats": {
+      "ppg": 12,
+      "rpg": 2.7,
+      "apg": 5.1,
+      "blk": 0.1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Top 5 Pick",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        },
+        {
+          "type": "blkAtLeast",
+          "min": 2
+        }
+      ],
+      "labels": [
+        "9+ RPG",
+        "2+ BLK"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "Top 5 Pick"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Duke"
+        }
+      ],
+      "labels": [
+        "Duke"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "NBA Champion"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "9+ RPG",
+        "15+ PPG"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
