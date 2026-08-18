@@ -21,6 +21,12 @@ import {
   type PuzzleDefinition as NbaPuzzleDefinition,
 } from "./rules/validateGuess.js";
 import {
+  isPuzzleComplete as isNflPuzzleComplete,
+  validateGuess as validateNflGuess,
+  type BoardState as NflBoardState,
+  type PuzzleDefinition as NflPuzzleDefinition,
+} from "./rules/nfl/validateGuess.js";
+import {
   isPuzzleComplete as isMlbPuzzleComplete,
   validateGuess as validateMlbGuess,
   type BoardState as MlbBoardState,
