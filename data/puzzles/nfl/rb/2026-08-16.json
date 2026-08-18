@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-08-16",
+  "base": {
+    "playerId": "00-0031301",
+    "playerName": "Jeremy Hill",
+    "season": "2014",
+    "stats": {
+      "rushYds": 1124,
+      "rushTd": 9,
+      "recYds": 215,
+      "recTd": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "3+ REC TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 450
+        }
+      ],
+      "labels": [
+        "450+ REC YDS"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "TCU"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 700
+        }
+      ],
+      "labels": [
+        "TCU",
+        "700+ REC YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "8+ RUSH TD"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        }
+      ],
+      "labels": [
+        "4+ REC TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "1200+ RUSH YDS",
+        "Pro Bowl"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
