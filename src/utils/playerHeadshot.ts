@@ -13,17 +13,30 @@ export function nflHeadshotUrl(espnId: string) {
   return `https://a.espncdn.com/i/headshots/nfl/players/full/${espnId}.png`;
 }
 
+/** Official MLB.com headshot from the MLBAM people id. */
+export function mlbHeadshotUrl(mlbamId: string) {
+  return `https://img.mlbstatic.com/mlb-photos/image/upload/d_people:generic:headshot:67:current.png/w_213,q_auto:best/v1/people/${mlbamId}/headshot/67/current`;
+}
+
 /**
  * Resolve a headshot URL for the active sport.
- * Returns null when NFL espnId is missing (caller should keep letter/initial UI).
+ * Returns null when NFL espnId / MLB mlbamId is missing.
  */
 export function headshotUrlForSport(
-  sport: "nba" | "nfl",
+  sport: "nba" | "nfl" | "mlb",
   playerId: string,
   espnId?: string | null,
+  mlbamId?: string | null,
 ): string | null {
   if (sport === "nba") {
     return headshotUrl(playerId);
+  }
+  if (sport === "mlb") {
+    const id = (mlbamId ?? playerId).trim();
+    if (!id || !/^\d+$/.test(id)) {
+      return null;
+    }
+    return mlbHeadshotUrl(id);
   }
   if (!espnId) {
     return null;

@@ -3,7 +3,13 @@
  * Written to public/data/puzzles/index.json by sync / generate:daily.
  */
 
-export type PuzzleGridKey = "nba" | "nfl-qb" | "nfl-wr" | "nfl-rb";
+export type PuzzleGridKey =
+  | "nba"
+  | "nfl-qb"
+  | "nfl-wr"
+  | "nfl-rb"
+  | "mlb-pitcher"
+  | "mlb-hitter";
 
 export interface PuzzleArchiveIndex {
   version: 1;
@@ -24,16 +30,24 @@ export function emptyPuzzleArchiveIndex(
       "nfl-qb": [],
       "nfl-wr": [],
       "nfl-rb": [],
+      "mlb-pitcher": [],
+      "mlb-hitter": [],
     },
   };
 }
 
 export function gridKeyForSport(
-  sport: "nba" | "nfl",
-  position?: "qb" | "wr" | "rb",
+  sport: "nba" | "nfl" | "mlb",
+  position?: "qb" | "wr" | "rb" | "pitcher" | "hitter",
 ): PuzzleGridKey {
   if (sport === "nba") {
     return "nba";
   }
-  return `nfl-${position ?? "qb"}`;
+  if (sport === "mlb") {
+    return position === "pitcher" ? "mlb-pitcher" : "mlb-hitter";
+  }
+  if (position === "wr" || position === "rb") {
+    return `nfl-${position}`;
+  }
+  return "nfl-qb";
 }

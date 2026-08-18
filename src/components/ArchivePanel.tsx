@@ -9,18 +9,23 @@ import { easternTodayIso } from "../utils/easternDate.js";
 interface ArchivePanelProps {
   open: boolean;
   onClose: () => void;
-  sport: "nba" | "nfl";
+  sport: "nba" | "nfl" | "mlb";
   nflPosition?: "qb" | "wr" | "rb";
+  mlbPosition?: "pitcher" | "hitter";
   currentDate: string;
 }
 
 function hrefForDate(
   date: string,
-  sport: "nba" | "nfl",
+  sport: "nba" | "nfl" | "mlb",
   nflPosition: "qb" | "wr" | "rb",
+  mlbPosition: "pitcher" | "hitter",
 ): string {
   if (sport === "nfl") {
     return `?sport=nfl&position=${nflPosition}&date=${date}`;
+  }
+  if (sport === "mlb") {
+    return `?sport=mlb&position=${mlbPosition}&date=${date}`;
   }
   return `?sport=nba&date=${date}`;
 }
@@ -40,12 +45,16 @@ export function ArchivePanel({
   onClose,
   sport,
   nflPosition = "qb",
+  mlbPosition = "hitter",
   currentDate,
 }: ArchivePanelProps) {
   const [index, setIndex] = useState<PuzzleArchiveIndex | null>(null);
   const [error, setError] = useState<string | null>(null);
   const today = easternTodayIso();
-  const gridKey: PuzzleGridKey = gridKeyForSport(sport, nflPosition);
+  const gridKey: PuzzleGridKey = gridKeyForSport(
+    sport,
+    sport === "mlb" ? mlbPosition : nflPosition,
+  );
 
   useEffect(() => {
     if (!open) {
@@ -86,7 +95,9 @@ export function ArchivePanel({
   const title =
     sport === "nfl"
       ? `NFL ${nflPosition.toUpperCase()} archive`
-      : "NBA archive";
+      : sport === "mlb"
+        ? `MLB ${mlbPosition.toUpperCase()} archive`
+        : "NBA archive";
 
   return (
     <div className="archive-backdrop" role="presentation" onClick={onClose}>
@@ -135,7 +146,7 @@ export function ArchivePanel({
                     ]
                       .filter(Boolean)
                       .join(" ")}
-                    href={hrefForDate(date, sport, nflPosition)}
+                    href={hrefForDate(date, sport, nflPosition, mlbPosition)}
                     aria-current={isCurrent ? "page" : undefined}
                   >
                     <span>{formatArchiveDate(date)}</span>

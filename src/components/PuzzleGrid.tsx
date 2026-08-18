@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
 import type { DailyPuzzleFile } from "../puzzle/types.js";
 import type { DailyNflPuzzleFile } from "../puzzle/nfl/types.js";
+import type { DailyMlbPuzzleFile } from "../puzzle/mlb/types.js";
 import type { CellId, EdgeConnection } from "../rules/grid.js";
 import { resolveEdgeTopology } from "../rules/topology.js";
 import { compareEdge as compareNbaEdge } from "../rules/compareEdge.js";
 import { compareEdge as compareNflEdge } from "../rules/nfl/compareEdge.js";
+import { compareEdge as compareMlbEdge } from "../rules/mlb/compareEdge.js";
 import type {
   BoardState as NbaBoardState,
   PuzzleDefinition as NbaPuzzleDefinition,
@@ -15,6 +17,11 @@ import type {
 } from "../rules/nfl/validateGuess.js";
 import type { PlayerSeasonAssignment as NbaAssignment } from "../types/nba.js";
 import type { PlayerSeasonAssignment as NflAssignment } from "../types/nfl.js";
+import type { PlayerSeasonAssignment as MlbAssignment } from "../types/mlb.js";
+import type {
+  BoardState as MlbBoardState,
+  PuzzleDefinition as MlbPuzzleDefinition,
+} from "../rules/mlb/validateGuess.js";
 import { PuzzleCell } from "./PuzzleCell.js";
 import { ShellLabels } from "./ShellLabels.js";
 import {
@@ -28,10 +35,10 @@ import {
   type InteriorEdgeSegment,
 } from "./puzzlePiecePath.js";
 
-type AnyPuzzleFile = DailyPuzzleFile | DailyNflPuzzleFile;
-type AnyBoardState = NbaBoardState | NflBoardState;
-type AnyPuzzleDefinition = NbaPuzzleDefinition | NflPuzzleDefinition;
-type AnyAssignment = NbaAssignment | NflAssignment;
+type AnyPuzzleFile = DailyPuzzleFile | DailyNflPuzzleFile | DailyMlbPuzzleFile;
+type AnyBoardState = NbaBoardState | NflBoardState | MlbBoardState;
+type AnyPuzzleDefinition = NbaPuzzleDefinition | NflPuzzleDefinition | MlbPuzzleDefinition;
+type AnyAssignment = NbaAssignment | NflAssignment | MlbAssignment;
 
 interface PuzzleGridProps {
   puzzle: AnyPuzzleFile;
@@ -39,7 +46,7 @@ interface PuzzleGridProps {
   board: AnyBoardState;
   selectedCell: CellId | null;
   onSelectCell: (cellId: CellId) => void;
-  sport?: "nba" | "nfl";
+  sport?: "nba" | "nfl" | "mlb";
   /** Pass A: board geometry only — no labels or cell text */
   boardOnly?: boolean;
 }
@@ -82,7 +89,7 @@ function edgeGlowForSegment(
   segment: InteriorEdgeSegment,
   board: AnyBoardState,
   base: AnyAssignment,
-  sport: "nba" | "nfl",
+  sport: "nba" | "nfl" | "mlb",
 ): EdgeGlow {
   const from = assignmentForCell(segment.fromCellId, board, base);
   const to = assignmentForCell(segment.toCellId, board, base);
@@ -92,7 +99,15 @@ function edgeGlowForSegment(
 
   const connection = segment.connectionOnFrom as EdgeConnection;
   const valid =
-    sport === "nfl"
+    sport === "mlb"
+      ? compareMlbEdge(
+          from as MlbAssignment,
+          to as MlbAssignment,
+          segment.fromCellId,
+          segment.toCellId,
+          connection,
+        )
+      : sport === "nfl"
       ? compareNflEdge(
           from as NflAssignment,
           to as NflAssignment,

@@ -56,7 +56,7 @@ export async function loadDailyNflPuzzleBrowser(
   return response.json() as Promise<DailyNflPuzzleFile>;
 }
 
-export function getSportFromUrl(): "nba" | "nfl" | null {
+export function getSportFromUrl(): "nba" | "nfl" | "mlb" | null {
   const params = new URLSearchParams(window.location.search);
   const sport = params.get("sport")?.toLowerCase();
   if (sport === "nfl") {
@@ -64,6 +64,9 @@ export function getSportFromUrl(): "nba" | "nfl" | null {
   }
   if (sport === "nba") {
     return "nba";
+  }
+  if (sport === "mlb") {
+    return "mlb";
   }
   return null;
 }

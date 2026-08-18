@@ -18,7 +18,8 @@
     "test:puzzle": "tsx scripts/smoke-test-puzzle.ts",
     "test:nfl-puzzle": "tsx scripts/smoke-test-nfl-puzzle.ts",
     "generate:puzzle": "tsx scripts/generate-puzzle.ts",
-    "generate:nfl-puzzle": "tsx scripts/generate-nfl-puzzle.ts"
+    "generate:nfl-puzzle": "tsx scripts/generate-nfl-puzzle.ts",
+    "generate:mlb-puzzle": "tsx scripts/generate-mlb-puzzle.ts"
   },
   "dependencies": {
     "react": "^19.0.0",

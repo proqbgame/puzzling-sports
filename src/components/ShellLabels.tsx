@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { DailyPuzzleFile } from "../puzzle/types.js";
 import type { DailyNflPuzzleFile } from "../puzzle/nfl/types.js";
+import type { DailyMlbPuzzleFile } from "../puzzle/mlb/types.js";
 import type { GridDirection } from "../rules/grid.js";
 import {
   BOARD,
@@ -12,7 +13,7 @@ import {
 const VIEW_SIZE = BOARD + PAD * 2;
 
 interface ShellLabelsProps {
-  puzzle: DailyPuzzleFile | DailyNflPuzzleFile;
+  puzzle: DailyPuzzleFile | DailyNflPuzzleFile | DailyMlbPuzzleFile;
 }
 
 function labelTransform(direction: GridDirection): string {

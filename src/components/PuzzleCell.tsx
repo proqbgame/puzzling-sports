@@ -11,11 +11,16 @@ import type { CellId } from "../rules/grid.js";
 import type { EdgeTopology } from "../rules/topology.js";
 import type { PlayerSeasonAssignment as NbaAssignment } from "../types/nba.js";
 import type { PlayerSeasonAssignment as NflAssignment } from "../types/nfl.js";
+import type { DailyMlbPuzzleBase } from "../puzzle/mlb/types.js";
+import type { PlayerSeasonAssignment as MlbAssignment } from "../types/mlb.js";
 import { headshotUrlForSport } from "../utils/playerHeadshot.js";
 import { cellContentInset } from "./puzzlePiecePath.js";
 
-type AnyAssignment = NbaAssignment | NflAssignment;
-type AnyBaseStats = DailyPuzzleBase["stats"] | DailyNflPuzzleBase["stats"];
+type AnyAssignment = NbaAssignment | NflAssignment | MlbAssignment;
+type AnyBaseStats =
+  | DailyPuzzleBase["stats"]
+  | DailyNflPuzzleBase["stats"]
+  | DailyMlbPuzzleBase["stats"];
 
 interface PuzzleCellProps {
   cellId: CellId;
@@ -24,7 +29,7 @@ interface PuzzleCellProps {
   assignment?: AnyAssignment;
   selected: boolean;
   locked: boolean;
-  sport?: "nba" | "nfl";
+  sport?: "nba" | "nfl" | "mlb";
   topology?: EdgeTopology | null;
   onSelect: () => void;
   onHoverChange: (hovered: boolean) => void;
@@ -64,7 +69,25 @@ function isNflStats(
   );
 }
 
+function isMlbPitcherStats(
+  stats: AnyBaseStats | AnyAssignment["stats"],
+): stats is { so: number; w: number; ip: number; era: number } {
+  return "so" in stats && "era" in stats && "ip" in stats;
+}
+
+function isMlbHitterStats(
+  stats: AnyBaseStats | AnyAssignment["stats"],
+): stats is { hr: number; rbi: number; avg: number; sb: number } {
+  return "hr" in stats && "avg" in stats && "rbi" in stats && !("ppg" in stats);
+}
+
 function formatMiniStats(assignment: AnyAssignment): string {
+  if ("position" in assignment.stats && assignment.stats.position === "P") {
+    return `${assignment.stats.so} / ${assignment.stats.w} / ${assignment.stats.ip} / ${assignment.stats.era.toFixed(2)}`;
+  }
+  if ("position" in assignment.stats && assignment.stats.position === "H") {
+    return `${assignment.stats.hr} / ${assignment.stats.rbi} / ${assignment.stats.avg.toFixed(3).replace(/^0/, "")} / ${assignment.stats.sb}`;
+  }
   if ("position" in assignment.stats && assignment.stats.position === "RB") {
     return `${assignment.stats.rushYds ?? 0} / ${assignment.stats.rushTd ?? 0} / ${assignment.stats.recYds} / ${assignment.stats.recTd}`;
   }
@@ -90,13 +113,25 @@ function espnIdFromAssignment(assignment: AnyAssignment): string | null {
   return id.length > 0 ? id : null;
 }
 
-/** Prefer explicit sport prop; fall back to assignment shape if prop is wrong/defaulted. */
+function mlbamIdFromAssignment(assignment: AnyAssignment): string | null {
+  const bio = assignment.bio as { mlbamId?: string | null };
+  const raw = bio.mlbamId;
+  if (raw == null) {
+    return null;
+  }
+  const id = String(raw).trim();
+  return id.length > 0 ? id : null;
+}
+
 function resolveHeadshotSport(
-  sport: "nba" | "nfl",
+  sport: "nba" | "nfl" | "mlb",
   assignment: AnyAssignment,
-): "nba" | "nfl" {
-  if (sport === "nfl") {
-    return "nfl";
+): "nba" | "nfl" | "mlb" {
+  if (sport === "mlb" || sport === "nfl") {
+    return sport;
+  }
+  if (mlbamIdFromAssignment(assignment)) {
+    return "mlb";
   }
   if (espnIdFromAssignment(assignment) || "position" in assignment.stats) {
     return "nfl";
@@ -109,22 +144,24 @@ function OuterFilledContent({
   sport,
 }: {
   assignment: AnyAssignment;
-  sport: "nba" | "nfl";
+  sport: "nba" | "nfl" | "mlb";
 }) {
   const resolvedSport = resolveHeadshotSport(sport, assignment);
   const espnId = espnIdFromAssignment(assignment);
+  const mlbamId = mlbamIdFromAssignment(assignment);
   const src = headshotUrlForSport(
     resolvedSport,
     assignment.playerId,
     espnId,
+    mlbamId,
   );
   const [imageFailed, setImageFailed] = useState(!src);
 
   useEffect(() => {
     setImageFailed(
-      !headshotUrlForSport(resolvedSport, assignment.playerId, espnId),
+      !headshotUrlForSport(resolvedSport, assignment.playerId, espnId, mlbamId),
     );
-  }, [assignment.playerId, assignment.season, resolvedSport, espnId]);
+  }, [assignment.playerId, assignment.season, resolvedSport, espnId, mlbamId]);
 
   if (!src || imageFailed) {
     return (
@@ -166,6 +203,32 @@ function CenterStatEdges({
   baseStats: AnyBaseStats;
   identity: ReactNode;
 }) {
+  if (isMlbPitcherStats(baseStats)) {
+    return (
+      <>
+        <span className="stat-edge stat-up">SO {baseStats.so}</span>
+        <span className="stat-edge stat-left">IP {baseStats.ip}</span>
+        <div className="center-identity">{identity}</div>
+        <span className="stat-edge stat-right">ERA {baseStats.era.toFixed(2)}</span>
+        <span className="stat-edge stat-down">W {baseStats.w}</span>
+      </>
+    );
+  }
+
+  if (isMlbHitterStats(baseStats)) {
+    return (
+      <>
+        <span className="stat-edge stat-up">HR {baseStats.hr}</span>
+        <span className="stat-edge stat-left">
+          AVG {baseStats.avg.toFixed(3).replace(/^0/, "")}
+        </span>
+        <div className="center-identity">{identity}</div>
+        <span className="stat-edge stat-right">SB {baseStats.sb}</span>
+        <span className="stat-edge stat-down">RBI {baseStats.rbi}</span>
+      </>
+    );
+  }
+
   if (isNflRbStats(baseStats)) {
     return (
       <>

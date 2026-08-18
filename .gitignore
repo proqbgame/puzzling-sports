@@ -5,6 +5,7 @@ dist/
 # Copied for Vite — source of truth is data/ (synced on build)
 public/data/nba/*.json
 public/data/nfl/*.json
+public/data/mlb/*.json
 public/data/puzzles/**/*.json
 !public/data/**/.gitkeep
 

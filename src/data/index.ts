@@ -12,4 +12,11 @@ export {
   loadNflDataFromFiles,
 } from "./loadNflData.js";
 export { loadNflDataFromJson, normalizePlayerSeason } from "./loadNflDataFromJson.js";
+export { MlbDatabase } from "./MlbDatabase.js";
+export {
+  DEFAULT_MLB_DATA_DIR,
+  defaultMlbDataPaths,
+  loadMlbDataFromFiles,
+} from "./loadMlbData.js";
+export { loadMlbDataFromJson } from "./loadMlbDataFromJson.js";
 export { formatPlayerNameInput, normalizePlayerName } from "./normalizeName.js";

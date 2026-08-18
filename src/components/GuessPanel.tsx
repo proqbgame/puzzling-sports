@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 
 import type { DailyPuzzleFile } from "../puzzle/types.js";
 import type { DailyNflPuzzleFile } from "../puzzle/nfl/types.js";
+import type { DailyMlbPuzzleFile } from "../puzzle/mlb/types.js";
 import {
   CELL_POSITIONS,
   NEIGHBOR_BY_DIRECTION,
@@ -16,14 +17,20 @@ import {
   statLabel as nflStatLabel,
 } from "../rules/nfl/statConfig.js";
 import {
+  edgeOpForConnection as mlbEdgeOp,
+  statForEdge as mlbStatForEdge,
+  statLabel as mlbStatLabel,
+} from "../rules/mlb/statConfig.js";
+import {
   STANDARD_CELL_EDGES,
   resolveEdgeTopology,
 } from "../rules/topology.js";
 import type { BoardState as NbaBoardState, GameMode } from "../rules/validateGuess.js";
 import type { BoardState as NflBoardState } from "../rules/nfl/validateGuess.js";
+import type { BoardState as MlbBoardState } from "../rules/mlb/validateGuess.js";
 
-type AnyPuzzleFile = DailyPuzzleFile | DailyNflPuzzleFile;
-type AnyBoardState = NbaBoardState | NflBoardState;
+type AnyPuzzleFile = DailyPuzzleFile | DailyNflPuzzleFile | DailyMlbPuzzleFile;
+type AnyBoardState = NbaBoardState | NflBoardState | MlbBoardState;
 
 interface GuessPanelProps {
   selectedCell: CellId | null;
@@ -31,7 +38,7 @@ interface GuessPanelProps {
   board: AnyBoardState;
   mode: GameMode;
   feedback: string | null;
-  sport?: "nba" | "nfl";
+  sport?: "nba" | "nfl" | "mlb";
   onSubmit: (playerName: string, season?: string) => void;
 }
 
@@ -69,7 +76,7 @@ export function GuessPanel({
           <div>
             <dt>Hard</dt>
             <dd>
-              Name + season ({sport === "nfl" ? "2022" : "2012-13"}).
+              Name + season ({sport === "nba" ? "2012-13" : "2022"}).
             </dd>
           </div>
         </dl>
@@ -84,7 +91,11 @@ export function GuessPanel({
     puzzle.base.playerName,
     board,
     sport,
-    sport === "nfl" && "position" in puzzle ? puzzle.position : "qb",
+    sport === "mlb" && "position" in puzzle
+      ? puzzle.position
+      : sport === "nfl" && "position" in puzzle
+        ? puzzle.position
+        : "qb",
     puzzle.edges,
   );
 
@@ -133,7 +144,11 @@ export function GuessPanel({
             value={playerName}
             onChange={(event) => setPlayerName(event.target.value)}
             placeholder={
-              sport === "nfl" ? "e.g. Patrick Mahomes" : "e.g. Steve Nash"
+              sport === "mlb"
+                ? "e.g. Mike Trout"
+                : sport === "nfl"
+                  ? "e.g. Patrick Mahomes"
+                  : "e.g. Steve Nash"
             }
             autoFocus
             disabled={locked}
@@ -148,7 +163,7 @@ export function GuessPanel({
               value={season}
               onChange={(event) => setSeason(event.target.value)}
               placeholder={
-                sport === "nfl" ? "e.g. 2022 or 2022-23" : "e.g. 2005-06 or 2005"
+                sport === "nba" ? "e.g. 2005-06 or 2005" : "e.g. 2022 or 2022-23"
               }
               disabled={locked}
             />
@@ -189,8 +204,8 @@ function getEdgeHints(
   cellId: CellId,
   basePlayerName: string,
   board: AnyBoardState,
-  sport: "nba" | "nfl",
-  nflPosition: "qb" | "wr" | "rb" = "qb",
+  sport: "nba" | "nfl" | "mlb",
+  position: "qb" | "wr" | "rb" | "pitcher" | "hitter" = "qb",
   storedEdges?: AnyPuzzleFile["edges"],
 ): string[] {
   const edges = resolveEdgeTopology(storedEdges)[cellId] ?? STANDARD_CELL_EDGES[cellId];
@@ -206,15 +221,25 @@ function getEdgeHints(
       continue;
     }
 
+    const mlbStat =
+      sport === "mlb"
+        ? mlbStatForEdge(
+            CELL_POSITIONS[cellId],
+            CELL_POSITIONS[neighborId],
+            position,
+          )
+        : null;
     const label =
-      sport === "nfl"
+      sport === "mlb" && mlbStat
+        ? mlbStatLabel(mlbStat, position)
+        : sport === "nfl"
         ? nflStatLabel(
             nflStatForEdge(
               CELL_POSITIONS[cellId],
               CELL_POSITIONS[neighborId],
-              nflPosition,
+              position,
             ),
-            nflPosition,
+            position,
           )
         : nbaStatLabel(
             nbaStatForEdge(
@@ -222,7 +247,12 @@ function getEdgeHints(
               CELL_POSITIONS[neighborId],
             ),
           );
-    const op = connection === "tab" ? "≥" : "≤";
+    const op =
+      mlbStat
+        ? mlbEdgeOp(connection, mlbStat)
+        : connection === "tab"
+          ? "≥"
+          : "≤";
     const neighbor = neighborDisplayName(neighborId, basePlayerName, board);
 
     hints.push(`${label} ${op} ${neighbor}`);

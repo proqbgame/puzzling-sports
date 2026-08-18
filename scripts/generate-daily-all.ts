@@ -1,5 +1,5 @@
 /**
- * Generate all daily grids for a date (NBA + NFL QB/WR/RB), sync public data,
+ * Generate all daily grids for a date (NBA + NFL QB/WR/RB + MLB hitter/pitcher), sync public data,
  * and refresh the archive index.
  *
  * Defaults to today's date in America/New_York.
@@ -23,7 +23,8 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 
 type GridSpec =
   | { kind: "nba"; label: string; file: string }
-  | { kind: "nfl"; position: "qb" | "wr" | "rb"; label: string; file: string };
+  | { kind: "nfl"; position: "qb" | "wr" | "rb"; label: string; file: string }
+  | { kind: "mlb"; position: "pitcher" | "hitter"; label: string; file: string };
 
 function parseArgs(argv: string[]): { date: string; force: boolean } {
   let force = false;
@@ -104,6 +105,18 @@ async function main(): Promise<void> {
       label: "NFL RB",
       file: path.join(rootDir, "data", "puzzles", "nfl", "rb", `${date}.json`),
     },
+    {
+      kind: "mlb",
+      position: "hitter",
+      label: "MLB Hitter",
+      file: path.join(rootDir, "data", "puzzles", "mlb", "hitter", `${date}.json`),
+    },
+    {
+      kind: "mlb",
+      position: "pitcher",
+      label: "MLB Pitcher",
+      file: path.join(rootDir, "data", "puzzles", "mlb", "pitcher", `${date}.json`),
+    },
   ];
 
   console.log(`Daily generate for ${date} (America/New_York)${force ? " [force]" : ""}`);
@@ -116,6 +129,8 @@ async function main(): Promise<void> {
 
     if (grid.kind === "nba") {
       await runNpmScript("generate:puzzle", [date]);
+    } else if (grid.kind === "mlb") {
+      await runNpmScript("generate:mlb-puzzle", [date, grid.position]);
     } else {
       await runNpmScript("generate:nfl-puzzle", [date, grid.position]);
     }

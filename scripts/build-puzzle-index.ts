@@ -22,6 +22,8 @@ const GRID_DIRS: { key: PuzzleGridKey; relative: string }[] = [
   { key: "nfl-qb", relative: path.join("data", "puzzles", "nfl", "qb") },
   { key: "nfl-wr", relative: path.join("data", "puzzles", "nfl", "wr") },
   { key: "nfl-rb", relative: path.join("data", "puzzles", "nfl", "rb") },
+  { key: "mlb-pitcher", relative: path.join("data", "puzzles", "mlb", "pitcher") },
+  { key: "mlb-hitter", relative: path.join("data", "puzzles", "mlb", "hitter") },
 ];
 
 async function listPuzzleDates(dir: string): Promise<string[]> {

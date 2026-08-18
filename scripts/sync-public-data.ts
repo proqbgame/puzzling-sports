@@ -79,10 +79,35 @@ async function main(): Promise<void> {
     "nfl",
     "rb",
   );
+  const mlbSrc = path.join(rootDir, "data", "mlb");
+  const mlbDest = path.join(rootDir, "public", "data", "mlb");
+  const mlbHitterPuzzleSrc = path.join(rootDir, "data", "puzzles", "mlb", "hitter");
+  const mlbHitterPuzzleDest = path.join(
+    rootDir,
+    "public",
+    "data",
+    "puzzles",
+    "mlb",
+    "hitter",
+  );
+  const mlbPitcherPuzzleSrc = path.join(rootDir, "data", "puzzles", "mlb", "pitcher");
+  const mlbPitcherPuzzleDest = path.join(
+    rootDir,
+    "public",
+    "data",
+    "puzzles",
+    "mlb",
+    "pitcher",
+  );
 
   for (const file of ["bios.json", "seasons.json", "metadata.json"]) {
     await copyFileEnsuringDir(path.join(nbaSrc, file), path.join(nbaDest, file));
     await copyFileEnsuringDir(path.join(nflSrc, file), path.join(nflDest, file));
+    try {
+      await copyFileEnsuringDir(path.join(mlbSrc, file), path.join(mlbDest, file));
+    } catch {
+      // MLB data is optional until the pipeline has been run.
+    }
   }
 
   const nbaPuzzles = await syncJsonDir(nbaPuzzleSrc, nbaPuzzleDest, {
@@ -98,8 +123,19 @@ async function main(): Promise<void> {
     skipSolutionFiles: true,
   });
 
+  const mlbHitterPuzzles = await syncJsonDir(
+    mlbHitterPuzzleSrc,
+    mlbHitterPuzzleDest,
+    { skipSolutionFiles: true },
+  );
+  const mlbPitcherPuzzles = await syncJsonDir(
+    mlbPitcherPuzzleSrc,
+    mlbPitcherPuzzleDest,
+    { skipSolutionFiles: true },
+  );
+
   console.log(
-    `Synced data to public/data/ (NBA: ${nbaPuzzles}, NFL QB: ${nflQbPuzzles}, NFL WR: ${nflWrPuzzles}, NFL RB: ${nflRbPuzzles})`,
+    `Synced data to public/data/ (NBA: ${nbaPuzzles}, NFL QB: ${nflQbPuzzles}, NFL WR: ${nflWrPuzzles}, NFL RB: ${nflRbPuzzles}, MLB H: ${mlbHitterPuzzles}, MLB P: ${mlbPitcherPuzzles})`,
   );
 
   const index = await buildPuzzleArchiveIndex();

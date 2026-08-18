@@ -7,8 +7,9 @@ interface GameHeaderProps {
   mode: GameMode;
   filledCount: number;
   onModeChange: (mode: GameMode) => void;
-  sport?: "nba" | "nfl";
+  sport?: "nba" | "nfl" | "mlb";
   nflPosition?: "qb" | "wr" | "rb";
+  mlbPosition?: "pitcher" | "hitter";
   giveUpDisabled?: boolean;
   onGiveUp?: () => void;
 }
@@ -20,6 +21,7 @@ export function GameHeader({
   onModeChange,
   sport = "nba",
   nflPosition = "qb",
+  mlbPosition = "hitter",
   giveUpDisabled = false,
   onGiveUp,
 }: GameHeaderProps) {
@@ -27,7 +29,9 @@ export function GameHeader({
   const eyebrow =
     sport === "nfl"
       ? `Daily NFL ${nflPosition.toUpperCase()} Puzzle`
-      : "Daily NBA Puzzle";
+      : sport === "mlb"
+        ? `Daily MLB ${mlbPosition.toUpperCase()} Puzzle`
+        : "Daily NBA Puzzle";
 
   return (
     <>
@@ -84,6 +88,7 @@ export function GameHeader({
         onClose={() => setArchiveOpen(false)}
         sport={sport}
         nflPosition={nflPosition}
+        mlbPosition={mlbPosition}
         currentDate={date}
       />
     </>
