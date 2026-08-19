@@ -139,12 +139,14 @@ function resolveHeadshotSport(
   return "nba";
 }
 
-function OuterFilledContent({
+function AssignmentHeadshot({
   assignment,
   sport,
+  showMiniStats = false,
 }: {
   assignment: AnyAssignment;
   sport: "nba" | "nfl" | "mlb";
+  showMiniStats?: boolean;
 }) {
   const resolvedSport = resolveHeadshotSport(sport, assignment);
   const espnId = espnIdFromAssignment(assignment);
@@ -168,7 +170,9 @@ function OuterFilledContent({
       <div className="cell-content">
         <strong>{assignment.playerName}</strong>
         <span>{assignment.season}</span>
-        <span className="mini-stats">{formatMiniStats(assignment)}</span>
+        {showMiniStats ? (
+          <span className="mini-stats">{formatMiniStats(assignment)}</span>
+        ) : null}
       </div>
     );
   }
@@ -189,10 +193,28 @@ function OuterFilledContent({
           <span>{assignment.season}</span>
         </div>
       </div>
-      <span className="mini-stats cell-headshot-stats">
-        {formatMiniStats(assignment)}
-      </span>
+      {showMiniStats ? (
+        <span className="mini-stats cell-headshot-stats">
+          {formatMiniStats(assignment)}
+        </span>
+      ) : null}
     </div>
+  );
+}
+
+function OuterFilledContent({
+  assignment,
+  sport,
+}: {
+  assignment: AnyAssignment;
+  sport: "nba" | "nfl" | "mlb";
+}) {
+  return (
+    <AssignmentHeadshot
+      assignment={assignment}
+      sport={sport}
+      showMiniStats
+    />
   );
 }
 
@@ -302,10 +324,7 @@ export function PuzzleCell({
 
   const content = assignment ? (
     isCenter ? (
-      <div className="cell-content">
-        <strong>{assignment.playerName}</strong>
-        <span>{assignment.season}</span>
-      </div>
+      <AssignmentHeadshot assignment={assignment} sport={sport} />
     ) : (
       <OuterFilledContent assignment={assignment} sport={sport} />
     )
