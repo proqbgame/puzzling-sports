@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-08-20",
+  "base": {
+    "playerId": "00-0036212",
+    "playerName": "Tua Tagovailoa",
+    "season": "2022",
+    "stats": {
+      "passYds": 3548,
+      "passTd": 25,
+      "compPct": 64.8,
+      "interceptions": 8
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ INT"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "UCLA"
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "UCLA",
+        "10+ INT"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3500
+        }
+      ],
+      "labels": [
+        "3500+ PASS YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "draftPick",
+          "pick": 1
+        }
+      ],
+      "labels": [
+        "1st Pick"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Top 5 Pick",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "MVP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "draftPick",
+          "pick": 1
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "1st Pick",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

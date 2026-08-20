@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-08-20",
+  "base": {
+    "playerId": "434671",
+    "playerName": "Anibal Sanchez",
+    "season": "2013",
+    "stats": {
+      "so": 202,
+      "w": 14,
+      "ip": 182,
+      "era": 2.57
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 230
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.50",
+        "230+ IP"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "14+ W"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of California - Los Angeles"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "University of California - Los Angeles",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 14
+        },
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "14+ W",
+        "175+ SO"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

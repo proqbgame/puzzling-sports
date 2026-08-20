@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-08-20",
+  "base": {
+    "playerId": "00-0010442",
+    "playerName": "Curtis Martin",
+    "season": "2000",
+    "stats": {
+      "rushYds": 1204,
+      "rushTd": 9,
+      "recYds": 508,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ REC TD"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1100
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "1100+ RUSH YDS",
+        "5+ REC TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        }
+      ],
+      "labels": [
+        "4+ REC TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD",
+        "1200+ RUSH YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Purdue"
+        }
+      ],
+      "labels": [
+        "Purdue"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "3+ REC TD",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

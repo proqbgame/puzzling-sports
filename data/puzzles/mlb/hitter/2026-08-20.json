@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-08-20",
+  "base": {
+    "playerId": "518792",
+    "playerName": "Jason Heyward",
+    "season": "2010",
+    "stats": {
+      "hr": 18,
+      "rbi": 72,
+      "avg": 0.277,
+      "sb": 11
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.295
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        ".295+ AVG",
+        "20+ SB"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Southern Illinois University Carbondale"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Southern Illinois University Carbondale",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "80+ RBI"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "25+ SB"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.335
+        }
+      ],
+      "labels": [
+        ".335+ AVG"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Tampa"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.293
+        }
+      ],
+      "labels": [
+        "University of Tampa",
+        ".293+ AVG"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
