@@ -598,43 +598,65 @@
   font-size: 0.78rem;
 }
 
-/* Full-bleed photo behind the four edge stats; name/season sit on the overlay. */
-.center-layout:has(.cell-content-headshot) .center-identity {
+/*
+ * Full-bleed photo behind the four edge stats (same size as live).
+ * Photo, name overlay, and stats are grid siblings. Name sits above the
+ * image; orange edge stats sit above both so labels are never covered.
+ */
+.center-layout:has(.cell-content-headshot) {
+  isolation: isolate;
+}
+
+.center-layout:has(.cell-content-headshot) .center-identity,
+.center-layout:has(.cell-content-headshot) .cell-content-headshot,
+.center-layout:has(.cell-content-headshot) .cell-headshot-wrap {
+  display: contents;
+}
+
+.center-layout:has(.cell-content-headshot) .cell-headshot {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
-  position: relative;
   z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
   align-self: stretch;
   justify-self: stretch;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  overflow: hidden;
-}
-
-.center-layout:has(.cell-content-headshot) .center-identity .cell-content-headshot {
-  width: 100%;
-  height: 100%;
-}
-
-.center-layout:has(.cell-content-headshot) .center-identity .cell-headshot-wrap {
-  min-height: 0;
-  height: 100%;
+  background: #07110c;
 }
 
 .center-layout:has(.cell-content-headshot) .cell-headshot-overlay {
-  /* Lift name/season above the down-edge stat */
-  inset: auto 0 18px;
-  padding: 16px 8px 4px;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  z-index: 2;
+  position: relative;
+  inset: auto;
+  align-self: end;
+  justify-self: stretch;
+  margin: 0 4px 20px;
+  padding: 16px 6px 4px;
+  overflow: visible;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9) 58%);
 }
 
 .center-layout:has(.cell-content-headshot) .cell-headshot-overlay strong {
   font-size: 0.86rem;
+  line-height: 1.15;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.center-layout:has(.cell-content-headshot) .cell-headshot-overlay span {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .center-layout:has(.cell-content-headshot) .stat-edge {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   color: var(--accent-soft);
   text-shadow:
     0 1px 2px rgba(0, 0, 0, 0.9),
@@ -806,6 +828,11 @@
   transform: translateX(-14px) rotate(-90deg);
   transform-origin: center center;
   white-space: nowrap;
+}
+
+/* NFL RB: Rec yards sits a bit farther from the headshot toward the left shell */
+.stat-left.nfl-rb-rec-yds {
+  transform: translateX(-28px) rotate(-90deg);
 }
 
 .stat-right {

@@ -255,7 +255,9 @@ function CenterStatEdges({
     return (
       <>
         <span className="stat-edge stat-up">RUSH YDS {baseStats.rushYds}</span>
-        <span className="stat-edge stat-left">REC YDS {baseStats.recYds}</span>
+        <span className="stat-edge stat-left nfl-rb-rec-yds">
+          REC YDS {baseStats.recYds}
+        </span>
         <div className="center-identity">{identity}</div>
         <span className="stat-edge stat-right">REC TD {baseStats.recTd}</span>
         <span className="stat-edge stat-down">RUSH TD {baseStats.rushTd}</span>
