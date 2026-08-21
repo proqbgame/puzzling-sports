@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-08-21",
+  "base": {
+    "playerId": "montafr01",
+    "playerName": "Frankie Montas",
+    "season": "2021",
+    "stats": {
+      "so": 207,
+      "w": 13,
+      "ip": 187,
+      "era": 3.37
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 220
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "220+ IP",
+        "15+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.50"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 220
+        }
+      ],
+      "labels": [
+        "220+ IP"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "16+ W"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Western Carolina University"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 1.25
+        }
+      ],
+      "labels": [
+        "Western Carolina University",
+        "ERA ≤ 1.25"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.75"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "ERA ≤ 2.75"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
