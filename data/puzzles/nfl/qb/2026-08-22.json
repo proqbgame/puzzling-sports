@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-08-22",
+  "base": {
+    "playerId": "00-0029668",
+    "playerName": "Andrew Luck",
+    "season": "2012",
+    "stats": {
+      "passYds": 4374,
+      "passTd": 23,
+      "compPct": 54.1,
+      "interceptions": 18
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "passTdAtLeast",
+          "min": 30
+        },
+        {
+          "type": "compPctAtLeast",
+          "min": 66
+        }
+      ],
+      "labels": [
+        "30+ PASS TD",
+        "66%+"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Purdue"
+        }
+      ],
+      "labels": [
+        "Purdue"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Super Bowl Champion"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "passTdAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ PASS TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        },
+        {
+          "type": "draftPick",
+          "pick": 1
+        }
+      ],
+      "labels": [
+        "10+ INT",
+        "1st Pick"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "draftPick",
+          "pick": 1
+        }
+      ],
+      "labels": [
+        "1st Pick"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "Pro Bowl"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

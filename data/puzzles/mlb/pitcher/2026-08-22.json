@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-08-22",
+  "base": {
+    "playerId": "593958",
+    "playerName": "Eduardo Rodriguez",
+    "season": "2019",
+    "stats": {
+      "so": 213,
+      "w": 19,
+      "ip": 203.1,
+      "era": 3.81
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 250
+        }
+      ],
+      "labels": [
+        "250+ SO"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Vanderbilt University"
+        }
+      ],
+      "labels": [
+        "Vanderbilt University"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 200
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "200+ IP",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        }
+      ],
+      "labels": [
+        "170+ IP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 150
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        }
+      ],
+      "labels": [
+        "150+ SO",
+        "170+ IP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
