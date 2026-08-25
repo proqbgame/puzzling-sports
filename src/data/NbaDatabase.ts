@@ -6,6 +6,10 @@ import type {
   PlayerSeasonAssignment,
 } from "../types/nba.js";
 import { formatPlayerNameInput, normalizePlayerName } from "./normalizeName.js";
+import {
+  rankPlayerNameMatches,
+  type PlayerSuggestion,
+} from "./playerSuggestions.js";
 
 function seasonKey(playerId: string, season: string): string {
   return `${playerId}|${season}`;
@@ -68,6 +72,16 @@ export class NbaDatabase {
     return this.findPlayerIdsByName(name)
       .map((id) => this.getBioById(id))
       .filter((bio): bio is PlayerBio => bio !== undefined);
+  }
+
+  /** Typeahead suggestions as the user types a player name. */
+  searchPlayersByName(query: string, limit = 8): PlayerSuggestion[] {
+    return rankPlayerNameMatches(
+      this.biosById.values(),
+      query,
+      (playerId) => this.getSeasonsForPlayer(playerId),
+      limit,
+    );
   }
 
   getSeason(playerId: string, season: string): PlayerSeason | undefined {

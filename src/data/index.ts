@@ -20,3 +20,7 @@ export {
 } from "./loadMlbData.js";
 export { loadMlbDataFromJson } from "./loadMlbDataFromJson.js";
 export { formatPlayerNameInput, normalizePlayerName } from "./normalizeName.js";
+export {
+  rankPlayerNameMatches,
+  type PlayerSuggestion,
+} from "./playerSuggestions.js";

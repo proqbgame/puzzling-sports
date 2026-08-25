@@ -7,6 +7,10 @@ import type {
   PlayerSeasonAssignment,
 } from "../types/mlb.js";
 import { formatPlayerNameInput, normalizePlayerName } from "./normalizeName.js";
+import {
+  rankPlayerNameMatches,
+  type PlayerSuggestion,
+} from "./playerSuggestions.js";
 
 function seasonKey(playerId: string, season: string, position: MlbPosition): string {
   return `${playerId}|${season}|${position}`;
@@ -65,6 +69,27 @@ export class MlbDatabase {
   findPlayerIdsByName(name: string): string[] {
     const formatted = formatPlayerNameInput(name);
     return [...(this.idsByNormalizedName.get(normalizePlayerName(formatted)) ?? [])];
+  }
+
+  /** Typeahead suggestions; optionally limit to pitcher or hitter seasons. */
+  searchPlayersByName(
+    query: string,
+    options?: { position?: MlbPosition; limit?: number },
+  ): PlayerSuggestion[] {
+    const position = options?.position;
+    const limit = options?.limit ?? 8;
+    const bios = position
+      ? [...this.biosById.values()].filter(
+          (bio) => this.getSeasonsForPlayer(bio.id, position).length > 0,
+        )
+      : this.biosById.values();
+
+    return rankPlayerNameMatches(
+      bios,
+      query,
+      (playerId) => this.getSeasonsForPlayer(playerId, position),
+      limit,
+    );
   }
 
   getSeason(

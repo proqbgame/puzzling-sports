@@ -1,5 +1,13 @@
-import { useEffect, useState, type FormEvent } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react";
 
+import type { PlayerSuggestion } from "../data/playerSuggestions.js";
 import type { DailyPuzzleFile } from "../puzzle/types.js";
 import type { DailyNflPuzzleFile } from "../puzzle/nfl/types.js";
 import type { DailyMlbPuzzleFile } from "../puzzle/mlb/types.js";
@@ -39,6 +47,7 @@ interface GuessPanelProps {
   mode: GameMode;
   feedback: string | null;
   sport?: "nba" | "nfl" | "mlb";
+  suggestPlayers?: (query: string) => PlayerSuggestion[];
   onSubmit: (playerName: string, season?: string) => void;
 }
 
@@ -49,15 +58,32 @@ export function GuessPanel({
   mode,
   feedback,
   sport = "nba",
+  suggestPlayers,
   onSubmit,
 }: GuessPanelProps) {
   const [playerName, setPlayerName] = useState("");
   const [season, setSeason] = useState("");
+  const [suggestions, setSuggestions] = useState<PlayerSuggestion[]>([]);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const listId = useId();
+  const blurTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     setPlayerName("");
     setSeason("");
+    setSuggestions([]);
+    setMenuOpen(false);
+    setActiveIndex(-1);
   }, [selectedCell]);
+
+  useEffect(() => {
+    return () => {
+      if (blurTimeoutRef.current !== null) {
+        window.clearTimeout(blurTimeoutRef.current);
+      }
+    };
+  }, []);
 
   if (!selectedCell) {
     return (
@@ -99,15 +125,68 @@ export function GuessPanel({
     puzzle.edges,
   );
 
+  function updateSuggestions(query: string): void {
+    if (!suggestPlayers || locked) {
+      setSuggestions([]);
+      setMenuOpen(false);
+      setActiveIndex(-1);
+      return;
+    }
+
+    const next = suggestPlayers(query);
+    setSuggestions(next);
+    setMenuOpen(next.length > 0);
+    setActiveIndex(next.length > 0 ? 0 : -1);
+  }
+
+  function selectSuggestion(suggestion: PlayerSuggestion): void {
+    setPlayerName(suggestion.playerName);
+    setSuggestions([]);
+    setMenuOpen(false);
+    setActiveIndex(-1);
+  }
+
   function handleSubmit(event: FormEvent): void {
     event.preventDefault();
     if (!playerName.trim()) {
       return;
     }
+    setMenuOpen(false);
     onSubmit(
       playerName.trim(),
       mode === "hard" ? season.trim() : undefined,
     );
+  }
+
+  function handleNameKeyDown(event: KeyboardEvent<HTMLInputElement>): void {
+    if (!menuOpen || suggestions.length === 0) {
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveIndex((index) => (index + 1) % suggestions.length);
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveIndex((index) =>
+        index <= 0 ? suggestions.length - 1 : index - 1,
+      );
+      return;
+    }
+
+    if (event.key === "Enter" && activeIndex >= 0) {
+      event.preventDefault();
+      selectSuggestion(suggestions[activeIndex]);
+      return;
+    }
+
+    if (event.key === "Escape") {
+      setMenuOpen(false);
+      setActiveIndex(-1);
+    }
   }
 
   return (
@@ -139,20 +218,91 @@ export function GuessPanel({
       <form onSubmit={handleSubmit}>
         <label>
           Player name
-          <input
-            type="text"
-            value={playerName}
-            onChange={(event) => setPlayerName(event.target.value)}
-            placeholder={
-              sport === "mlb"
-                ? "e.g. Mike Trout"
-                : sport === "nfl"
-                  ? "e.g. Patrick Mahomes"
-                  : "e.g. Steve Nash"
-            }
-            autoFocus
-            disabled={locked}
-          />
+          <div className="player-typeahead">
+            <input
+              type="text"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-expanded={menuOpen}
+              aria-controls={listId}
+              aria-activedescendant={
+                menuOpen && activeIndex >= 0
+                  ? `${listId}-option-${activeIndex}`
+                  : undefined
+              }
+              value={playerName}
+              onChange={(event) => {
+                const value = event.target.value;
+                setPlayerName(value);
+                updateSuggestions(value);
+              }}
+              onFocus={() => {
+                if (blurTimeoutRef.current !== null) {
+                  window.clearTimeout(blurTimeoutRef.current);
+                  blurTimeoutRef.current = null;
+                }
+                updateSuggestions(playerName);
+              }}
+              onBlur={() => {
+                blurTimeoutRef.current = window.setTimeout(() => {
+                  setMenuOpen(false);
+                  setActiveIndex(-1);
+                }, 120);
+              }}
+              onKeyDown={handleNameKeyDown}
+              placeholder={
+                sport === "mlb"
+                  ? "e.g. Mike Trout"
+                  : sport === "nfl"
+                    ? "e.g. Patrick Mahomes"
+                    : "e.g. Steve Nash"
+              }
+              autoComplete="off"
+              autoFocus
+              disabled={locked}
+            />
+
+            {menuOpen && suggestions.length > 0 ? (
+              <ul
+                id={listId}
+                className="player-typeahead-menu"
+                role="listbox"
+                aria-label="Matching players"
+              >
+                {suggestions.map((suggestion, index) => (
+                  <li
+                    key={suggestion.playerId}
+                    id={`${listId}-option-${index}`}
+                    className={
+                      index === activeIndex
+                        ? "player-typeahead-option is-active"
+                        : "player-typeahead-option"
+                    }
+                    role="option"
+                    aria-selected={index === activeIndex}
+                  >
+                    <button
+                      type="button"
+                      className="player-typeahead-row"
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={() => selectSuggestion(suggestion)}
+                      onMouseEnter={() => setActiveIndex(index)}
+                    >
+                      <span className="player-typeahead-copy">
+                        <span className="player-typeahead-name">
+                          {suggestion.playerName}
+                        </span>
+                        <span className="player-typeahead-years">
+                          {suggestion.firstYear} - {suggestion.lastYear}
+                        </span>
+                      </span>
+                      <span className="player-typeahead-select">Select</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         </label>
 
         {mode === "hard" ? (

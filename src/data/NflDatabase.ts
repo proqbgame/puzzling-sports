@@ -1,11 +1,16 @@
 import type {
   NflMetadata,
+  NflPosition,
   PlayerBio,
   PlayerBioMap,
   PlayerSeason,
   PlayerSeasonAssignment,
 } from "../types/nfl.js";
 import { formatPlayerNameInput, normalizePlayerName } from "./normalizeName.js";
+import {
+  rankPlayerNameMatches,
+  type PlayerSuggestion,
+} from "./playerSuggestions.js";
 
 function seasonKey(playerId: string, season: string): string {
   return `${playerId}|${season}`;
@@ -68,6 +73,34 @@ export class NflDatabase {
     return this.findPlayerIdsByName(name)
       .map((id) => this.getBioById(id))
       .filter((bio): bio is PlayerBio => bio !== undefined);
+  }
+
+  /** Typeahead suggestions; optionally limit to a roster position. */
+  searchPlayersByName(
+    query: string,
+    options?: { position?: NflPosition; limit?: number },
+  ): PlayerSuggestion[] {
+    const position = options?.position;
+    const limit = options?.limit ?? 8;
+    const bios = position
+      ? [...this.biosById.values()].filter((bio) =>
+          this.getSeasonsForPlayer(bio.id).some(
+            (row) => (row.position ?? "QB") === position,
+          ),
+        )
+      : this.biosById.values();
+
+    return rankPlayerNameMatches(
+      bios,
+      query,
+      (playerId) => {
+        const rows = this.getSeasonsForPlayer(playerId);
+        return position
+          ? rows.filter((row) => (row.position ?? "QB") === position)
+          : rows;
+      },
+      limit,
+    );
   }
 
   getSeason(playerId: string, season: string): PlayerSeason | undefined {

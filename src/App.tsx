@@ -518,6 +518,27 @@ export default function App() {
           board={board}
           mode={mode}
           feedback={feedback}
+          suggestPlayers={(query) => {
+            if (loadState.sport === "nba") {
+              return loadState.db.searchPlayersByName(query);
+            }
+            if (loadState.sport === "nfl") {
+              const position =
+                "position" in puzzleFile
+                  ? puzzleFile.position.toUpperCase()
+                  : "QB";
+              return loadState.db.searchPlayersByName(query, {
+                position: position as "QB" | "WR" | "RB",
+              });
+            }
+            const position =
+              "position" in puzzleFile
+                ? puzzleFile.position === "pitcher"
+                  ? "P"
+                  : "H"
+                : "H";
+            return loadState.db.searchPlayersByName(query, { position });
+          }}
           onSubmit={handleSubmitGuess}
         />
       </main>
