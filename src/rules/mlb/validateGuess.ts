@@ -86,7 +86,7 @@ function assignmentPassesCellRules(
           message:
             puzzle.position === "P"
               ? "That season is not a pitcher row"
-              : "That season is not a hitter row",
+              : "That season is not a batter row",
         },
       ],
     };

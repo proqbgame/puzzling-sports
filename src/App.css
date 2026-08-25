@@ -40,7 +40,7 @@
 .home-stage {
   position: relative;
   z-index: 1;
-  width: min(720px, 100%);
+  width: min(920px, 100%);
   text-align: center;
   animation: rise-in 0.55s var(--ease-out) both;
 }
@@ -76,28 +76,28 @@
   font-weight: 600;
 }
 
-.home-grid-nav {
+.home-sport-nav {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   margin-top: 36px;
   text-align: left;
 }
 
-@media (min-width: 640px) {
-  .home-grid-nav {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 720px) {
+  .home-sport-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-.home-grid-card {
+.home-sport-card {
   display: grid;
-  gap: 6px;
-  padding: 18px 20px;
+  gap: 8px;
+  align-content: start;
+  padding: 18px 18px 16px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   background: rgba(20, 30, 51, 0.85);
   color: var(--text);
-  text-decoration: none;
   box-shadow: var(--shadow);
   transition:
     border-color 0.2s ease,
@@ -106,28 +106,155 @@
   animation: rise-in 0.5s var(--ease-out) both;
 }
 
-.home-grid-card:hover {
+a.home-sport-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-sport-card:hover,
+.home-sport-card:focus-within {
   border-color: var(--accent-soft);
   background: rgba(34, 48, 82, 0.95);
+}
+
+a.home-sport-card-link:hover {
   transform: translateY(-2px);
 }
 
-.home-grid-label {
+.home-sport-label {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   letter-spacing: 0.05em;
   line-height: 1;
 }
 
-.home-grid-detail {
+.home-sport-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-sport-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.28));
+}
+
+.home-sport-detail {
   color: var(--text-muted);
   font-size: 0.88rem;
+}
+
+.home-sport-select-label {
+  display: grid;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.home-sport-select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+
+.home-sport-select:focus {
+  outline: 2px solid var(--border-active);
+  outline-offset: 1px;
+}
+
+.home-sport-option-detail {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  min-height: 2.4em;
+}
+
+.home-sport-cta {
+  margin-top: 4px;
+  color: var(--accent-soft);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.home-sport-cta-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.home-sport-cta-button:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
 }
 
 .home-footnote {
   margin: 28px 0 0;
   color: var(--text-muted);
   font-size: 0.88rem;
+}
+
+.home-rules {
+  margin-top: 36px;
+  padding: 22px 24px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(20, 30, 51, 0.88);
+  box-shadow: var(--shadow);
+  text-align: left;
+  animation: rise-in 0.55s var(--ease-out) 0.08s both;
+}
+
+.home-rules .home-kicker {
+  margin-bottom: 6px;
+}
+
+.home-rules-title {
+  margin: 0 0 14px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.85rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.home-rules-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.home-rules-list li + li {
+  margin-top: 10px;
+}
+
+.home-rules-list strong {
+  color: var(--text);
+  font-weight: 700;
 }
 
 .loading-card {

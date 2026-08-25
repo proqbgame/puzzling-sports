@@ -30,7 +30,7 @@ export function GameHeader({
     sport === "nfl"
       ? `Daily NFL ${nflPosition.toUpperCase()} Puzzle`
       : sport === "mlb"
-        ? `Daily MLB ${mlbPosition.toUpperCase()} Puzzle`
+        ? `Daily MLB ${mlbPosition === "pitcher" ? "PITCHER" : "BATTER"} Puzzle`
         : "Daily NBA Puzzle";
 
   return (

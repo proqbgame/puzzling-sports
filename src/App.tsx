@@ -53,6 +53,7 @@ import {
 } from "./web/loadMlbDataBrowser.js";
 import { GameHeader } from "./components/GameHeader.js";
 import { GuessPanel } from "./components/GuessPanel.js";
+import { HomeSportNav } from "./components/HomeSportNav.js";
 import { PuzzleGrid } from "./components/PuzzleGrid.js";
 import { WinBanner } from "./components/WinBanner.js";
 import "./App.css";
@@ -376,14 +377,6 @@ export default function App() {
   }
 
   if (sport === null) {
-    const grids = [
-      { href: `?sport=nba&date=${puzzleDate}`, label: "NBA", detail: "Points · rebounds · assists · blocks" },
-      { href: `?sport=nfl&position=qb&date=${puzzleDate}`, label: "NFL QB", detail: "Pass yards · TD · COMP% · INT" },
-      { href: `?sport=nfl&position=wr&date=${puzzleDate}`, label: "NFL WR", detail: "Rec yards · receptions · targets · TD" },
-      { href: `?sport=nfl&position=rb&date=${puzzleDate}`, label: "NFL RB", detail: "Rush yards · rush TD · rec yards · rec TD" },
-      { href: `?sport=mlb&position=hitter&date=${puzzleDate}`, label: "MLB Hitter", detail: "HR · RBI · AVG · SB" },
-      { href: `?sport=mlb&position=pitcher&date=${puzzleDate}`, label: "MLB Pitcher", detail: "SO · W · IP · ERA" },
-    ];
     return (
       <div className="home-shell">
         <div className="home-atmosphere" />
@@ -393,14 +386,37 @@ export default function App() {
           <p className="home-lede">
             Daily 3×3 sports puzzles. Date <code>{puzzleDate}</code>.
           </p>
-          <nav className="home-grid-nav" aria-label="Sports">
-            {grids.map((grid) => (
-              <a key={grid.label} className="home-grid-card" href={grid.href}>
-                <span className="home-grid-label">{grid.label}</span>
-                <span className="home-grid-detail">{grid.detail}</span>
-              </a>
-            ))}
-          </nav>
+          <HomeSportNav puzzleDate={puzzleDate} />
+
+          <section className="home-rules" aria-labelledby="home-rules-heading">
+            <p className="home-kicker">How to play</p>
+            <h2 id="home-rules-heading" className="home-rules-title">
+              Game rules
+            </h2>
+            <ol className="home-rules-list">
+              <li>
+                Each puzzle is a <strong>3×3 jigsaw</strong>. The center player
+                is given; fill the eight outer pieces.
+              </li>
+              <li>
+                Every outer piece must match its <strong>shell clues</strong>{" "}
+                (the labels around the board).
+              </li>
+              <li>
+                Shared edges compare stats: a <strong>tab</strong> means your
+                player’s stat is greater than or equal to the neighbor; a{" "}
+                <strong>socket</strong> means less than or equal.
+              </li>
+              <li>
+                <strong>Easy</strong> mode needs only a player name.{" "}
+                <strong>Hard</strong> mode also needs the season year.
+              </li>
+              <li>
+                A new daily puzzle drops at midnight Eastern for every sport
+                grid.
+              </li>
+            </ol>
+          </section>
         </div>
       </div>
     );

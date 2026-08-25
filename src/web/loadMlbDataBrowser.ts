@@ -32,11 +32,12 @@ export async function loadDailyMlbPuzzleBrowser(
   const url = `/data/puzzles/mlb/${position}/${date}.json`;
   const response = await fetch(url);
   const contentType = response.headers.get("content-type") ?? "";
+  const label = position === "pitcher" ? "pitcher" : "batter";
 
   if (!response.ok) {
     if (response.status === 404) {
       throw new Error(
-        `No MLB ${position} puzzle found for ${date}. Generate one with \`npm run generate:mlb-puzzle -- ${date} ${position}\`, then \`npm run sync:data\`.`,
+        `No MLB ${label} puzzle found for ${date}. Generate one with \`npm run generate:mlb-puzzle -- ${date} ${position}\`, then \`npm run sync:data\`.`,
       );
     }
     throw new Error(`Failed to load MLB puzzle (${response.status})`);
@@ -44,7 +45,7 @@ export async function loadDailyMlbPuzzleBrowser(
 
   if (!contentType.includes("application/json")) {
     throw new Error(
-      `No MLB ${position} puzzle found for ${date}. Generate one with \`npm run generate:mlb-puzzle -- ${date} ${position}\`, then \`npm run sync:data\`.`,
+      `No MLB ${label} puzzle found for ${date}. Generate one with \`npm run generate:mlb-puzzle -- ${date} ${position}\`, then \`npm run sync:data\`.`,
     );
   }
 
@@ -57,8 +58,9 @@ export function getMlbPositionFromUrl(): MlbPuzzlePosition {
   if (position === "pitcher") {
     return "pitcher";
   }
-  if (position && position !== "hitter") {
-    console.warn(`Unsupported MLB position "${position}", defaulting to hitter`);
+  if (position === "batter" || position === "hitter" || !position) {
+    return "hitter";
   }
+  console.warn(`Unsupported MLB position "${position}", defaulting to batter`);
   return "hitter";
 }

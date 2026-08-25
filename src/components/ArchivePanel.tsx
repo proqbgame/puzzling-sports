@@ -96,7 +96,7 @@ export function ArchivePanel({
     sport === "nfl"
       ? `NFL ${nflPosition.toUpperCase()} archive`
       : sport === "mlb"
-        ? `MLB ${mlbPosition.toUpperCase()} archive`
+        ? `MLB ${mlbPosition === "pitcher" ? "PITCHER" : "BATTER"} archive`
         : "NBA archive";
 
   return (
