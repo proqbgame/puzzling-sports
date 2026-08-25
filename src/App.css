@@ -401,6 +401,40 @@ a.home-sport-card-link:hover {
   text-transform: uppercase;
 }
 
+.puzzle-timer {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 40;
+  display: grid;
+  gap: 2px;
+  min-width: 88px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(18, 28, 48, 0.92);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.puzzle-timer-label {
+  color: var(--accent-soft);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.puzzle-timer-value {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.65rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
 .header-actions {
   display: flex;
   gap: 10px;
@@ -1233,6 +1267,24 @@ a.home-sport-card-link:hover {
 
 .win-card.gave-up h2 {
   color: var(--accent-soft);
+}
+
+.win-time {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.win-standing {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.win-standing.muted {
+  color: var(--text-muted);
 }
 
 .win-actions {

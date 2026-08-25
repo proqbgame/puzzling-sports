@@ -55,7 +55,14 @@ import { GameHeader } from "./components/GameHeader.js";
 import { GuessPanel } from "./components/GuessPanel.js";
 import { HomeSportNav } from "./components/HomeSportNav.js";
 import { PuzzleGrid } from "./components/PuzzleGrid.js";
+import { PuzzleTimer } from "./components/PuzzleTimer.js";
 import { WinBanner } from "./components/WinBanner.js";
+import { gridKeyForSport } from "./puzzle/archiveIndex.js";
+import {
+  puzzleDisplayName,
+  puzzleKeyFor,
+  submitCompletionTime,
+} from "./utils/leaderboard.js";
 import "./App.css";
 
 type NbaReady = {
@@ -101,6 +108,10 @@ export default function App() {
   const [selectedCell, setSelectedCell] = useState<CellId | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
   const [gaveUp, setGaveUp] = useState(false);
+  const [finishTimeMs, setFinishTimeMs] = useState<number | null>(null);
+  const [rankLoading, setRankLoading] = useState(false);
+  const [rank, setRank] = useState<number | null>(null);
+  const [rankTotal, setRankTotal] = useState<number | null>(null);
 
   const sport = useMemo(() => getSportFromUrl(), []);
   const puzzleDate = useMemo(() => getPuzzleDateFromUrl(), []);
@@ -229,6 +240,64 @@ export default function App() {
       : loadState.sport === "mlb"
         ? isMlbPuzzleComplete(loadState.definition, mlbBoard)
         : isNflPuzzleComplete(loadState.definition, nflBoard));
+
+  const activeNflPosition =
+    loadState.status === "ready" &&
+    loadState.sport === "nfl" &&
+    "position" in loadState.puzzleFile
+      ? loadState.puzzleFile.position
+      : nflPosition;
+  const activeMlbPosition =
+    loadState.status === "ready" &&
+    loadState.sport === "mlb" &&
+    "position" in loadState.puzzleFile
+      ? loadState.puzzleFile.position
+      : mlbPosition;
+  const activeGridKey =
+    loadState.status === "ready"
+      ? gridKeyForSport(
+          loadState.sport,
+          loadState.sport === "mlb" ? activeMlbPosition : activeNflPosition,
+        )
+      : null;
+  const activePuzzleKey =
+    activeGridKey && loadState.status === "ready"
+      ? puzzleKeyFor(activeGridKey, loadState.puzzleFile.date)
+      : null;
+  const activePuzzleName =
+    loadState.status === "ready"
+      ? puzzleDisplayName(
+          loadState.sport,
+          activeNflPosition,
+          activeMlbPosition,
+        )
+      : "";
+
+  useEffect(() => {
+    if (!won || finishTimeMs === null || !activePuzzleKey) {
+      return;
+    }
+
+    let cancelled = false;
+    setRankLoading(true);
+    setRank(null);
+    setRankTotal(null);
+
+    void submitCompletionTime(activePuzzleKey, finishTimeMs).then((result) => {
+      if (cancelled) {
+        return;
+      }
+      setRankLoading(false);
+      if (result) {
+        setRank(result.rank);
+        setRankTotal(result.total);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [won, finishTimeMs, activePuzzleKey]);
 
   function handleSubmitGuess(playerName: string, season?: string): void {
     if (loadState.status !== "ready" || !selectedCell || gaveUp) {
@@ -497,22 +566,24 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      {activePuzzleKey ? (
+        <PuzzleTimer
+          storageKey={activePuzzleKey}
+          running={!won && !gaveUp}
+          onStop={(elapsedMs) => {
+            setFinishTimeMs((previous) => previous ?? elapsedMs);
+          }}
+        />
+      ) : null}
+
       <GameHeader
         date={puzzleFile.date}
         mode={mode}
         filledCount={filledCount}
         onModeChange={setMode}
         sport={loadState.sport}
-        nflPosition={
-          loadState.sport === "nfl" && "position" in puzzleFile
-            ? puzzleFile.position
-            : "qb"
-        }
-        mlbPosition={
-          loadState.sport === "mlb" && "position" in puzzleFile
-            ? puzzleFile.position
-            : mlbPosition
-        }
+        nflPosition={activeNflPosition}
+        mlbPosition={activeMlbPosition}
         giveUpDisabled={gaveUp || filledCount >= 8}
         onGiveUp={handleGiveUp}
       />
@@ -559,7 +630,16 @@ export default function App() {
         />
       </main>
 
-      {won ? <WinBanner date={puzzleFile.date} /> : null}
+      {won ? (
+        <WinBanner
+          date={puzzleFile.date}
+          puzzleName={activePuzzleName}
+          timeMs={finishTimeMs}
+          rank={rank}
+          total={rankTotal}
+          rankLoading={rankLoading || finishTimeMs === null}
+        />
+      ) : null}
     </div>
   );
 }
