@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-08-25",
+  "base": {
+    "playerId": "112345",
+    "playerName": "Will Clark",
+    "season": "1988",
+    "stats": {
+      "hr": 29,
+      "rbi": 109,
+      "avg": 0.282,
+      "sb": 9
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Furman University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Furman University",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.294
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        ".294+ AVG",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 40
+        }
+      ],
+      "labels": [
+        "40+ SB"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "Cy Young"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "MVP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "college",
+          "school": "University of Southern California"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "University of Southern California"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
