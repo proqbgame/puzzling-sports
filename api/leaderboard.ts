@@ -5,8 +5,8 @@
  *   UPSTASH_REDIS_REST_URL
  *   UPSTASH_REDIS_REST_TOKEN
  *
- * POST { puzzleKey, timeMs, playerId } → { rank, total, timeMs, bestTimeMs }
- * GET  ?puzzleKey=… → { total }
+ * POST { puzzleKey, timeMs, playerId } → { rank, total, timeMs, bestTimeMs, topTimeMs }
+ * GET  ?puzzleKey=… → { total, topTimeMs }
  */
 
 export const config = { runtime: "edge" };
@@ -63,6 +63,19 @@ function boardKey(puzzleKey: string): string {
   return `ps:lb:${puzzleKey}`;
 }
 
+async function readTopTimeMs(
+  url: string,
+  token: string,
+  key: string,
+): Promise<number | null> {
+  const top = await redis(url, token, ["ZRANGE", key, 0, 0, "WITHSCORES"]);
+  if (!Array.isArray(top) || top.length < 2) {
+    return null;
+  }
+  const score = Number(top[1]);
+  return Number.isFinite(score) ? score : null;
+}
+
 export default async function handler(request: Request): Promise<Response> {
   const creds = redisConfigured();
   if (!creds) {
@@ -81,13 +94,12 @@ export default async function handler(request: Request): Promise<Response> {
       if (!KEY_RE.test(puzzleKey)) {
         return json({ error: "invalid_puzzle_key" }, 400);
       }
+      const key = boardKey(puzzleKey);
       const total = Number(
-        (await redis(creds.url, creds.token, [
-          "ZCARD",
-          boardKey(puzzleKey),
-        ])) ?? 0,
+        (await redis(creds.url, creds.token, ["ZCARD", key])) ?? 0,
       );
-      return json({ puzzleKey, total });
+      const topTimeMs = await readTopTimeMs(creds.url, creds.token, key);
+      return json({ puzzleKey, total, topTimeMs });
     }
 
     if (request.method !== "POST") {
@@ -128,11 +140,13 @@ export default async function handler(request: Request): Promise<Response> {
       await redis(creds.url, creds.token, ["ZRANK", key, playerId]),
     );
     const total = Number(await redis(creds.url, creds.token, ["ZCARD", key]));
+    const topTimeMs = await readTopTimeMs(creds.url, creds.token, key);
 
     return json({
       puzzleKey,
       timeMs,
       bestTimeMs,
+      topTimeMs,
       rank: rankIndex + 1,
       total,
     });

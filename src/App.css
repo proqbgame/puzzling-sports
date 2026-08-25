@@ -401,21 +401,31 @@ a.home-sport-card-link:hover {
   text-transform: uppercase;
 }
 
-.puzzle-timer {
+.puzzle-timer-stack {
   position: fixed;
   top: 14px;
   left: 14px;
   z-index: 40;
   display: grid;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.puzzle-timer {
+  display: grid;
   gap: 2px;
-  min-width: 88px;
+  min-width: 108px;
   padding: 10px 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: rgba(18, 28, 48, 0.92);
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
-  pointer-events: none;
+}
+
+.puzzle-timer-beat {
+  border-color: rgba(255, 176, 32, 0.45);
+  background: rgba(28, 24, 14, 0.92);
 }
 
 .puzzle-timer-label {

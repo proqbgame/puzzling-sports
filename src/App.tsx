@@ -63,6 +63,13 @@ import {
   puzzleKeyFor,
   submitCompletionTime,
 } from "./utils/leaderboard.js";
+import {
+  loadGiveUpProgress,
+  restoreMlbBoardFromProgress,
+  restoreNbaBoardFromProgress,
+  restoreNflBoardFromProgress,
+  saveGiveUpProgress,
+} from "./utils/puzzleProgress.js";
 import "./App.css";
 
 type NbaReady = {
@@ -112,6 +119,7 @@ export default function App() {
   const [rankLoading, setRankLoading] = useState(false);
   const [rank, setRank] = useState<number | null>(null);
   const [rankTotal, setRankTotal] = useState<number | null>(null);
+  const [topTimeMs, setTopTimeMs] = useState<number | null>(null);
 
   const sport = useMemo(() => getSportFromUrl(), []);
   const puzzleDate = useMemo(() => getPuzzleDateFromUrl(), []);
@@ -153,6 +161,21 @@ export default function App() {
               puzzleFile,
               definition,
             });
+            const puzzleKey = puzzleKeyFor(
+              gridKeyForSport("mlb", mlbPosition),
+              puzzleFile.date,
+            );
+            const saved = loadGiveUpProgress(puzzleKey);
+            if (saved) {
+              setMlbBoard(restoreMlbBoardFromProgress(db, saved, mlbPosition));
+              setGaveUp(true);
+              setSelectedCell(null);
+            } else {
+              setMlbBoard({});
+              setGaveUp(false);
+            }
+            setNbaBoard({});
+            setNflBoard({});
           }
           return;
         }
@@ -183,6 +206,21 @@ export default function App() {
               puzzleFile,
               definition,
             });
+            const puzzleKey = puzzleKeyFor(
+              gridKeyForSport("nfl", nflPosition),
+              puzzleFile.date,
+            );
+            const saved = loadGiveUpProgress(puzzleKey);
+            if (saved) {
+              setNflBoard(restoreNflBoardFromProgress(db, saved));
+              setGaveUp(true);
+              setSelectedCell(null);
+            } else {
+              setNflBoard({});
+              setGaveUp(false);
+            }
+            setNbaBoard({});
+            setMlbBoard({});
           }
           return;
         }
@@ -206,6 +244,21 @@ export default function App() {
             puzzleFile,
             definition,
           });
+          const puzzleKey = puzzleKeyFor(
+            gridKeyForSport("nba"),
+            puzzleFile.date,
+          );
+          const saved = loadGiveUpProgress(puzzleKey);
+          if (saved) {
+            setNbaBoard(restoreNbaBoardFromProgress(db, saved));
+            setGaveUp(true);
+            setSelectedCell(null);
+          } else {
+            setNbaBoard({});
+            setGaveUp(false);
+          }
+          setNflBoard({});
+          setMlbBoard({});
         }
       } catch (error) {
         if (!cancelled) {
@@ -274,6 +327,14 @@ export default function App() {
       : "";
 
   useEffect(() => {
+    setTopTimeMs(null);
+    setFinishTimeMs(null);
+    setRank(null);
+    setRankTotal(null);
+    setRankLoading(false);
+  }, [activePuzzleKey]);
+
+  useEffect(() => {
     if (!won || finishTimeMs === null || !activePuzzleKey) {
       return;
     }
@@ -291,6 +352,9 @@ export default function App() {
       if (result) {
         setRank(result.rank);
         setRankTotal(result.total);
+        if (typeof result.topTimeMs === "number") {
+          setTopTimeMs(result.topTimeMs);
+        }
       }
     });
 
@@ -405,6 +469,10 @@ export default function App() {
       setGaveUp(true);
       setSelectedCell(null);
       setFeedback(null);
+      saveGiveUpProgress(
+        puzzleKeyFor(gridKeyForSport("mlb", position), loadState.puzzleFile.date),
+        filled,
+      );
       return;
     }
 
@@ -427,6 +495,10 @@ export default function App() {
       setGaveUp(true);
       setSelectedCell(null);
       setFeedback(null);
+      saveGiveUpProgress(
+        puzzleKeyFor(gridKeyForSport("nfl", position), loadState.puzzleFile.date),
+        filled,
+      );
       return;
     }
 
@@ -443,6 +515,10 @@ export default function App() {
     setGaveUp(true);
     setSelectedCell(null);
     setFeedback(null);
+    saveGiveUpProgress(
+      puzzleKeyFor(gridKeyForSport("nba"), loadState.puzzleFile.date),
+      filled,
+    );
   }
 
   if (sport === null) {
@@ -570,6 +646,7 @@ export default function App() {
         <PuzzleTimer
           storageKey={activePuzzleKey}
           running={!won && !gaveUp}
+          topTimeMs={typeof topTimeMs === "number" ? topTimeMs : undefined}
           onStop={(elapsedMs) => {
             setFinishTimeMs((previous) => previous ?? elapsedMs);
           }}

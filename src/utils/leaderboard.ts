@@ -89,6 +89,30 @@ export interface LeaderboardResult {
   total: number;
   timeMs: number;
   bestTimeMs: number;
+  topTimeMs: number | null;
+}
+
+export async function fetchTopTimeMs(puzzleKey: string): Promise<number | null> {
+  try {
+    const response = await fetch(
+      `/api/leaderboard?puzzleKey=${encodeURIComponent(puzzleKey)}`,
+    );
+    if (response.ok) {
+      const data = (await response.json()) as {
+        topTimeMs?: number | null;
+        error?: string;
+      };
+      if (!data.error && typeof data.topTimeMs === "number") {
+        return data.topTimeMs;
+      }
+      if (!data.error && data.topTimeMs === null) {
+        return null;
+      }
+    }
+  } catch {
+    // Fall through to local standings.
+  }
+  return getLocalTopTimeMs(puzzleKey);
 }
 
 export async function submitCompletionTime(
@@ -111,7 +135,11 @@ export async function submitCompletionTime(
         error?: string;
       };
       if (!data.error && data.rank && data.total) {
-        return data;
+        return {
+          ...data,
+          topTimeMs:
+            typeof data.topTimeMs === "number" ? data.topTimeMs : data.bestTimeMs,
+        };
       }
     }
   } catch {
@@ -122,6 +150,27 @@ export async function submitCompletionTime(
 }
 
 const LOCAL_LB_KEY = "ps.localLeaderboard";
+
+function readLocalBoard(puzzleKey: string): Record<string, number> {
+  const storage = getBrowserStorage();
+  try {
+    const store = JSON.parse(storage?.getItem(LOCAL_LB_KEY) ?? "{}") as Record<
+      string,
+      Record<string, number>
+    >;
+    return { ...(store[puzzleKey] ?? {}) };
+  } catch {
+    return {};
+  }
+}
+
+function getLocalTopTimeMs(puzzleKey: string): number | null {
+  const values = Object.values(readLocalBoard(puzzleKey));
+  if (values.length === 0) {
+    return null;
+  }
+  return Math.min(...values);
+}
 
 function submitLocalCompletionTime(
   puzzleKey: string,
@@ -159,5 +208,6 @@ function submitLocalCompletionTime(
     total: sorted.length,
     timeMs,
     bestTimeMs,
+    topTimeMs: sorted[0] ?? null,
   };
 }

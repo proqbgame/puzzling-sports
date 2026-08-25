@@ -1,15 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { formatDuration } from "../utils/leaderboard.js";
+import { fetchTopTimeMs, formatDuration } from "../utils/leaderboard.js";
 
 interface PuzzleTimerProps {
   /** Unique per puzzle day + sport grid; resets the timer when it changes. */
   storageKey: string;
   running: boolean;
+  /** Optional override after a new personal/global best is known. */
+  topTimeMs?: number | null;
   onStop?: (elapsedMs: number) => void;
 }
 
-export function PuzzleTimer({ storageKey, running, onStop }: PuzzleTimerProps) {
+export function PuzzleTimer({
+  storageKey,
+  running,
+  topTimeMs: topTimeOverride,
+  onStop,
+}: PuzzleTimerProps) {
   const [elapsedMs, setElapsedMs] = useState(0);
+  const [fetchedTopTimeMs, setFetchedTopTimeMs] = useState<number | null>(null);
   const startedAtRef = useRef<number | null>(null);
   const frozenRef = useRef(false);
   const onStopRef = useRef(onStop);
@@ -35,6 +43,19 @@ export function PuzzleTimer({ storageKey, running, onStop }: PuzzleTimerProps) {
   }, [storageKey]);
 
   useEffect(() => {
+    let cancelled = false;
+    setFetchedTopTimeMs(null);
+    void fetchTopTimeMs(storageKey).then((top) => {
+      if (!cancelled) {
+        setFetchedTopTimeMs(top);
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [storageKey]);
+
+  useEffect(() => {
     if (!running) {
       if (!frozenRef.current && startedAtRef.current !== null) {
         frozenRef.current = true;
@@ -56,10 +77,21 @@ export function PuzzleTimer({ storageKey, running, onStop }: PuzzleTimerProps) {
     return () => window.clearInterval(id);
   }, [running]);
 
+  const topTimeMs =
+    typeof topTimeOverride === "number" ? topTimeOverride : fetchedTopTimeMs;
+
   return (
-    <div className="puzzle-timer" aria-live="polite" aria-label="Puzzle timer">
-      <span className="puzzle-timer-label">Time</span>
-      <span className="puzzle-timer-value">{formatDuration(elapsedMs)}</span>
+    <div className="puzzle-timer-stack" aria-live="polite">
+      <div className="puzzle-timer" aria-label="Puzzle timer">
+        <span className="puzzle-timer-label">Time</span>
+        <span className="puzzle-timer-value">{formatDuration(elapsedMs)}</span>
+      </div>
+      <div className="puzzle-timer puzzle-timer-beat" aria-label="Time to beat">
+        <span className="puzzle-timer-label">Time to beat</span>
+        <span className="puzzle-timer-value">
+          {typeof topTimeMs === "number" ? formatDuration(topTimeMs) : "—"}
+        </span>
+      </div>
     </div>
   );
 }
