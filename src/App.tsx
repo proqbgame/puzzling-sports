@@ -57,6 +57,7 @@ import { GuessPanel } from "./components/GuessPanel.js";
 import { HomeSportNav } from "./components/HomeSportNav.js";
 import { PuzzleGrid } from "./components/PuzzleGrid.js";
 import { PuzzleTimer } from "./components/PuzzleTimer.js";
+import { RecordBook } from "./components/RecordBook.js";
 import { WinBanner } from "./components/WinBanner.js";
 import { gridKeyForSport } from "./puzzle/archiveIndex.js";
 import {
@@ -121,6 +122,7 @@ export default function App() {
   const [rank, setRank] = useState<number | null>(null);
   const [rankTotal, setRankTotal] = useState<number | null>(null);
   const [topTimeMs, setTopTimeMs] = useState<number | null>(null);
+  const [homeTab, setHomeTab] = useState<"play" | "records">("play");
 
   const sport = useMemo(() => getSportFromUrl(), []);
   const puzzleDate = useMemo(() => getPuzzleDateFromUrl(), []);
@@ -534,37 +536,69 @@ export default function App() {
           <p className="home-lede">
             Daily 3×3 sports puzzles. Date <code>{puzzleDate}</code>.
           </p>
-          <HomeSportNav puzzleDate={puzzleDate} />
 
-          <section className="home-rules" aria-labelledby="home-rules-heading">
-            <p className="home-kicker">How to play</p>
-            <h2 id="home-rules-heading" className="home-rules-title">
-              Game rules
-            </h2>
-            <ol className="home-rules-list">
-              <li>
-                Each puzzle is a <strong>3×3 jigsaw</strong>. The center player
-                is given; fill the eight outer pieces.
-              </li>
-              <li>
-                Every outer piece must match its <strong>shell clues</strong>{" "}
-                (the labels around the board).
-              </li>
-              <li>
-                Shared edges compare stats: a <strong>tab</strong> means your
-                player’s stat is greater than or equal to the neighbor; a{" "}
-                <strong>socket</strong> means less than or equal.
-              </li>
-              <li>
-                <strong>Easy</strong> mode needs only a player name.{" "}
-                <strong>Hard</strong> mode also needs the season year.
-              </li>
-              <li>
-                A new daily puzzle drops at midnight Eastern for every sport
-                grid.
-              </li>
-            </ol>
-          </section>
+          <div className="home-tabs" role="tablist" aria-label="Home sections">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={homeTab === "play"}
+              className={
+                homeTab === "play" ? "home-tab is-active" : "home-tab"
+              }
+              onClick={() => setHomeTab("play")}
+            >
+              Play
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={homeTab === "records"}
+              className={
+                homeTab === "records" ? "home-tab is-active" : "home-tab"
+              }
+              onClick={() => setHomeTab("records")}
+            >
+              Record book
+            </button>
+          </div>
+
+          {homeTab === "play" ? (
+            <>
+              <HomeSportNav puzzleDate={puzzleDate} />
+
+              <section className="home-rules" aria-labelledby="home-rules-heading">
+                <p className="home-kicker">How to play</p>
+                <h2 id="home-rules-heading" className="home-rules-title">
+                  Game rules
+                </h2>
+                <ol className="home-rules-list">
+                  <li>
+                    Each puzzle is a <strong>3×3 jigsaw</strong>. The center
+                    player is given; fill the eight outer pieces.
+                  </li>
+                  <li>
+                    Every outer piece must match its{" "}
+                    <strong>shell clues</strong> (the labels around the board).
+                  </li>
+                  <li>
+                    Shared edges compare stats: a <strong>tab</strong> means
+                    your player’s stat is greater than or equal to the neighbor;
+                    a <strong>socket</strong> means less than or equal.
+                  </li>
+                  <li>
+                    <strong>Easy</strong> mode needs only a player name.{" "}
+                    <strong>Hard</strong> mode also needs the season year.
+                  </li>
+                  <li>
+                    A new daily puzzle drops at midnight Eastern for every sport
+                    grid.
+                  </li>
+                </ol>
+              </section>
+            </>
+          ) : (
+            <RecordBook />
+          )}
         </div>
       </div>
     );

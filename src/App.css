@@ -74,6 +74,39 @@
   font-size: 1.05rem;
 }
 
+.home-tabs {
+  display: inline-flex;
+  gap: 6px;
+  margin: 28px auto 0;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(16, 24, 42, 0.88);
+}
+
+.home-tab {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.home-tab.is-active {
+  background: rgba(255, 176, 32, 0.16);
+  color: var(--accent-soft);
+}
+
+.home-tab:hover:not(.is-active) {
+  color: var(--text);
+}
+
 .home-date {
   margin: 18px 0 0;
   color: var(--text);
@@ -259,6 +292,79 @@ a.home-sport-card-link:hover {
 .home-rules-list strong {
   color: var(--text);
   font-weight: 700;
+}
+
+.record-book {
+  margin-top: 28px;
+  padding: 22px 24px 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(20, 30, 51, 0.88);
+  box-shadow: var(--shadow);
+  text-align: left;
+  animation: rise-in 0.45s var(--ease-out) both;
+}
+
+.record-book-lede {
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.record-book-status {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.record-book-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.record-book-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(8, 14, 26, 0.45);
+}
+
+.record-book-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.record-book-label {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--text);
+}
+
+.record-book-detail,
+.record-book-date {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.record-book-time {
+  flex-shrink: 0;
+  color: var(--accent-soft);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 4px rgba(255, 176, 32, 0.95),
+    0 0 10px rgba(255, 176, 32, 0.7);
 }
 
 .loading-card {

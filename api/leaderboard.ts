@@ -1,5 +1,5 @@
 /**
- * Vercel Edge API — daily puzzle completion leaderboard.
+ * Vercel Edge API — daily puzzle completion leaderboard + all-time records.
  *
  * Requires Upstash Redis env vars on Vercel:
  *   UPSTASH_REDIS_REST_URL
@@ -7,6 +7,7 @@
  *
  * POST { puzzleKey, timeMs, playerId } → { rank, total, timeMs, bestTimeMs, topTimeMs }
  * GET  ?puzzleKey=… → { total, topTimeMs }
+ * GET  ?scope=records → { records: [{ gridKey, topTimeMs, puzzleKey }] }
  */
 
 export const config = { runtime: "edge" };
@@ -15,6 +16,16 @@ const MIN_TIME_MS = 1_000;
 const MAX_TIME_MS = 24 * 60 * 60 * 1000;
 const KEY_RE = /^[a-z0-9-]+:\d{4}-\d{2}-\d{2}$/;
 const PLAYER_RE = /^[a-zA-Z0-9_-]{8,64}$/;
+const GRID_KEYS = [
+  "nba",
+  "nfl-qb",
+  "nfl-wr",
+  "nfl-rb",
+  "mlb-pitcher",
+  "mlb-hitter",
+] as const;
+
+type GridKey = (typeof GRID_KEYS)[number];
 
 type RedisResult = { result: unknown };
 
@@ -63,6 +74,17 @@ function boardKey(puzzleKey: string): string {
   return `ps:lb:${puzzleKey}`;
 }
 
+function allTimeKey(gridKey: string): string {
+  return `ps:alltime:${gridKey}`;
+}
+
+function gridKeyFromPuzzleKey(puzzleKey: string): GridKey | null {
+  const gridKey = puzzleKey.split(":")[0] ?? "";
+  return (GRID_KEYS as readonly string[]).includes(gridKey)
+    ? (gridKey as GridKey)
+    : null;
+}
+
 async function readTopTimeMs(
   url: string,
   token: string,
@@ -74,6 +96,58 @@ async function readTopTimeMs(
   }
   const score = Number(top[1]);
   return Number.isFinite(score) ? score : null;
+}
+
+type AllTimeRecord = {
+  timeMs: number;
+  puzzleKey: string;
+  playerId: string;
+  updatedAt: string;
+};
+
+async function readAllTimeRecord(
+  url: string,
+  token: string,
+  gridKey: GridKey,
+): Promise<AllTimeRecord | null> {
+  const raw = await redis(url, token, ["GET", allTimeKey(gridKey)]);
+  if (typeof raw !== "string" || !raw) {
+    return null;
+  }
+  try {
+    const parsed = JSON.parse(raw) as AllTimeRecord;
+    if (
+      typeof parsed.timeMs === "number" &&
+      Number.isFinite(parsed.timeMs) &&
+      typeof parsed.puzzleKey === "string"
+    ) {
+      return parsed;
+    }
+  } catch {
+    // ignore bad payloads
+  }
+  return null;
+}
+
+async function maybeUpdateAllTimeRecord(
+  url: string,
+  token: string,
+  gridKey: GridKey,
+  timeMs: number,
+  puzzleKey: string,
+  playerId: string,
+): Promise<void> {
+  const existing = await readAllTimeRecord(url, token, gridKey);
+  if (existing && existing.timeMs <= timeMs) {
+    return;
+  }
+  const next: AllTimeRecord = {
+    timeMs,
+    puzzleKey,
+    playerId,
+    updatedAt: new Date().toISOString(),
+  };
+  await redis(url, token, ["SET", allTimeKey(gridKey), JSON.stringify(next)]);
 }
 
 export default async function handler(request: Request): Promise<Response> {
@@ -90,7 +164,26 @@ export default async function handler(request: Request): Promise<Response> {
 
   try {
     if (request.method === "GET") {
-      const puzzleKey = new URL(request.url).searchParams.get("puzzleKey") ?? "";
+      const params = new URL(request.url).searchParams;
+      if (params.get("scope") === "records") {
+        const records = await Promise.all(
+          GRID_KEYS.map(async (gridKey) => {
+            const record = await readAllTimeRecord(
+              creds.url,
+              creds.token,
+              gridKey,
+            );
+            return {
+              gridKey,
+              topTimeMs: record?.timeMs ?? null,
+              puzzleKey: record?.puzzleKey ?? null,
+            };
+          }),
+        );
+        return json({ records });
+      }
+
+      const puzzleKey = params.get("puzzleKey") ?? "";
       if (!KEY_RE.test(puzzleKey)) {
         return json({ error: "invalid_puzzle_key" }, 400);
       }
@@ -132,6 +225,18 @@ export default async function handler(request: Request): Promise<Response> {
 
     if (previous === null || timeMs < previous) {
       await redis(creds.url, creds.token, ["ZADD", key, timeMs, playerId]);
+    }
+
+    const gridKey = gridKeyFromPuzzleKey(puzzleKey);
+    if (gridKey) {
+      await maybeUpdateAllTimeRecord(
+        creds.url,
+        creds.token,
+        gridKey,
+        timeMs,
+        puzzleKey,
+        playerId,
+      );
     }
 
     const bestRaw = await redis(creds.url, creds.token, ["ZSCORE", key, playerId]);
