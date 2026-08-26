@@ -63,6 +63,10 @@
   color: var(--text);
 }
 
+.home-kicker-after-brand {
+  margin: 14px 0 0;
+}
+
 .home-lede {
   margin: 18px auto 0;
   max-width: 34rem;
