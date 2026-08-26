@@ -70,12 +70,23 @@ export function PuzzleTimer({
   topTimeMs: topTimeOverride,
   onStop,
 }: PuzzleTimerProps) {
-  const [elapsedMs, setElapsedMs] = useState(0);
+  const [elapsedMs, setElapsedMs] = useState(() => readStoredElapsed(storageKey));
   const [fetchedTopTimeMs, setFetchedTopTimeMs] = useState<number | null>(null);
   const startedAtRef = useRef<number | null>(null);
-  const frozenRef = useRef(false);
+  const frozenRef = useRef(readStoredDone(storageKey));
+  const storageKeyRef = useRef(storageKey);
+  storageKeyRef.current = storageKey;
   const onStopRef = useRef(onStop);
   onStopRef.current = onStop;
+
+  const persistElapsed = (): number | null => {
+    if (frozenRef.current || startedAtRef.current === null) {
+      return null;
+    }
+    const ms = Math.max(0, Date.now() - startedAtRef.current);
+    writeStoredElapsed(storageKeyRef.current, ms);
+    return ms;
+  };
 
   useEffect(() => {
     const accumulated = readStoredElapsed(storageKey);
@@ -85,13 +96,23 @@ export function PuzzleTimer({
     startedAtRef.current = Date.now() - accumulated;
     setElapsedMs(accumulated);
 
-    return () => {
-      if (frozenRef.current || startedAtRef.current === null) {
-        return;
-      }
-      const ms = Math.max(0, Date.now() - startedAtRef.current);
-      writeStoredElapsed(storageKey, ms);
+    const flush = (): void => {
+      persistElapsed();
     };
+
+    // Home uses full page navigations; React unmount cleanup often does not run.
+    window.addEventListener("pagehide", flush);
+    window.addEventListener("beforeunload", flush);
+    document.addEventListener("visibilitychange", flush);
+
+    return () => {
+      window.removeEventListener("pagehide", flush);
+      window.removeEventListener("beforeunload", flush);
+      document.removeEventListener("visibilitychange", flush);
+      flush();
+    };
+    // persistElapsed reads refs only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storageKey]);
 
   useEffect(() => {
@@ -127,13 +148,19 @@ export function PuzzleTimer({
       setElapsedMs(0);
       writeStoredElapsed(storageKey, 0);
       writeStoredDone(storageKey, false);
+    } else if (startedAtRef.current === null) {
+      const accumulated = readStoredElapsed(storageKey);
+      startedAtRef.current = Date.now() - accumulated;
+      setElapsedMs(accumulated);
     }
 
     const tick = (): void => {
-      if (startedAtRef.current === null) {
+      if (startedAtRef.current === null || frozenRef.current) {
         return;
       }
-      setElapsedMs(Math.max(0, Date.now() - startedAtRef.current));
+      const ms = Math.max(0, Date.now() - startedAtRef.current);
+      setElapsedMs(ms);
+      writeStoredElapsed(storageKey, ms);
     };
     tick();
     const id = window.setInterval(tick, 250);
