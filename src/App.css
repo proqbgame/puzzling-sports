@@ -373,9 +373,13 @@ a.home-sport-card-link:hover {
 }
 
 .game-header .base-player-stats {
-  color: var(--text-muted);
+  color: var(--accent-soft);
   font-variant-numeric: tabular-nums;
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 4px rgba(255, 176, 32, 0.95),
+    0 0 10px rgba(255, 176, 32, 0.7);
 }
 
 .game-header .subhead-sep {
