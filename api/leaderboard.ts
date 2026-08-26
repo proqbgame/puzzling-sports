@@ -65,9 +65,23 @@ function json(data: unknown, status = 200): Response {
 function redisConfigured():
   | { url: string; token: string }
   | null {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  const url = (process.env.UPSTASH_REDIS_REST_URL ?? "")
+    .trim()
+    .replace(/^['"]|['"]$/g, "");
+  const token = (process.env.UPSTASH_REDIS_REST_TOKEN ?? "")
+    .trim()
+    .replace(/^['"]|['"]$/g, "");
   if (!url || !token) {
+    return null;
+  }
+  try {
+    // Validate early so mis-copied values fail clearly.
+    // eslint-disable-next-line no-new
+    new URL(url);
+  } catch {
+    return null;
+  }
+  if (!url.startsWith("https://")) {
     return null;
   }
   return { url, token };
