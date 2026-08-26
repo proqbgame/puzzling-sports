@@ -142,7 +142,10 @@ export async function fetchTopTimeMs(puzzleKey: string): Promise<number | null> 
   return getLocalTopTimeMs(puzzleKey);
 }
 
-export async function fetchAllTimeRecords(): Promise<GridRecord[]> {
+export async function fetchAllTimeRecords(): Promise<{
+  records: GridRecord[];
+  source: "server" | "local";
+}> {
   await syncLocalAllTimeRecordsToServer();
 
   try {
@@ -153,13 +156,15 @@ export async function fetchAllTimeRecords(): Promise<GridRecord[]> {
         error?: string;
       };
       if (!data.error && Array.isArray(data.records)) {
-        return buildRecordBookRows(data.records);
+        const rows = buildRecordBookRows(data.records);
+        writeServerRecordsToLocal(rows);
+        return { records: rows, source: "server" };
       }
     }
   } catch {
     // Fall through to local standings.
   }
-  return getLocalAllTimeRecords();
+  return { records: getLocalAllTimeRecords(), source: "local" };
 }
 
 async function syncLocalAllTimeRecordsToServer(): Promise<void> {
@@ -194,6 +199,22 @@ async function syncLocalAllTimeRecordsToServer(): Promise<void> {
       }
     }),
   );
+}
+
+function writeServerRecordsToLocal(records: GridRecord[]): void {
+  const store = readLocalAllTimeStore();
+  for (const record of records) {
+    if (typeof record.topTimeMs !== "number" || !record.puzzleKey) {
+      continue;
+    }
+    const key = localAllTimeStoreKey(record.gridKey, record.mode);
+    store[key] = {
+      timeMs: record.topTimeMs,
+      puzzleKey: record.puzzleKey,
+      mode: record.mode,
+    };
+  }
+  writeLocalAllTimeStore(store);
 }
 
 function buildRecordBookRows(records: GridRecord[]): GridRecord[] {

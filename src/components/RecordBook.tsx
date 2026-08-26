@@ -73,6 +73,7 @@ function RecordModeSection({
 
 export function RecordBook() {
   const [records, setRecords] = useState<GridRecord[] | null>(null);
+  const [source, setSource] = useState<"server" | "local" | null>(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
@@ -80,13 +81,15 @@ export function RecordBook() {
     void fetchAllTimeRecords()
       .then((next) => {
         if (!cancelled) {
-          setRecords(next);
+          setRecords(next.records);
+          setSource(next.source);
           setFailed(false);
         }
       })
       .catch(() => {
         if (!cancelled) {
           setRecords([]);
+          setSource("local");
           setFailed(true);
         }
       });
@@ -104,6 +107,15 @@ export function RecordBook() {
       <p className="record-book-lede">
         Fastest completion for each puzzle type, split by Easy and Hard mode.
       </p>
+
+      {source === "local" && !failed ? (
+        <p className="record-book-warning" role="status">
+          Records are saved on this device only right now, so phones and
+          computers won&apos;t match yet. Connect Upstash Redis on Vercel
+          (<code>UPSTASH_REDIS_REST_URL</code> +{" "}
+          <code>UPSTASH_REDIS_REST_TOKEN</code>) to sync across devices.
+        </p>
+      ) : null}
 
       {records === null ? (
         <p className="record-book-status">Loading records…</p>

@@ -311,6 +311,22 @@ a.home-sport-card-link:hover {
   font-size: 0.95rem;
 }
 
+.record-book-warning {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 176, 32, 0.45);
+  border-radius: var(--radius-md);
+  background: rgba(255, 176, 32, 0.1);
+  color: var(--accent-soft);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.record-book-warning code {
+  color: var(--text);
+  font-size: 0.84em;
+}
+
 .record-book-status {
   margin: 0;
   color: var(--text-muted);
