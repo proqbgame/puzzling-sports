@@ -122,6 +122,7 @@ export default function App() {
   const [rank, setRank] = useState<number | null>(null);
   const [rankTotal, setRankTotal] = useState<number | null>(null);
   const [topTimeMs, setTopTimeMs] = useState<number | null>(null);
+  const [madeRecordBook, setMadeRecordBook] = useState(false);
   const [homeTab, setHomeTab] = useState<"play" | "records">("play");
 
   const sport = useMemo(() => getSportFromUrl(), []);
@@ -335,6 +336,7 @@ export default function App() {
     setRank(null);
     setRankTotal(null);
     setRankLoading(false);
+    setMadeRecordBook(false);
   }, [activePuzzleKey]);
 
   useEffect(() => {
@@ -346,25 +348,29 @@ export default function App() {
     setRankLoading(true);
     setRank(null);
     setRankTotal(null);
+    setMadeRecordBook(false);
 
-    void submitCompletionTime(activePuzzleKey, finishTimeMs).then((result) => {
-      if (cancelled) {
-        return;
-      }
-      setRankLoading(false);
-      if (result) {
-        setRank(result.rank);
-        setRankTotal(result.total);
-        if (typeof result.topTimeMs === "number") {
-          setTopTimeMs(result.topTimeMs);
+    void submitCompletionTime(activePuzzleKey, finishTimeMs, mode).then(
+      (result) => {
+        if (cancelled) {
+          return;
         }
-      }
-    });
+        setRankLoading(false);
+        if (result) {
+          setRank(result.rank);
+          setRankTotal(result.total);
+          setMadeRecordBook(Boolean(result.madeRecordBook));
+          if (typeof result.topTimeMs === "number") {
+            setTopTimeMs(result.topTimeMs);
+          }
+        }
+      },
+    );
 
     return () => {
       cancelled = true;
     };
-  }, [won, finishTimeMs, activePuzzleKey]);
+  }, [won, finishTimeMs, activePuzzleKey, mode]);
 
   function handleSubmitGuess(playerName: string, season?: string): void {
     if (loadState.status !== "ready" || !selectedCell || gaveUp) {
@@ -755,6 +761,7 @@ export default function App() {
           rank={rank}
           total={rankTotal}
           rankLoading={rankLoading || finishTimeMs === null}
+          madeRecordBook={madeRecordBook}
         />
       ) : null}
     </div>

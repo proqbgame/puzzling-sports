@@ -5,9 +5,10 @@
  *   UPSTASH_REDIS_REST_URL
  *   UPSTASH_REDIS_REST_TOKEN
  *
- * POST { puzzleKey, timeMs, playerId } → { rank, total, timeMs, bestTimeMs, topTimeMs }
+ * POST { puzzleKey, timeMs, playerId, mode } →
+ *   { rank, total, timeMs, bestTimeMs, topTimeMs, madeRecordBook }
  * GET  ?puzzleKey=… → { total, topTimeMs }
- * GET  ?scope=records → { records: [{ gridKey, topTimeMs, puzzleKey }] }
+ * GET  ?scope=records → { records: [{ gridKey, mode, topTimeMs, puzzleKey }] }
  */
 
 export const config = { runtime: "edge" };
@@ -16,6 +17,7 @@ const MIN_TIME_MS = 1_000;
 const MAX_TIME_MS = 24 * 60 * 60 * 1000;
 const KEY_RE = /^[a-z0-9-]+:\d{4}-\d{2}-\d{2}$/;
 const PLAYER_RE = /^[a-zA-Z0-9_-]{8,64}$/;
+const MODES = ["easy", "hard"] as const;
 const GRID_KEYS = [
   "nba",
   "nfl-qb",
@@ -26,6 +28,7 @@ const GRID_KEYS = [
 ] as const;
 
 type GridKey = (typeof GRID_KEYS)[number];
+type GameMode = (typeof MODES)[number];
 
 type RedisResult = { result: unknown };
 
@@ -74,8 +77,8 @@ function boardKey(puzzleKey: string): string {
   return `ps:lb:${puzzleKey}`;
 }
 
-function allTimeKey(gridKey: string): string {
-  return `ps:alltime:${gridKey}`;
+function allTimeKey(gridKey: string, mode: GameMode): string {
+  return `ps:alltime:${gridKey}:${mode}`;
 }
 
 function gridKeyFromPuzzleKey(puzzleKey: string): GridKey | null {
@@ -83,6 +86,10 @@ function gridKeyFromPuzzleKey(puzzleKey: string): GridKey | null {
   return (GRID_KEYS as readonly string[]).includes(gridKey)
     ? (gridKey as GridKey)
     : null;
+}
+
+function parseMode(value: unknown): GameMode {
+  return value === "hard" ? "hard" : "easy";
 }
 
 async function readTopTimeMs(
@@ -102,6 +109,7 @@ type AllTimeRecord = {
   timeMs: number;
   puzzleKey: string;
   playerId: string;
+  mode: GameMode;
   updatedAt: string;
 };
 
@@ -109,8 +117,9 @@ async function readAllTimeRecord(
   url: string,
   token: string,
   gridKey: GridKey,
+  mode: GameMode,
 ): Promise<AllTimeRecord | null> {
-  const raw = await redis(url, token, ["GET", allTimeKey(gridKey)]);
+  const raw = await redis(url, token, ["GET", allTimeKey(gridKey, mode)]);
   if (typeof raw !== "string" || !raw) {
     return null;
   }
@@ -133,21 +142,28 @@ async function maybeUpdateAllTimeRecord(
   url: string,
   token: string,
   gridKey: GridKey,
+  mode: GameMode,
   timeMs: number,
   puzzleKey: string,
   playerId: string,
-): Promise<void> {
-  const existing = await readAllTimeRecord(url, token, gridKey);
+): Promise<boolean> {
+  const existing = await readAllTimeRecord(url, token, gridKey, mode);
   if (existing && existing.timeMs <= timeMs) {
-    return;
+    return false;
   }
   const next: AllTimeRecord = {
     timeMs,
     puzzleKey,
     playerId,
+    mode,
     updatedAt: new Date().toISOString(),
   };
-  await redis(url, token, ["SET", allTimeKey(gridKey), JSON.stringify(next)]);
+  await redis(url, token, [
+    "SET",
+    allTimeKey(gridKey, mode),
+    JSON.stringify(next),
+  ]);
+  return true;
 }
 
 export default async function handler(request: Request): Promise<Response> {
@@ -166,20 +182,23 @@ export default async function handler(request: Request): Promise<Response> {
     if (request.method === "GET") {
       const params = new URL(request.url).searchParams;
       if (params.get("scope") === "records") {
-        const records = await Promise.all(
-          GRID_KEYS.map(async (gridKey) => {
+        const records = [];
+        for (const mode of MODES) {
+          for (const gridKey of GRID_KEYS) {
             const record = await readAllTimeRecord(
               creds.url,
               creds.token,
               gridKey,
+              mode,
             );
-            return {
+            records.push({
               gridKey,
+              mode,
               topTimeMs: record?.timeMs ?? null,
               puzzleKey: record?.puzzleKey ?? null,
-            };
-          }),
-        );
+            });
+          }
+        }
         return json({ records });
       }
 
@@ -203,11 +222,13 @@ export default async function handler(request: Request): Promise<Response> {
       puzzleKey?: string;
       timeMs?: number;
       playerId?: string;
+      mode?: string;
     };
 
     const puzzleKey = body.puzzleKey?.trim() ?? "";
     const playerId = body.playerId?.trim() ?? "";
     const timeMs = Math.round(Number(body.timeMs));
+    const mode = parseMode(body.mode);
 
     if (!KEY_RE.test(puzzleKey) || !PLAYER_RE.test(playerId)) {
       return json({ error: "invalid_request" }, 400);
@@ -227,12 +248,14 @@ export default async function handler(request: Request): Promise<Response> {
       await redis(creds.url, creds.token, ["ZADD", key, timeMs, playerId]);
     }
 
+    let madeRecordBook = false;
     const gridKey = gridKeyFromPuzzleKey(puzzleKey);
     if (gridKey) {
-      await maybeUpdateAllTimeRecord(
+      madeRecordBook = await maybeUpdateAllTimeRecord(
         creds.url,
         creds.token,
         gridKey,
+        mode,
         timeMs,
         puzzleKey,
         playerId,
@@ -254,6 +277,8 @@ export default async function handler(request: Request): Promise<Response> {
       topTimeMs,
       rank: rankIndex + 1,
       total,
+      madeRecordBook,
+      mode,
     });
   } catch (error) {
     return json(

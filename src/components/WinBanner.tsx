@@ -7,6 +7,7 @@ interface WinBannerProps {
   rank: number | null;
   total: number | null;
   rankLoading: boolean;
+  madeRecordBook?: boolean;
 }
 
 export function WinBanner({
@@ -16,6 +17,7 @@ export function WinBanner({
   rank,
   total,
   rankLoading,
+  madeRecordBook = false,
 }: WinBannerProps) {
   const standing =
     rank !== null && total !== null
@@ -27,6 +29,11 @@ export function WinBanner({
       <div className="win-card">
         <p className="eyebrow">Puzzle complete</p>
         <h2>You filled the grid!</h2>
+        {madeRecordBook ? (
+          <p className="win-record">
+            Congratulations — you&apos;re in the record books!
+          </p>
+        ) : null}
         {timeMs !== null ? (
           <p className="win-time">Finish time: {formatDuration(timeMs)}</p>
         ) : null}

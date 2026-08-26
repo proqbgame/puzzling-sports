@@ -107,10 +107,14 @@ export interface LeaderboardResult {
   timeMs: number;
   bestTimeMs: number;
   topTimeMs: number | null;
+  madeRecordBook: boolean;
 }
+
+export type RecordBookMode = "easy" | "hard";
 
 export interface GridRecord {
   gridKey: PuzzleGridKey;
+  mode: RecordBookMode;
   topTimeMs: number | null;
   puzzleKey: string | null;
 }
@@ -147,18 +151,7 @@ export async function fetchAllTimeRecords(): Promise<GridRecord[]> {
         error?: string;
       };
       if (!data.error && Array.isArray(data.records)) {
-        return RECORD_BOOK_GRIDS.map((entry) => {
-          const match = data.records?.find(
-            (record) => record.gridKey === entry.gridKey,
-          );
-          return {
-            gridKey: entry.gridKey,
-            topTimeMs:
-              typeof match?.topTimeMs === "number" ? match.topTimeMs : null,
-            puzzleKey:
-              typeof match?.puzzleKey === "string" ? match.puzzleKey : null,
-          };
-        });
+        return buildRecordBookRows(data.records);
       }
     }
   } catch {
@@ -167,9 +160,30 @@ export async function fetchAllTimeRecords(): Promise<GridRecord[]> {
   return getLocalAllTimeRecords();
 }
 
+function buildRecordBookRows(records: GridRecord[]): GridRecord[] {
+  const rows: GridRecord[] = [];
+  for (const mode of ["easy", "hard"] as const) {
+    for (const entry of RECORD_BOOK_GRIDS) {
+      const match = records.find(
+        (record) => record.gridKey === entry.gridKey && record.mode === mode,
+      );
+      rows.push({
+        gridKey: entry.gridKey,
+        mode,
+        topTimeMs:
+          typeof match?.topTimeMs === "number" ? match.topTimeMs : null,
+        puzzleKey:
+          typeof match?.puzzleKey === "string" ? match.puzzleKey : null,
+      });
+    }
+  }
+  return rows;
+}
+
 export async function submitCompletionTime(
   puzzleKey: string,
   timeMs: number,
+  mode: RecordBookMode = "easy",
 ): Promise<LeaderboardResult | null> {
   try {
     const response = await fetch("/api/leaderboard", {
@@ -178,6 +192,7 @@ export async function submitCompletionTime(
       body: JSON.stringify({
         puzzleKey,
         timeMs,
+        mode,
         playerId: getOrCreatePlayerId(),
       }),
     });
@@ -191,6 +206,7 @@ export async function submitCompletionTime(
           ...data,
           topTimeMs:
             typeof data.topTimeMs === "number" ? data.topTimeMs : data.bestTimeMs,
+          madeRecordBook: Boolean(data.madeRecordBook),
         };
       }
     }
@@ -198,11 +214,24 @@ export async function submitCompletionTime(
     // Fall through to local standings.
   }
 
-  return submitLocalCompletionTime(puzzleKey, timeMs);
+  return submitLocalCompletionTime(puzzleKey, timeMs, mode);
 }
 
 const LOCAL_LB_KEY = "ps.localLeaderboard";
 const LOCAL_ALLTIME_KEY = "ps.localAllTimeRecords";
+
+type LocalAllTimeEntry = {
+  timeMs: number;
+  puzzleKey: string;
+  mode: RecordBookMode;
+};
+
+function localAllTimeStoreKey(
+  gridKey: PuzzleGridKey,
+  mode: RecordBookMode,
+): string {
+  return `${gridKey}:${mode}`;
+}
 
 function readLocalBoard(puzzleKey: string): Record<string, number> {
   const storage = getBrowserStorage();
@@ -225,22 +254,41 @@ function getLocalTopTimeMs(puzzleKey: string): number | null {
   return Math.min(...values);
 }
 
-function readLocalAllTimeStore(): Partial<
-  Record<PuzzleGridKey, { timeMs: number; puzzleKey: string }>
-> {
+function readLocalAllTimeStore(): Record<string, LocalAllTimeEntry> {
   const storage = getBrowserStorage();
   try {
-    return JSON.parse(storage?.getItem(LOCAL_ALLTIME_KEY) ?? "{}") as Partial<
-      Record<PuzzleGridKey, { timeMs: number; puzzleKey: string }>
+    const raw = JSON.parse(storage?.getItem(LOCAL_ALLTIME_KEY) ?? "{}") as Record<
+      string,
+      LocalAllTimeEntry | { timeMs: number; puzzleKey: string; mode?: string }
     >;
+    const next: Record<string, LocalAllTimeEntry> = {};
+    for (const [key, value] of Object.entries(raw)) {
+      if (!value || typeof value.timeMs !== "number") {
+        continue;
+      }
+      // Migrate legacy unscoped grid keys into easy mode.
+      if (key.includes(":")) {
+        const mode = value.mode === "hard" ? "hard" : "easy";
+        next[key] = {
+          timeMs: value.timeMs,
+          puzzleKey: value.puzzleKey,
+          mode,
+        };
+      } else if (RECORD_BOOK_GRIDS.some((entry) => entry.gridKey === key)) {
+        next[localAllTimeStoreKey(key as PuzzleGridKey, "easy")] = {
+          timeMs: value.timeMs,
+          puzzleKey: value.puzzleKey,
+          mode: "easy",
+        };
+      }
+    }
+    return next;
   } catch {
     return {};
   }
 }
 
-function writeLocalAllTimeStore(
-  store: Partial<Record<PuzzleGridKey, { timeMs: number; puzzleKey: string }>>,
-): void {
+function writeLocalAllTimeStore(store: Record<string, LocalAllTimeEntry>): void {
   const storage = getBrowserStorage();
   try {
     storage?.setItem(LOCAL_ALLTIME_KEY, JSON.stringify(store));
@@ -249,58 +297,49 @@ function writeLocalAllTimeStore(
   }
 }
 
-function updateLocalAllTimeRecord(puzzleKey: string, timeMs: number): void {
+function updateLocalAllTimeRecord(
+  puzzleKey: string,
+  timeMs: number,
+  mode: RecordBookMode,
+): boolean {
   const gridKey = puzzleKey.split(":")[0] as PuzzleGridKey;
   if (!RECORD_BOOK_GRIDS.some((entry) => entry.gridKey === gridKey)) {
-    return;
+    return false;
   }
   const store = readLocalAllTimeStore();
-  const existing = store[gridKey];
+  const key = localAllTimeStoreKey(gridKey, mode);
+  const existing = store[key];
   if (existing && existing.timeMs <= timeMs) {
-    return;
+    return false;
   }
-  store[gridKey] = { timeMs, puzzleKey };
+  store[key] = { timeMs, puzzleKey, mode };
   writeLocalAllTimeStore(store);
+  return true;
 }
 
 function getLocalAllTimeRecords(): GridRecord[] {
   const store = readLocalAllTimeStore();
-
-  // Also derive from any daily local boards (covers older local completions).
-  const storage = getBrowserStorage();
-  let dailyStore: Record<string, Record<string, number>> = {};
-  try {
-    dailyStore = JSON.parse(storage?.getItem(LOCAL_LB_KEY) ?? "{}") as Record<
-      string,
-      Record<string, number>
-    >;
-  } catch {
-    dailyStore = {};
-  }
-
-  for (const [puzzleKey, board] of Object.entries(dailyStore)) {
-    const values = Object.values(board);
-    if (values.length === 0) {
-      continue;
+  const records: GridRecord[] = Object.entries(store).flatMap(([key, entry]) => {
+    const gridKey = key.split(":")[0] as PuzzleGridKey;
+    if (!RECORD_BOOK_GRIDS.some((item) => item.gridKey === gridKey)) {
+      return [];
     }
-    const top = Math.min(...values);
-    updateLocalAllTimeRecord(puzzleKey, top);
-  }
-
-  const refreshed = readLocalAllTimeStore();
-  return RECORD_BOOK_GRIDS.map((entry) => {
-    const match = refreshed[entry.gridKey] ?? store[entry.gridKey];
-    return {
-      gridKey: entry.gridKey,
-      topTimeMs: match?.timeMs ?? null,
-      puzzleKey: match?.puzzleKey ?? null,
-    };
+    return [
+      {
+        gridKey,
+        mode: entry.mode,
+        topTimeMs: entry.timeMs,
+        puzzleKey: entry.puzzleKey,
+      },
+    ];
   });
+  return buildRecordBookRows(records);
 }
 
 function submitLocalCompletionTime(
   puzzleKey: string,
   timeMs: number,
+  mode: RecordBookMode,
 ): LeaderboardResult {
   const playerId = getOrCreatePlayerId();
   const storage = getBrowserStorage();
@@ -326,7 +365,7 @@ function submitLocalCompletionTime(
     // Ignore quota errors; still return a rank for this session.
   }
 
-  updateLocalAllTimeRecord(puzzleKey, timeMs);
+  const madeRecordBook = updateLocalAllTimeRecord(puzzleKey, timeMs, mode);
 
   const bestTimeMs = board[playerId];
   const sorted = Object.values(board).sort((a, b) => a - b);
@@ -337,5 +376,7 @@ function submitLocalCompletionTime(
     timeMs,
     bestTimeMs,
     topTimeMs: sorted[0] ?? null,
+    madeRecordBook,
   };
 }
+

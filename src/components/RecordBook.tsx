@@ -4,6 +4,7 @@ import {
   fetchAllTimeRecords,
   formatDuration,
   type GridRecord,
+  type RecordBookMode,
 } from "../utils/leaderboard.js";
 
 function dateFromPuzzleKey(puzzleKey: string | null): string | null {
@@ -21,6 +22,53 @@ function formatRecordDate(isoDate: string): string {
     day: "numeric",
     year: "numeric",
   });
+}
+
+function RecordModeSection({
+  mode,
+  title,
+  blurb,
+  records,
+}: {
+  mode: RecordBookMode;
+  title: string;
+  blurb: string;
+  records: GridRecord[];
+}) {
+  return (
+    <div className="record-book-section">
+      <div className="record-book-section-head">
+        <h3 className="record-book-section-title">{title}</h3>
+        <p className="record-book-section-blurb">{blurb}</p>
+      </div>
+      <ul className="record-book-list">
+        {RECORD_BOOK_GRIDS.map((entry) => {
+          const record = records.find(
+            (item) => item.gridKey === entry.gridKey && item.mode === mode,
+          );
+          const date = dateFromPuzzleKey(record?.puzzleKey ?? null);
+          return (
+            <li key={`${mode}-${entry.gridKey}`} className="record-book-row">
+              <div className="record-book-copy">
+                <span className="record-book-label">{entry.label}</span>
+                <span className="record-book-detail">{entry.detail}</span>
+                {date ? (
+                  <span className="record-book-date">
+                    Set on {formatRecordDate(date)}
+                  </span>
+                ) : null}
+              </div>
+              <span className="record-book-time">
+                {typeof record?.topTimeMs === "number"
+                  ? formatDuration(record.topTimeMs)
+                  : "—"}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
 export function RecordBook() {
@@ -54,7 +102,7 @@ export function RecordBook() {
         Record book
       </h2>
       <p className="record-book-lede">
-        Fastest completion for each puzzle type, across every daily board.
+        Fastest completion for each puzzle type, split by Easy and Hard mode.
       </p>
 
       {records === null ? (
@@ -62,32 +110,20 @@ export function RecordBook() {
       ) : failed ? (
         <p className="record-book-status">Records are unavailable right now.</p>
       ) : (
-        <ul className="record-book-list">
-          {RECORD_BOOK_GRIDS.map((entry) => {
-            const record = records.find(
-              (item) => item.gridKey === entry.gridKey,
-            );
-            const date = dateFromPuzzleKey(record?.puzzleKey ?? null);
-            return (
-              <li key={entry.gridKey} className="record-book-row">
-                <div className="record-book-copy">
-                  <span className="record-book-label">{entry.label}</span>
-                  <span className="record-book-detail">{entry.detail}</span>
-                  {date ? (
-                    <span className="record-book-date">
-                      Set on {formatRecordDate(date)}
-                    </span>
-                  ) : null}
-                </div>
-                <span className="record-book-time">
-                  {typeof record?.topTimeMs === "number"
-                    ? formatDuration(record.topTimeMs)
-                    : "—"}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="record-book-modes">
+          <RecordModeSection
+            mode="easy"
+            title="Easy mode"
+            blurb="Name-only completions"
+            records={records}
+          />
+          <RecordModeSection
+            mode="hard"
+            title="Hard mode"
+            blurb="Name + season completions"
+            records={records}
+          />
+        </div>
       )}
     </section>
   );
