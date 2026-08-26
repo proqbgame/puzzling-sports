@@ -143,6 +143,8 @@ export async function fetchTopTimeMs(puzzleKey: string): Promise<number | null> 
 }
 
 export async function fetchAllTimeRecords(): Promise<GridRecord[]> {
+  await syncLocalAllTimeRecordsToServer();
+
   try {
     const response = await fetch("/api/leaderboard?scope=records");
     if (response.ok) {
@@ -158,6 +160,40 @@ export async function fetchAllTimeRecords(): Promise<GridRecord[]> {
     // Fall through to local standings.
   }
   return getLocalAllTimeRecords();
+}
+
+async function syncLocalAllTimeRecordsToServer(): Promise<void> {
+  const local = readLocalAllTimeStore();
+  const entries = Object.values(local).filter(
+    (entry) =>
+      typeof entry.timeMs === "number" &&
+      typeof entry.puzzleKey === "string" &&
+      /^\d{4}-\d{2}-\d{2}$/.test(entry.puzzleKey.split(":")[1] ?? ""),
+  );
+  if (entries.length === 0) {
+    return;
+  }
+
+  const playerId = getOrCreatePlayerId();
+  await Promise.all(
+    entries.map(async (entry) => {
+      try {
+        await fetch("/api/leaderboard", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            puzzleKey: entry.puzzleKey,
+            timeMs: entry.timeMs,
+            mode: entry.mode,
+            playerId,
+            recordOnly: true,
+          }),
+        });
+      } catch {
+        // Ignore sync failures; local fallback still works on this device.
+      }
+    }),
+  );
 }
 
 function buildRecordBookRows(records: GridRecord[]): GridRecord[] {
