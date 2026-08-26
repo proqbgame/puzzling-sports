@@ -4,6 +4,7 @@ import { ArchivePanel } from "./ArchivePanel.js";
 
 interface GameHeaderProps {
   date: string;
+  basePlayerName?: string;
   mode: GameMode;
   filledCount: number;
   onModeChange: (mode: GameMode) => void;
@@ -16,6 +17,7 @@ interface GameHeaderProps {
 
 export function GameHeader({
   date,
+  basePlayerName,
   mode,
   filledCount,
   onModeChange,
@@ -39,7 +41,17 @@ export function GameHeader({
         <div>
           <p className="eyebrow">{eyebrow}</p>
           <h1>Puzzling Sports</h1>
-          <p className="subhead">{formatDisplayDate(date)}</p>
+          <p className="subhead">
+            <span className="puzzle-date">{formatDisplayDate(date)}</span>
+            {basePlayerName ? (
+              <>
+                <span className="subhead-sep" aria-hidden="true">
+                  ·
+                </span>
+                <span className="base-player-name">{basePlayerName}</span>
+              </>
+            ) : null}
+          </p>
         </div>
 
         <div className="header-actions">

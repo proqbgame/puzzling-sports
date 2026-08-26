@@ -655,6 +655,7 @@ export default function App() {
 
       <GameHeader
         date={puzzleFile.date}
+        basePlayerName={puzzleFile.base.playerName}
         mode={mode}
         filledCount={filledCount}
         onModeChange={setMode}

@@ -344,6 +344,34 @@ a.home-sport-card-link:hover {
   flex-wrap: wrap;
 }
 
+.game-header h1 {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.game-header .subhead {
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.game-header .base-player-name {
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+.game-header .subhead-sep {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
 .game-header-brand {
   display: grid;
   gap: 8px;

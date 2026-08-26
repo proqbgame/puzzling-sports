@@ -143,10 +143,12 @@ function AssignmentHeadshot({
   assignment,
   sport,
   showMiniStats = false,
+  hideName = false,
 }: {
   assignment: AnyAssignment;
   sport: "nba" | "nfl" | "mlb";
   showMiniStats?: boolean;
+  hideName?: boolean;
 }) {
   const resolvedSport = resolveHeadshotSport(sport, assignment);
   const espnId = espnIdFromAssignment(assignment);
@@ -168,7 +170,7 @@ function AssignmentHeadshot({
   if (!src || imageFailed) {
     return (
       <div className="cell-content">
-        <strong>{assignment.playerName}</strong>
+        {hideName ? null : <strong>{assignment.playerName}</strong>}
         <span>{assignment.season}</span>
         {showMiniStats ? (
           <span className="mini-stats">{formatMiniStats(assignment)}</span>
@@ -189,7 +191,7 @@ function AssignmentHeadshot({
           onError={() => setImageFailed(true)}
         />
         <div className="cell-headshot-overlay">
-          <strong>{assignment.playerName}</strong>
+          {hideName ? null : <strong>{assignment.playerName}</strong>}
           <span>{assignment.season}</span>
         </div>
       </div>
@@ -326,7 +328,11 @@ export function PuzzleCell({
 
   const content = assignment ? (
     isCenter ? (
-      <AssignmentHeadshot assignment={assignment} sport={sport} />
+      <AssignmentHeadshot
+        assignment={assignment}
+        sport={sport}
+        hideName
+      />
     ) : (
       <OuterFilledContent assignment={assignment} sport={sport} />
     )
