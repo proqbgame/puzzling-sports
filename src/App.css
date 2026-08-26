@@ -1354,85 +1354,17 @@ a.home-sport-card-link:hover {
     padding: 2px 4px;
   }
 
-  /* Keep center stats and name inside the piece on narrow screens */
-  .puzzle-cell.is-center .piece-content {
-    overflow: hidden;
-  }
-
-  .center-layout {
-    gap: 0 2px;
-    padding: 18% 10% 16%;
-    box-sizing: border-box;
-  }
-
   .stat-edge {
-    font-size: 0.44rem;
-    letter-spacing: 0.01em;
+    font-size: 0.5rem;
   }
 
-  .center-layout .stat-edge {
-    z-index: 1;
-  }
-
-  .stat-up,
-  .stat-down {
-    transform: none;
-    max-width: 88%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    align-self: center;
-  }
-
-  .stat-left {
-    transform: translateX(-2px) rotate(-90deg);
-    max-height: 72%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .stat-left.nfl-rb-rec-yds {
-    transform: translateX(-4px) rotate(-90deg);
-  }
-
-  .stat-right {
-    transform: translateX(2px) rotate(90deg);
-    max-height: 72%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .center-layout:has(.cell-content-headshot) .stat-edge {
-    z-index: 1;
-  }
-
-  .center-layout:has(.cell-content-headshot) .cell-headshot-overlay {
-    margin: 0 2px 4px;
-    padding: 4px 3px 2px;
-    overflow: hidden;
-    z-index: 2;
-  }
-
-  .center-layout:has(.cell-content-headshot) .cell-headshot-overlay strong {
-    font-size: 0.56rem;
-    line-height: 1.05;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-
-  .center-layout:has(.cell-content-headshot) .cell-headshot-overlay span {
-    display: block;
-    font-size: 0.48rem;
-  }
-
-  /* Outer filled cells: smaller overlay so headshots stay visible */
-  .cell-headshot-overlay {
+  /* Outer filled cells only — center piece keeps desktop styling */
+  .puzzle-cell:not(.is-center) .cell-headshot-overlay {
     padding: 5px 3px 2px;
     overflow: hidden;
   }
 
-  .cell-headshot-overlay strong {
+  .puzzle-cell:not(.is-center) .cell-headshot-overlay strong {
     font-size: clamp(0.4rem, 2.5vw, 0.48rem);
     line-height: 1.1;
     display: -webkit-box;
@@ -1443,11 +1375,11 @@ a.home-sport-card-link:hover {
     word-break: break-word;
   }
 
-  .cell-headshot-overlay span {
+  .puzzle-cell:not(.is-center) .cell-headshot-overlay span {
     display: none;
   }
 
-  .cell-headshot-stats {
+  .puzzle-cell:not(.is-center) .cell-headshot-stats {
     font-size: 0.5rem !important;
     padding: 1px 2px 2px;
     line-height: 1.08;
@@ -1480,20 +1412,11 @@ a.home-sport-card-link:hover {
     font-size: 0.5rem;
   }
 
-  .center-layout {
-    padding: 16% 10% 14%;
-  }
-
-  .stat-edge {
-    font-size: 0.4rem;
-  }
-
-  .cell-headshot-overlay strong,
-  .center-layout:has(.cell-content-headshot) .cell-headshot-overlay strong {
+  .puzzle-cell:not(.is-center) .cell-headshot-overlay strong {
     font-size: 0.5rem;
   }
 
-  .cell-headshot-stats {
+  .puzzle-cell:not(.is-center) .cell-headshot-stats {
     font-size: 0.46rem !important;
   }
 }
