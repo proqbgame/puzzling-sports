@@ -45,6 +45,20 @@
   animation: rise-in 0.55s var(--ease-out) both;
 }
 
+.home-visit-counter {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-visit-counter strong {
+  color: var(--accent-soft);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
 .home-kicker {
   margin: 0 0 10px;
   color: var(--accent-soft);

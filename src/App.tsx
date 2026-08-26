@@ -58,6 +58,7 @@ import { HomeSportNav } from "./components/HomeSportNav.js";
 import { PuzzleGrid } from "./components/PuzzleGrid.js";
 import { PuzzleTimer } from "./components/PuzzleTimer.js";
 import { RecordBook } from "./components/RecordBook.js";
+import { VisitCounter } from "./components/VisitCounter.js";
 import { WinBanner } from "./components/WinBanner.js";
 import { gridKeyForSport } from "./puzzle/archiveIndex.js";
 import {
@@ -535,6 +536,7 @@ export default function App() {
       <div className="home-shell">
         <div className="home-atmosphere" />
         <div className="home-stage">
+          <VisitCounter />
           <h1 className="home-brand">Puzzling Sports</h1>
           <p className="home-kicker home-kicker-after-brand">
             Can you get today&apos;s top time?
