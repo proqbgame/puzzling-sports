@@ -114,7 +114,7 @@ export function GuessPanel({
   const locked = Boolean(board[selectedCell]);
   const edgeHints = getEdgeHints(
     selectedCell,
-    puzzle.base.playerName,
+    puzzle.base,
     board,
     sport,
     sport === "mlb" && "position" in puzzle
@@ -337,22 +337,51 @@ function formatCellName(cellId: CellId): string {
     .join(" ");
 }
 
-function neighborDisplayName(
+function formatEdgeStatValue(statKey: string, value: number): string {
+  if (statKey === "avg") {
+    return value.toFixed(3).replace(/^0/, "");
+  }
+  if (statKey === "era") {
+    return value.toFixed(2);
+  }
+  if (statKey === "compPct") {
+    return `${value}%`;
+  }
+  if (Number.isInteger(value)) {
+    return String(value);
+  }
+  return String(Math.round(value * 10) / 10);
+}
+
+function neighborHintLabel(
   neighborId: CellId,
-  basePlayerName: string,
+  base: AnyPuzzleFile["base"],
   board: AnyBoardState,
+  statKey: string,
 ): string {
   if (neighborId === "center") {
-    return basePlayerName;
+    const raw = (base.stats as Record<string, unknown>)[statKey];
+    if (typeof raw === "number") {
+      return `${base.playerName} ${formatEdgeStatValue(statKey, raw)}`;
+    }
+    return base.playerName;
   }
 
   const assignment = board[neighborId];
-  return assignment?.playerName ?? formatCellName(neighborId);
+  if (!assignment) {
+    return formatCellName(neighborId);
+  }
+
+  const raw = (assignment.stats as Record<string, unknown>)[statKey];
+  if (typeof raw === "number") {
+    return `${assignment.playerName} ${formatEdgeStatValue(statKey, raw)}`;
+  }
+  return assignment.playerName;
 }
 
 function getEdgeHints(
   cellId: CellId,
-  basePlayerName: string,
+  base: AnyPuzzleFile["base"],
   board: AnyBoardState,
   sport: "nba" | "nfl" | "mlb",
   position: "qb" | "wr" | "rb" | "pitcher" | "hitter" = "qb",
@@ -371,39 +400,27 @@ function getEdgeHints(
       continue;
     }
 
-    const mlbStat =
+    const fromPos = CELL_POSITIONS[cellId];
+    const toPos = CELL_POSITIONS[neighborId];
+    const statKey =
       sport === "mlb"
-        ? mlbStatForEdge(
-            CELL_POSITIONS[cellId],
-            CELL_POSITIONS[neighborId],
-            position,
-          )
-        : null;
-    const label =
-      sport === "mlb" && mlbStat
-        ? mlbStatLabel(mlbStat, position)
+        ? mlbStatForEdge(fromPos, toPos, position)
         : sport === "nfl"
-        ? nflStatLabel(
-            nflStatForEdge(
-              CELL_POSITIONS[cellId],
-              CELL_POSITIONS[neighborId],
-              position,
-            ),
-            position,
-          )
-        : nbaStatLabel(
-            nbaStatForEdge(
-              CELL_POSITIONS[cellId],
-              CELL_POSITIONS[neighborId],
-            ),
-          );
+          ? nflStatForEdge(fromPos, toPos, position)
+          : nbaStatForEdge(fromPos, toPos);
+    const label =
+      sport === "mlb"
+        ? mlbStatLabel(statKey, position)
+        : sport === "nfl"
+          ? nflStatLabel(statKey, position)
+          : nbaStatLabel(statKey);
     const op =
-      mlbStat
-        ? mlbEdgeOp(connection, mlbStat)
+      sport === "mlb"
+        ? mlbEdgeOp(connection, statKey)
         : connection === "tab"
           ? "≥"
           : "≤";
-    const neighbor = neighborDisplayName(neighborId, basePlayerName, board);
+    const neighbor = neighborHintLabel(neighborId, base, board, statKey);
 
     hints.push(`${label} ${op} ${neighbor}`);
   }
