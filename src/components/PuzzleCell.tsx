@@ -103,6 +103,29 @@ function formatMiniStats(assignment: AnyAssignment): string {
   return "";
 }
 
+/** Compact #/#/#/# line for the puzzle header base player. */
+export function formatAssignmentMiniStats(assignment: AnyAssignment): string {
+  if ("position" in assignment.stats && assignment.stats.position === "P") {
+    return `${assignment.stats.so}/${assignment.stats.w}/${assignment.stats.ip}/${assignment.stats.era.toFixed(2)}`;
+  }
+  if ("position" in assignment.stats && assignment.stats.position === "H") {
+    return `${assignment.stats.hr}/${assignment.stats.rbi}/${assignment.stats.avg.toFixed(3).replace(/^0/, "")}/${assignment.stats.sb}`;
+  }
+  if ("position" in assignment.stats && assignment.stats.position === "RB") {
+    return `${assignment.stats.rushYds ?? 0}/${assignment.stats.rushTd ?? 0}/${assignment.stats.recYds}/${assignment.stats.recTd}`;
+  }
+  if ("position" in assignment.stats && assignment.stats.position === "WR") {
+    return `${assignment.stats.recYds}/${assignment.stats.recTd}/${assignment.stats.receptions}/${assignment.stats.targets}`;
+  }
+  if (isNflQbStats(assignment.stats)) {
+    return `${assignment.stats.passYds}/${assignment.stats.passTd}/${assignment.stats.compPct}%/${assignment.stats.interceptions}`;
+  }
+  if ("ppg" in assignment.stats) {
+    return `${assignment.stats.ppg}/${assignment.stats.rpg}/${assignment.stats.apg}/${assignment.stats.blk}`;
+  }
+  return "";
+}
+
 function espnIdFromAssignment(assignment: AnyAssignment): string | null {
   const bio = assignment.bio as { espnId?: string | null };
   const raw = bio.espnId;
@@ -143,12 +166,13 @@ function AssignmentHeadshot({
   assignment,
   sport,
   showMiniStats = false,
-  hideName = false,
+  /** Center piece: hide name/season when a headshot loads; keep name if it fails. */
+  isCenterPiece = false,
 }: {
   assignment: AnyAssignment;
   sport: "nba" | "nfl" | "mlb";
   showMiniStats?: boolean;
-  hideName?: boolean;
+  isCenterPiece?: boolean;
 }) {
   const resolvedSport = resolveHeadshotSport(sport, assignment);
   const espnId = espnIdFromAssignment(assignment);
@@ -170,8 +194,8 @@ function AssignmentHeadshot({
   if (!src || imageFailed) {
     return (
       <div className="cell-content">
-        {hideName ? null : <strong>{assignment.playerName}</strong>}
-        <span>{assignment.season}</span>
+        <strong>{assignment.playerName}</strong>
+        {isCenterPiece ? null : <span>{assignment.season}</span>}
         {showMiniStats ? (
           <span className="mini-stats">{formatMiniStats(assignment)}</span>
         ) : null}
@@ -190,10 +214,12 @@ function AssignmentHeadshot({
           referrerPolicy="no-referrer"
           onError={() => setImageFailed(true)}
         />
-        <div className="cell-headshot-overlay">
-          {hideName ? null : <strong>{assignment.playerName}</strong>}
-          <span>{assignment.season}</span>
-        </div>
+        {isCenterPiece ? null : (
+          <div className="cell-headshot-overlay">
+            <strong>{assignment.playerName}</strong>
+            <span>{assignment.season}</span>
+          </div>
+        )}
       </div>
       {showMiniStats ? (
         <span className="mini-stats cell-headshot-stats">
@@ -331,7 +357,7 @@ export function PuzzleCell({
       <AssignmentHeadshot
         assignment={assignment}
         sport={sport}
-        hideName
+        isCenterPiece
       />
     ) : (
       <OuterFilledContent assignment={assignment} sport={sport} />

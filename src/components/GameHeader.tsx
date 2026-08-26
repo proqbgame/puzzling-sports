@@ -5,6 +5,8 @@ import { ArchivePanel } from "./ArchivePanel.js";
 interface GameHeaderProps {
   date: string;
   basePlayerName?: string;
+  basePlayerSeason?: string;
+  basePlayerStats?: string;
   mode: GameMode;
   filledCount: number;
   onModeChange: (mode: GameMode) => void;
@@ -18,6 +20,8 @@ interface GameHeaderProps {
 export function GameHeader({
   date,
   basePlayerName,
+  basePlayerSeason,
+  basePlayerStats,
   mode,
   filledCount,
   onModeChange,
@@ -49,6 +53,22 @@ export function GameHeader({
                   ·
                 </span>
                 <span className="base-player-name">{basePlayerName}</span>
+              </>
+            ) : null}
+            {basePlayerSeason ? (
+              <>
+                <span className="subhead-sep" aria-hidden="true">
+                  ·
+                </span>
+                <span className="base-player-season">{basePlayerSeason}</span>
+              </>
+            ) : null}
+            {basePlayerStats ? (
+              <>
+                <span className="subhead-sep" aria-hidden="true">
+                  ·
+                </span>
+                <span className="base-player-stats">{basePlayerStats}</span>
               </>
             ) : null}
           </p>

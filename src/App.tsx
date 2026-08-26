@@ -52,6 +52,7 @@ import {
   loadMlbDataBrowser,
 } from "./web/loadMlbDataBrowser.js";
 import { GameHeader } from "./components/GameHeader.js";
+import { formatAssignmentMiniStats } from "./components/PuzzleCell.js";
 import { GuessPanel } from "./components/GuessPanel.js";
 import { HomeSportNav } from "./components/HomeSportNav.js";
 import { PuzzleGrid } from "./components/PuzzleGrid.js";
@@ -656,6 +657,8 @@ export default function App() {
       <GameHeader
         date={puzzleFile.date}
         basePlayerName={puzzleFile.base.playerName}
+        basePlayerSeason={puzzleFile.base.season}
+        basePlayerStats={formatAssignmentMiniStats(definition.base)}
         mode={mode}
         filledCount={filledCount}
         onModeChange={setMode}

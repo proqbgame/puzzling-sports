@@ -367,6 +367,17 @@ a.home-sport-card-link:hover {
   font-weight: 700;
 }
 
+.game-header .base-player-season {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.game-header .base-player-stats {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
 .game-header .subhead-sep {
   color: var(--text-muted);
   opacity: 0.7;
