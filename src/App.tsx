@@ -528,7 +528,9 @@ export default function App() {
         <div className="home-atmosphere" />
         <div className="home-stage">
           <h1 className="home-brand">Puzzling Sports</h1>
-          <p className="home-kicker home-kicker-after-brand">Choose a sport</p>
+          <p className="home-kicker home-kicker-after-brand">
+            Can you get today&apos;s top time?
+          </p>
           <p className="home-lede">
             Daily 3×3 sports puzzles. Date <code>{puzzleDate}</code>.
           </p>

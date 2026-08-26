@@ -60,7 +60,7 @@
   font-size: clamp(3.6rem, 12vw, 6.4rem);
   letter-spacing: 0.04em;
   line-height: 0.92;
-  color: var(--text);
+  color: var(--accent-soft);
 }
 
 .home-kicker-after-brand {
