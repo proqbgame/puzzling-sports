@@ -1,8 +1,9 @@
 # Generate daily puzzles at 12:00 AM Eastern (America/New_York).
 #
 # GitHub Actions cron is UTC-only, so we run at both 04:00 UTC (EDT midnight)
-# and 05:00 UTC (EST midnight). The job only generates when Eastern local hour
-# is 0, and skips grids that already exist for that Eastern date.
+# and 05:00 UTC (EST midnight), plus 12:00 UTC (~8 AM Eastern) as a backup if
+# the midnight run was delayed. The job generates when any grid for Eastern
+# today is still missing (generate:daily skips files that already exist).
 
 name: Daily puzzles
 
@@ -10,6 +11,7 @@ on:
   schedule:
     - cron: "5 4 * * *"
     - cron: "5 5 * * *"
+    - cron: "0 12 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -66,13 +68,32 @@ jobs:
             exit 0
           fi
 
-          # Scheduled: only act during the Eastern midnight hour.
-          if [ "$HOUR" != "00" ]; then
-            echo "Eastern hour is $HOUR — skipping (waiting for midnight ET)."
+          # Scheduled: generate Eastern today if any grid is still missing.
+          # GitHub cron can arrive late (sometimes hours after the trigger), so we
+          # do not require the Eastern midnight hour — generate:daily skips files
+          # that already exist.
+          MISSING=0
+          for FILE in \
+            "data/puzzles/nba/${TODAY}.json" \
+            "data/puzzles/nfl/qb/${TODAY}.json" \
+            "data/puzzles/nfl/wr/${TODAY}.json" \
+            "data/puzzles/nfl/rb/${TODAY}.json" \
+            "data/puzzles/mlb/hitter/${TODAY}.json" \
+            "data/puzzles/mlb/pitcher/${TODAY}.json"
+          do
+            if [ ! -f "$FILE" ]; then
+              MISSING=1
+              break
+            fi
+          done
+
+          if [ "$MISSING" -eq 0 ]; then
+            echo "All puzzles already exist for $TODAY — skipping."
             echo "run=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
+          echo "Missing puzzles for $TODAY (Eastern hour $HOUR) — generating."
           echo "run=true" >> "$GITHUB_OUTPUT"
           echo "date=$TODAY" >> "$GITHUB_OUTPUT"
           echo "force=false" >> "$GITHUB_OUTPUT"
