@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-08-27",
+  "base": {
+    "playerId": "00-0036355",
+    "playerName": "Justin Herbert",
+    "season": "2020",
+    "stats": {
+      "passYds": 4336,
+      "passTd": 31,
+      "compPct": 66.6,
+      "interceptions": 10
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "passTdAtLeast",
+          "min": 25
+        },
+        {
+          "type": "passYdsAtLeast",
+          "min": 4500
+        }
+      ],
+      "labels": [
+        "25+ PASS TD",
+        "4500+ PASS YDS"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Fresno State"
+        }
+      ],
+      "labels": [
+        "Fresno State"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "10+ INT",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ INT"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "MVP",
+        "All-Pro"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 4500
+        }
+      ],
+      "labels": [
+        "4500+ PASS YDS"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "10+ INT",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-08-27",
+  "base": {
+    "playerId": "110176",
+    "playerName": "Bob Allison",
+    "season": "1964",
+    "stats": {
+      "hr": 32,
+      "rbi": 86,
+      "avg": 0.287,
+      "sb": 10
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "90+ RBI",
+        "20+ HR"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.302
+        }
+      ],
+      "labels": [
+        ".302+ AVG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Michigan"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "University of Michigan",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 100
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "100+ RBI"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 40
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 120
+        }
+      ],
+      "labels": [
+        "40+ HR",
+        "120+ RBI"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
