@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-08-29",
+  "base": {
+    "playerId": "00-0000745",
+    "playerName": "Tiki Barber",
+    "season": "2000",
+    "stats": {
+      "rushYds": 1006,
+      "rushTd": 8,
+      "recYds": 719,
+      "recTd": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "8+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1300
+        }
+      ],
+      "labels": [
+        "1300+ RUSH YDS"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ REC TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Oregon"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "Oregon",
+        "8+ RUSH TD"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ RUSH TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

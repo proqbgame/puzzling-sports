@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-08-29",
+  "base": {
+    "playerId": "00-0031588",
+    "playerName": "Stefon Diggs",
+    "season": "2021",
+    "stats": {
+      "recYds": 1225,
+      "recTd": 10,
+      "receptions": 103,
+      "targets": 164
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Virginia Tech"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Virginia Tech",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1400
+        }
+      ],
+      "labels": [
+        "1400+ REC YDS"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 150
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "150+ TGT",
+        "Top 5 Pick"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1500
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "1500+ REC YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "receptionsAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "90+ REC"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "sbMvp"
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "SB MVP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

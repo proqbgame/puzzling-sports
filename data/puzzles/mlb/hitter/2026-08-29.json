@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-08-29",
+  "base": {
+    "playerId": "116205",
+    "playerName": "Frank Howard",
+    "season": "1962",
+    "stats": {
+      "hr": 31,
+      "rbi": 119,
+      "avg": 0.296,
+      "sb": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 55
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "55+ SB",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "20+ HR",
+        "15+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Detroit Mercy"
+        }
+      ],
+      "labels": [
+        "University of Detroit Mercy"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of California - Los Angeles"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.283
+        }
+      ],
+      "labels": [
+        "University of California - Los Angeles",
+        ".283+ AVG"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

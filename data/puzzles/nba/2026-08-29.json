@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-08-29",
+  "base": {
+    "playerId": "165",
+    "playerName": "Hakeem Olajuwon",
+    "season": "1994-95",
+    "stats": {
+      "ppg": 27.8,
+      "rpg": 10.8,
+      "apg": 3.5,
+      "blk": 3.4
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Grambling"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Grambling",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "blkAtLeast",
+          "min": 3
+        }
+      ],
+      "labels": [
+        "3+ BLK"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "5+ Seasons",
+        "Undrafted"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "blkAtLeast",
+          "min": 2
+        }
+      ],
+      "labels": [
+        "2+ BLK"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "15+ Seasons",
+        "Undrafted"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

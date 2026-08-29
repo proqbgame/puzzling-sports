@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-08-29",
+  "base": {
+    "playerId": "118787",
+    "playerName": "Denny McLain",
+    "season": "1966",
+    "stats": {
+      "so": 192,
+      "w": 20,
+      "ip": 264.1,
+      "era": 3.92
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Miami"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "University of Miami",
+        "190+ IP"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 160
+        }
+      ],
+      "labels": [
+        "160+ IP"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        }
+      ],
+      "labels": [
+        "170+ IP"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 270
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "270+ IP"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 12
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "12+ W",
+        "15+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
