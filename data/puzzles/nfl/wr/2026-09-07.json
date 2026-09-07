@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-09-07",
+  "base": {
+    "playerId": "00-0019976",
+    "playerName": "Drew Bennett",
+    "season": "2004",
+    "stats": {
+      "recYds": 1247,
+      "recTd": 11,
+      "receptions": 80,
+      "targets": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 150
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "150+ TGT"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 160
+        }
+      ],
+      "labels": [
+        "160+ TGT"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 170
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "170+ TGT",
+        "1100+ REC YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ REC TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Top 5 Pick",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Ohio State"
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 160
+        }
+      ],
+      "labels": [
+        "Ohio State",
+        "160+ TGT"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

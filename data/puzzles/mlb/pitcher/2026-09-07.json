@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-07",
+  "base": {
+    "playerId": "110209",
+    "playerName": "Wilson Alvarez",
+    "season": "1996",
+    "stats": {
+      "so": 181,
+      "w": 15,
+      "ip": 217.1,
+      "era": 4.22
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "180+ IP"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Old Dominion University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Old Dominion University",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.50",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ W"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 150
+        },
+        {
+          "type": "wAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "150+ SO",
+        "14+ W"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

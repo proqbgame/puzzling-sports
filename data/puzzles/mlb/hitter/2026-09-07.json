@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-09-07",
+  "base": {
+    "playerId": "121311",
+    "playerName": "Frank Robinson",
+    "season": "1969",
+    "stats": {
+      "hr": 32,
+      "rbi": 100,
+      "avg": 0.308,
+      "sb": 9
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.288
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        ".288+ AVG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 100
+        }
+      ],
+      "labels": [
+        "100+ RBI"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "30+ SB"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.281
+        }
+      ],
+      "labels": [
+        ".281+ AVG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ HR"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "20+ SB"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Miami"
+        }
+      ],
+      "labels": [
+        "University of Miami"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.283
+        },
+        {
+          "type": "college",
+          "school": "Arizona State University"
+        }
+      ],
+      "labels": [
+        ".283+ AVG",
+        "Arizona State University"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

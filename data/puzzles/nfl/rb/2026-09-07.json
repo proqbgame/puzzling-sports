@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-09-07",
+  "base": {
+    "playerId": "00-0022821",
+    "playerName": "Michael Turner",
+    "season": "2012",
+    "stats": {
+      "rushYds": 800,
+      "rushTd": 10,
+      "recYds": 128,
+      "recTd": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        },
+        {
+          "type": "college",
+          "school": "Texas"
+        }
+      ],
+      "labels": [
+        "Top 5 Pick",
+        "Texas"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Pittsburgh"
+        }
+      ],
+      "labels": [
+        "Pittsburgh"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "1200+ RUSH YDS",
+        "12+ RUSH TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ RUSH TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ REC TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 800
+        }
+      ],
+      "labels": [
+        "MVP",
+        "800+ REC YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
