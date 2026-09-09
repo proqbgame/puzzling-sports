@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-09-09",
+  "base": {
+    "playerId": "00-0038597",
+    "playerName": "Chase Brown",
+    "season": "2025",
+    "stats": {
+      "rushYds": 1019,
+      "rushTd": 6,
+      "recYds": 437,
+      "recTd": 5
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "3+ REC TD",
+        "10+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1500
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        }
+      ],
+      "labels": [
+        "1500+ RUSH YDS",
+        "3+ REC TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        }
+      ],
+      "labels": [
+        "3+ REC TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Wisconsin"
+        }
+      ],
+      "labels": [
+        "Wisconsin"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 450
+        }
+      ],
+      "labels": [
+        "3+ REC TD",
+        "450+ REC YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

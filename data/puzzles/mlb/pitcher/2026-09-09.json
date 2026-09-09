@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-09",
+  "base": {
+    "playerId": "150116",
+    "playerName": "Randy Wolf",
+    "season": "2008",
+    "stats": {
+      "so": 162,
+      "w": 12,
+      "ip": 190.1,
+      "era": 4.3
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "ERA ≤ 2.25"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 280
+        }
+      ],
+      "labels": [
+        "280+ IP"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "MVP",
+        "Cy Young"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 150
+        }
+      ],
+      "labels": [
+        "150+ SO"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 12
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        }
+      ],
+      "labels": [
+        "12+ W",
+        "ERA ≤ 2.50"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.00"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Western Illinois University"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 240
+        }
+      ],
+      "labels": [
+        "Western Illinois University",
+        "240+ IP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
