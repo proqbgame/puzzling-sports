@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-09-14",
+  "base": {
+    "playerId": "00-0036963",
+    "playerName": "Amon-Ra St. Brown",
+    "season": "2023",
+    "stats": {
+      "recYds": 1515,
+      "recTd": 10,
+      "receptions": 119,
+      "targets": 164
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Tennessee"
+        }
+      ],
+      "labels": [
+        "Tennessee"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "8+ REC TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "receptionsAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "80+ REC"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 130
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "130+ TGT",
+        "1100+ REC YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ REC TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 110
+        }
+      ],
+      "labels": [
+        "1100+ REC YDS",
+        "110+ REC"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

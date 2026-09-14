@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-09-14",
+  "base": {
+    "playerId": "00-0029854",
+    "playerName": "C.J. Anderson",
+    "season": "2014",
+    "stats": {
+      "rushYds": 849,
+      "rushTd": 8,
+      "recYds": 324,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Villanova"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Villanova",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 550
+        }
+      ],
+      "labels": [
+        "550+ REC YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "12+ RUSH TD"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
