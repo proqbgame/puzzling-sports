@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-09-18",
+  "base": {
+    "playerId": "115915",
+    "playerName": "Bobby Higginson",
+    "season": "1998",
+    "stats": {
+      "hr": 25,
+      "rbi": 85,
+      "avg": 0.284,
+      "sb": 3
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 55
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 120
+        }
+      ],
+      "labels": [
+        "55+ HR",
+        "120+ RBI"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.283
+        }
+      ],
+      "labels": [
+        ".283+ AVG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 40
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "40+ SB"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "World Series Champion"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "25+ HR"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "90+ RBI"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Southwestern Illinois College"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Southwestern Illinois College",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-18",
+  "base": {
+    "playerId": "120438",
+    "playerName": "Gaylord Perry",
+    "season": "1969",
+    "stats": {
+      "so": 233,
+      "w": 19,
+      "ip": 325.1,
+      "era": 2.49
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Wright State University"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        }
+      ],
+      "labels": [
+        "Wright State University",
+        "ERA ≤ 3.50"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "190+ IP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 320
+        }
+      ],
+      "labels": [
+        "320+ IP"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 270
+        }
+      ],
+      "labels": [
+        "270+ IP"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 3.25
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "ERA ≤ 3.25"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 160
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "160+ IP",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

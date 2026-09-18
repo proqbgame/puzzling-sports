@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-09-18",
+  "base": {
+    "playerId": "00-0006305",
+    "playerName": "Ahman Green",
+    "season": "2002",
+    "stats": {
+      "rushYds": 1240,
+      "rushTd": 7,
+      "recYds": 393,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "TCU"
+        }
+      ],
+      "labels": [
+        "TCU"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1400
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "1400+ RUSH YDS",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "MVP"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 3
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "3+ REC TD",
+        "20+ RUSH TD"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "Top 5 Pick"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 500
+        }
+      ],
+      "labels": [
+        "8+ RUSH TD",
+        "500+ REC YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
