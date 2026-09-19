@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-19",
+  "base": {
+    "playerId": "517593",
+    "playerName": "Danny Salazar",
+    "season": "2015",
+    "stats": {
+      "so": 195,
+      "w": 14,
+      "ip": 185,
+      "era": 3.45
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 240
+        },
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "240+ IP",
+        "175+ SO"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "180+ IP"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Grayson County College"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 220
+        }
+      ],
+      "labels": [
+        "Grayson County College",
+        "220+ IP"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "14+ W"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-09-19",
+  "base": {
+    "playerId": "00-0019647",
+    "playerName": "Shaun Alexander",
+    "season": "2001",
+    "stats": {
+      "rushYds": 1318,
+      "rushTd": 14,
+      "recYds": 343,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Wisconsin"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "Wisconsin",
+        "Super Bowl Champion"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 650
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 7
+        }
+      ],
+      "labels": [
+        "650+ REC YDS",
+        "7+ REC TD"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Ohio State"
+        }
+      ],
+      "labels": [
+        "Ohio State"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        }
+      ],
+      "labels": [
+        "4+ REC TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Top 5 Pick",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1600
+        }
+      ],
+      "labels": [
+        "1600+ RUSH YDS"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 800
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "800+ REC YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
