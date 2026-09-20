@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-09-20",
+  "base": {
+    "playerId": "572821",
+    "playerName": "Brian Dozier",
+    "season": "2016",
+    "stats": {
+      "hr": 42,
+      "rbi": 99,
+      "avg": 0.268,
+      "sb": 18
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "20+ HR"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ HR"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.297
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        ".297+ AVG",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ SB"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of California - Berkeley"
+        }
+      ],
+      "labels": [
+        "University of California - Berkeley"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.293
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        ".293+ AVG",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 110
+        }
+      ],
+      "labels": [
+        "110+ RBI"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "All-Star"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

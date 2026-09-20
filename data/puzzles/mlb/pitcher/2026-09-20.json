@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-20",
+  "base": {
+    "playerId": "502042",
+    "playerName": "Chris Archer",
+    "season": "2015",
+    "stats": {
+      "so": 252,
+      "w": 12,
+      "ip": 212,
+      "era": 3.23
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 1.75
+        },
+        {
+          "type": "soAtLeast",
+          "min": 150
+        }
+      ],
+      "labels": [
+        "ERA ≤ 1.75",
+        "150+ SO"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 220
+        }
+      ],
+      "labels": [
+        "220+ IP"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 210
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "210+ IP",
+        "15+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "190+ IP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Vermont"
+        },
+        {
+          "type": "soAtLeast",
+          "min": 200
+        }
+      ],
+      "labels": [
+        "University of Vermont",
+        "200+ SO"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
