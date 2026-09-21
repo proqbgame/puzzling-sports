@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-09-21",
+  "base": {
+    "playerId": "00-0031588",
+    "playerName": "Stefon Diggs",
+    "season": "2022",
+    "stats": {
+      "recYds": 1429,
+      "recTd": 11,
+      "receptions": 108,
+      "targets": 154
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "80+ REC"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1000
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "1000+ REC YDS",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "1100+ REC YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "1000+ REC YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 100
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "100+ REC"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Notre Dame"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Notre Dame",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

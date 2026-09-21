@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-09-21",
+  "base": {
+    "playerId": "00-0006423",
+    "playerName": "Brian Griese",
+    "season": "1999",
+    "stats": {
+      "passYds": 3032,
+      "passTd": 14,
+      "compPct": 58.1,
+      "interceptions": 14
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3000
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "3000+ PASS YDS",
+        "15+ INT"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "sbMvp"
+        }
+      ],
+      "labels": [
+        "SB MVP"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Colorado"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Colorado",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ INT"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 4000
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "4000+ PASS YDS",
+        "20+ INT"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

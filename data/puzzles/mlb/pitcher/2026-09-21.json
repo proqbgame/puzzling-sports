@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-21",
+  "base": {
+    "playerId": "121961",
+    "playerName": "Tom Seaver",
+    "season": "1978",
+    "stats": {
+      "so": 226,
+      "w": 16,
+      "ip": 259.2,
+      "era": 2.88
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Vermont"
+        },
+        {
+          "type": "wAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "University of Vermont",
+        "12+ W"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "ERA ≤ 2.75"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 1.75
+        }
+      ],
+      "labels": [
+        "ERA ≤ 1.75"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ W"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50",
+        "190+ IP"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "soAtLeast",
+          "min": 150
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "150+ SO"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

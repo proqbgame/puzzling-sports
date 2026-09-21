@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-09-21",
+  "base": {
+    "playerId": "111",
+    "playerName": "LaPhonso Ellis",
+    "season": "1992-93",
+    "stats": {
+      "ppg": 14.7,
+      "rpg": 9.1,
+      "apg": 1.8,
+      "blk": 1.4
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "finalsMvp"
+        }
+      ],
+      "labels": [
+        "Finals MVP"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "NBA Champion"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Louisville"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Louisville",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "15+ PPG",
+        "All-Star"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

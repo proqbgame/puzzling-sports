@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-09-21",
+  "base": {
+    "playerId": "121419",
+    "playerName": "John Romano",
+    "season": "1962",
+    "stats": {
+      "hr": 25,
+      "rbi": 81,
+      "avg": 0.261,
+      "sb": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.28
+        }
+      ],
+      "labels": [
+        "All-Star",
+        ".280+ AVG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 110
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "110+ RBI"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Miami"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "University of Miami",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "30+ HR"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.292
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        ".292+ AVG",
+        "90+ RBI"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
