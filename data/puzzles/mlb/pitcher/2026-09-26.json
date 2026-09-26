@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-09-26",
+  "base": {
+    "playerId": "457428",
+    "playerName": "James McDonald",
+    "season": "2012",
+    "stats": {
+      "so": 151,
+      "w": 12,
+      "ip": 171,
+      "era": 4.21
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Pittsburgh"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 200
+        }
+      ],
+      "labels": [
+        "University of Pittsburgh",
+        "200+ IP"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "MVP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        }
+      ],
+      "labels": [
+        "170+ IP"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 160
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "160+ IP",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-09-26",
+  "base": {
+    "playerId": "2200",
+    "playerName": "Pau Gasol",
+    "season": "2003-04",
+    "stats": {
+      "ppg": 17.7,
+      "rpg": 7.7,
+      "apg": 2.5,
+      "blk": 1.7
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Washington"
+        },
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "Washington",
+        "All-NBA"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

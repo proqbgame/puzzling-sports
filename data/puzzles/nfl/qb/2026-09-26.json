@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-09-26",
+  "base": {
+    "playerId": "00-0029668",
+    "playerName": "Andrew Luck",
+    "season": "2016",
+    "stats": {
+      "passYds": 4240,
+      "passTd": 31,
+      "compPct": 63.5,
+      "interceptions": 13
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "10+ INT"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ INT"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3000
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "3000+ PASS YDS",
+        "20+ INT"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ INT"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Purdue"
+        }
+      ],
+      "labels": [
+        "Purdue"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "passTdAtLeast",
+          "min": 25
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "25+ PASS TD",
+        "10+ INT"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

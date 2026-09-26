@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-09-26",
+  "base": {
+    "playerId": "121140",
+    "playerName": "Jim Rice",
+    "season": "1981",
+    "stats": {
+      "hr": 17,
+      "rbi": 62,
+      "avg": 0.284,
+      "sb": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ HR",
+        "20+ SB"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "World Series Champion"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "80+ RBI"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "Silver Slugger"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "80+ RBI"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Notre Dame"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "University of Notre Dame",
+        "15+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
