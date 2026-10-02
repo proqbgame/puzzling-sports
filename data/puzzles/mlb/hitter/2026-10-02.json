@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-10-02",
+  "base": {
+    "playerId": "114333",
+    "playerName": "George Foster",
+    "season": "1979",
+    "stats": {
+      "hr": 30,
+      "rbi": 98,
+      "avg": 0.302,
+      "sb": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "MVP",
+        "Silver Slugger"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 110
+        }
+      ],
+      "labels": [
+        "110+ RBI"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.3
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        ".300+ AVG",
+        "20+ SB"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "90+ RBI"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Wagner College"
+        }
+      ],
+      "labels": [
+        "Wagner College"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 40
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "40+ HR"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "MVP",
+        "Gold Glove"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
