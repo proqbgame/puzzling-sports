@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-10-03",
+  "base": {
+    "playerId": "450308",
+    "playerName": "Jered Weaver",
+    "season": "2011",
+    "stats": {
+      "so": 198,
+      "w": 18,
+      "ip": 235.2,
+      "era": 2.41
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 3.25
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "ERA ≤ 3.25"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 225
+        }
+      ],
+      "labels": [
+        "225+ SO"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.25
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.25"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 200
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50",
+        "200+ IP"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Jefferson College"
+        }
+      ],
+      "labels": [
+        "Jefferson College"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "wAtLeast",
+          "min": 22
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "22+ W"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

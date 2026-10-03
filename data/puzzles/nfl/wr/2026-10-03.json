@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-10-03",
+  "base": {
+    "playerId": "00-0030564",
+    "playerName": "DeAndre Hopkins",
+    "season": "2017",
+    "stats": {
+      "recYds": 1378,
+      "recTd": 13,
+      "receptions": 96,
+      "targets": 174
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "8+ REC TD",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 150
+        }
+      ],
+      "labels": [
+        "150+ TGT"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Texas"
+        }
+      ],
+      "labels": [
+        "Texas"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1000
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "1000+ REC YDS",
+        "90+ REC"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Syracuse"
+        }
+      ],
+      "labels": [
+        "Syracuse"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "receptionsAtLeast",
+          "min": 100
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "100+ REC",
+        "1200+ REC YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
