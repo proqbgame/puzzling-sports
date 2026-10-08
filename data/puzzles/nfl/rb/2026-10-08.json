@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-10-08",
+  "base": {
+    "playerId": "00-0008241",
+    "playerName": "Edgerrin James",
+    "season": "1999",
+    "stats": {
+      "rushYds": 1553,
+      "rushTd": 13,
+      "recYds": 586,
+      "recTd": 4
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1700
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "1700+ RUSH YDS",
+        "16+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "14+ RUSH TD"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Tennessee"
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1300
+        }
+      ],
+      "labels": [
+        "Tennessee",
+        "1300+ RUSH YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "16+ RUSH TD"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "1200+ RUSH YDS"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 6
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "6+ REC TD",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

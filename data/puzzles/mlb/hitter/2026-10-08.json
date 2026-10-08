@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-10-08",
+  "base": {
+    "playerId": "430897",
+    "playerName": "Nick Swisher",
+    "season": "2011",
+    "stats": {
+      "hr": 23,
+      "rbi": 85,
+      "avg": 0.26,
+      "sb": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 45
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 100
+        }
+      ],
+      "labels": [
+        "45+ HR",
+        "100+ RBI"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "Gold Glove"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 40
+        }
+      ],
+      "labels": [
+        "40+ HR"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Florida State University"
+        }
+      ],
+      "labels": [
+        "Florida State University"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 30
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "30+ SB",
+        "20+ HR"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "30+ HR"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "San Diego State University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "San Diego State University",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
