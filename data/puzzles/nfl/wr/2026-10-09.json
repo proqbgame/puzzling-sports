@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-10-09",
+  "base": {
+    "playerId": "00-0007744",
+    "playerName": "Joe Horn",
+    "season": "2004",
+    "stats": {
+      "recYds": 1399,
+      "recTd": 11,
+      "receptions": 94,
+      "targets": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "receptionsAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "90+ REC"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1300
+        }
+      ],
+      "labels": [
+        "1300+ REC YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "1100+ REC YDS",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Michigan"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Michigan",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-10-09",
+  "base": {
+    "playerId": "00-0022942",
+    "playerName": "Philip Rivers",
+    "season": "2006",
+    "stats": {
+      "passYds": 3387,
+      "passTd": 22,
+      "compPct": 61.7,
+      "interceptions": 9
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "North Carolina"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "North Carolina",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 66
+        }
+      ],
+      "labels": [
+        "66%+"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "Top 5 Pick"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "passTdAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ PASS TD"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "10+ INT"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3500
+        },
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "3500+ PASS YDS",
+        "20+ INT"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

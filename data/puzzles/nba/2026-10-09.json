@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-10-09",
+  "base": {
+    "playerId": "445",
+    "playerName": "Wesley Person",
+    "season": "1995-96",
+    "stats": {
+      "ppg": 12.7,
+      "rpg": 3.9,
+      "apg": 1.7,
+      "blk": 0.3
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "25+ PPG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Cincinnati"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Cincinnati",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "Top 5 Pick"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Top 5 Pick",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        }
+      ],
+      "labels": [
+        "9+ RPG"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "MVP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

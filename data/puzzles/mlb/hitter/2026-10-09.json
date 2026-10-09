@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-10-09",
+  "base": {
+    "playerId": "111962",
+    "playerName": "Jose Canseco",
+    "season": "1987",
+    "stats": {
+      "hr": 31,
+      "rbi": 113,
+      "avg": 0.257,
+      "sb": 15
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Arizona State University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Arizona State University",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "90+ RBI"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Nevada-Las Vegas"
+        }
+      ],
+      "labels": [
+        "University of Nevada-Las Vegas"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.321
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        ".321+ AVG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 40
+        }
+      ],
+      "labels": [
+        "40+ SB"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
