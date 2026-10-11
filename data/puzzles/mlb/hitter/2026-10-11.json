@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-10-11",
+  "base": {
+    "playerId": "623993",
+    "playerName": "Anthony Santander",
+    "season": "2024",
+    "stats": {
+      "hr": 44,
+      "rbi": 102,
+      "avg": 0.235,
+      "sb": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "World Series Champion"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.294
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        ".294+ AVG"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "California State University Northridge"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.3
+        }
+      ],
+      "labels": [
+        "California State University Northridge",
+        ".300+ AVG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "35+ HR"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 60
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "60+ SB",
+        "All-Star"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
