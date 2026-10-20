@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-10-20",
+  "base": {
+    "playerId": "475115",
+    "playerName": "Tyson Ross",
+    "season": "2014",
+    "stats": {
+      "so": 195,
+      "w": 13,
+      "ip": 195.2,
+      "era": 2.81
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Southern California"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "University of Southern California",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "190+ IP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 200
+        }
+      ],
+      "labels": [
+        "200+ SO"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 230
+        },
+        {
+          "type": "soAtLeast",
+          "min": 150
+        }
+      ],
+      "labels": [
+        "230+ IP",
+        "150+ SO"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ W"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 18
+        },
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "18+ W",
+        "175+ SO"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
