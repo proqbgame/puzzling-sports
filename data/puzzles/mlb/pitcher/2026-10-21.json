@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-10-21",
+  "base": {
+    "playerId": "592662",
+    "playerName": "Robbie Ray",
+    "season": "2022",
+    "stats": {
+      "so": 212,
+      "w": 12,
+      "ip": 189,
+      "era": 3.71
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.75",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 18
+        }
+      ],
+      "labels": [
+        "18+ W"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "wsMvp"
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "WS MVP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.25
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.25"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Michigan State University"
+        }
+      ],
+      "labels": [
+        "Michigan State University"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "wAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "14+ W"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

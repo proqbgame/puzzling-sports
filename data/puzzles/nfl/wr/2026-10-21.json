@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-10-21",
+  "base": {
+    "playerId": "00-0020337",
+    "playerName": "Steve Smith",
+    "season": "2005",
+    "stats": {
+      "recYds": 1563,
+      "recTd": 12,
+      "receptions": 103,
+      "targets": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "West Virginia"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "West Virginia",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 140
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "140+ TGT",
+        "80+ REC"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "1000+ REC YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 120
+        }
+      ],
+      "labels": [
+        "120+ TGT"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 140
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "140+ TGT",
+        "80+ REC"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

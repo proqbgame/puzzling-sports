@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-10-21",
+  "base": {
+    "playerId": "00-0033897",
+    "playerName": "Joe Mixon",
+    "season": "2024",
+    "stats": {
+      "rushYds": 1016,
+      "rushTd": 11,
+      "recYds": 309,
+      "recTd": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "1200+ RUSH YDS"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Louisville"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Louisville",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "1200+ RUSH YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Florida Atlantic"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Florida Atlantic",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "rushTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "12+ RUSH TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "10+ RUSH TD"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-10-21",
+  "base": {
+    "playerId": "641933",
+    "playerName": "Tyler O'Neill",
+    "season": "2024",
+    "stats": {
+      "hr": 31,
+      "rbi": 61,
+      "avg": 0.241,
+      "sb": 4
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Treasure Valley Community College"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Treasure Valley Community College",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.282
+        }
+      ],
+      "labels": [
+        ".282+ AVG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ HR"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Northern Illinois University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Northern Illinois University",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "World Series Champion"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "15+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
