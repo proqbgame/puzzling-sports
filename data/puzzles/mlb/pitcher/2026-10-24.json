@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-10-24",
+  "base": {
+    "playerId": "121581",
+    "playerName": "Dick Ruthven",
+    "season": "1976",
+    "stats": {
+      "so": 142,
+      "w": 14,
+      "ip": 240.1,
+      "era": 4.19
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "college",
+          "school": "Creighton University"
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "Creighton University"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "wsMvp"
+        }
+      ],
+      "labels": [
+        "WS MVP"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "ERA ≤ 2.75"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "175+ SO"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.00",
+        "10+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.25
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.25"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Arizona"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "University of Arizona",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
