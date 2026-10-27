@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-10-27",
+  "base": {
+    "playerId": "burneaj01",
+    "playerName": "A. J. Burnett",
+    "season": "2007",
+    "stats": {
+      "so": 176,
+      "w": 10,
+      "ip": 165.2,
+      "era": 3.75
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 18
+        },
+        {
+          "type": "eraAtMost",
+          "max": 3.25
+        }
+      ],
+      "labels": [
+        "18+ W",
+        "ERA ≤ 3.25"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Washington State University"
+        }
+      ],
+      "labels": [
+        "Washington State University"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 150
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        }
+      ],
+      "labels": [
+        "150+ SO",
+        "170+ IP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        }
+      ],
+      "labels": [
+        "Cy Young"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "MVP",
+        "All-Star"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

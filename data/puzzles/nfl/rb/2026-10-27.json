@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-10-27",
+  "base": {
+    "playerId": "00-0019693",
+    "playerName": "Jamal Lewis",
+    "season": "2007",
+    "stats": {
+      "rushYds": 1303,
+      "rushTd": 9,
+      "recYds": 248,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 900
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        }
+      ],
+      "labels": [
+        "900+ REC YDS",
+        "4+ REC TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "1000+ RUSH YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Kentucky"
+        }
+      ],
+      "labels": [
+        "Kentucky"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 450
+        }
+      ],
+      "labels": [
+        "450+ REC YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Auburn"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Auburn",
+        "Pro Bowl"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        }
+      ],
+      "labels": [
+        "4+ REC TD"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 400
+        },
+        {
+          "type": "recTdAtLeast",
+          "min": 4
+        }
+      ],
+      "labels": [
+        "400+ REC YDS",
+        "4+ REC TD"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

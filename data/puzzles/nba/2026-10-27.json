@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-10-27",
+  "base": {
+    "playerId": "339",
+    "playerName": "Tom Gugliotta",
+    "season": "1996-97",
+    "stats": {
+      "ppg": 20.6,
+      "rpg": 8.7,
+      "apg": 4.1,
+      "blk": 1.1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "rpgAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "NBA Champion",
+        "12+ RPG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Nevada-Reno"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "Nevada-Reno",
+        "15+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        }
+      ],
+      "labels": [
+        "9+ RPG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "20+ PPG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "20+ PPG"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
