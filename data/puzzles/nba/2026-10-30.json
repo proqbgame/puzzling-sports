@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-10-30",
+  "base": {
+    "playerId": "76348",
+    "playerName": "Austin Carr",
+    "season": "1976-77",
+    "stats": {
+      "ppg": 16.2,
+      "rpg": 2.9,
+      "apg": 2.7,
+      "blk": 0.1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        },
+        {
+          "type": "college",
+          "school": "Michigan State"
+        }
+      ],
+      "labels": [
+        "9+ RPG",
+        "Michigan State"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Clemson"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "Clemson",
+        "15+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ PPG"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 12
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "12+ RPG",
+        "15+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "dpoy"
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "DPOY"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
