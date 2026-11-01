@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-11-01",
+  "base": {
+    "playerId": "453178",
+    "playerName": "Ian Kennedy",
+    "season": "2015",
+    "stats": {
+      "so": 174,
+      "w": 9,
+      "ip": 168.1,
+      "era": 4.28
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "ERA ≤ 2.50"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.25
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.25"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.75"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Connecticut"
+        }
+      ],
+      "labels": [
+        "University of Connecticut"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 180
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "180+ IP",
+        "15+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 160
+        }
+      ],
+      "labels": [
+        "160+ IP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        },
+        {
+          "type": "wAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "190+ IP",
+        "16+ W"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

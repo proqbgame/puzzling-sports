@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-11-01",
+  "base": {
+    "playerId": "2544",
+    "playerName": "LeBron James",
+    "season": "2022-23",
+    "stats": {
+      "ppg": 28.9,
+      "rpg": 8.3,
+      "apg": 6.8,
+      "blk": 0.6
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "20+ PPG",
+        "Top 5 Pick"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "California-Los Angeles"
+        }
+      ],
+      "labels": [
+        "California-Los Angeles"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "9+ RPG",
+        "15+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "15+ PPG",
+        "Top 5 Pick"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "NBA Champion"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "15+ PPG",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

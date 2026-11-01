@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-11-01",
+  "base": {
+    "playerId": "00-0031381",
+    "playerName": "Davante Adams",
+    "season": "2021",
+    "stats": {
+      "recYds": 1553,
+      "recTd": 11,
+      "receptions": 123,
+      "targets": 169
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Florida State"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "Florida State",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Florida"
+        }
+      ],
+      "labels": [
+        "Florida"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "Undrafted"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "180+ TGT"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "receptionsAtLeast",
+          "min": 100
+        }
+      ],
+      "labels": [
+        "100+ REC"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

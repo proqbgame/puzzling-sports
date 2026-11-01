@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-01",
+  "base": {
+    "playerId": "116569",
+    "playerName": "Charles Johnson",
+    "season": "1998",
+    "stats": {
+      "hr": 19,
+      "rbi": 58,
+      "avg": 0.218,
+      "sb": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Southern California"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "University of Southern California",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "25+ HR",
+        "80+ RBI"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ HR"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "World Series Champion"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.31
+        }
+      ],
+      "labels": [
+        ".310+ AVG"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Michigan"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "University of Michigan",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
