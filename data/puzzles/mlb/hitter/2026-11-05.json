@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-05",
+  "base": {
+    "playerId": "110318",
+    "playerName": "Tony Armas",
+    "season": "1981",
+    "stats": {
+      "hr": 22,
+      "rbi": 76,
+      "avg": 0.261,
+      "sb": 5
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 20
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "20+ SB",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "90+ RBI",
+        "30+ HR"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Georgia Institute of Technology"
+        }
+      ],
+      "labels": [
+        "Georgia Institute of Technology"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "80+ RBI"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 100
+        }
+      ],
+      "labels": [
+        "25+ HR",
+        "100+ RBI"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

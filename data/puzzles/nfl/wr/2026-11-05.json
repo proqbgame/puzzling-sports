@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-11-05",
+  "base": {
+    "playerId": "00-0035659",
+    "playerName": "Terry McLaurin",
+    "season": "2020",
+    "stats": {
+      "recYds": 1118,
+      "recTd": 4,
+      "receptions": 87,
+      "targets": 134
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1200
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "1200+ REC YDS",
+        "80+ REC"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Undrafted"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "180+ TGT"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 130
+        }
+      ],
+      "labels": [
+        "130+ TGT"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Michigan State"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "Michigan State",
+        "Super Bowl Champion"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 120
+        }
+      ],
+      "labels": [
+        "120+ TGT"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 12
+        },
+        {
+          "type": "receptionsAtLeast",
+          "min": 110
+        }
+      ],
+      "labels": [
+        "12+ REC TD",
+        "110+ REC"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
