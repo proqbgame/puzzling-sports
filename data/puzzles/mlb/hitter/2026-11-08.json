@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-08",
+  "base": {
+    "playerId": "111188",
+    "playerName": "Barry Bonds",
+    "season": "1998",
+    "stats": {
+      "hr": 37,
+      "rbi": 122,
+      "avg": 0.303,
+      "sb": 28
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "20+ HR",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "35+ SB"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 40
+        },
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "40+ SB",
+        "Gold Glove"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Southern California"
+        }
+      ],
+      "labels": [
+        "University of Southern California"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.363
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        ".363+ AVG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "Silver Slugger"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-11-08",
+  "base": {
+    "playerId": "122791",
+    "playerName": "Dave Stieb",
+    "season": "1988",
+    "stats": {
+      "so": 147,
+      "w": 16,
+      "ip": 207.1,
+      "era": 3.04
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "170+ IP",
+        "10+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 1.5
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 1.50",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Northern Iowa"
+        }
+      ],
+      "labels": [
+        "University of Northern Iowa"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 14
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        }
+      ],
+      "labels": [
+        "14+ W",
+        "ERA ≤ 2.50"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "MVP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 1.75
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "ERA ≤ 1.75"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
