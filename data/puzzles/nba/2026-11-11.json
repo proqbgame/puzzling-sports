@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-11-11",
+  "base": {
+    "playerId": "77295",
+    "playerName": "Don Kojis",
+    "season": "1973-74",
+    "stats": {
+      "ppg": 13.1,
+      "rpg": 5,
+      "apg": 1.4,
+      "blk": 0.2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Georgia"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Georgia",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "California-Los Angeles"
+        }
+      ],
+      "labels": [
+        "California-Los Angeles"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "California-Los Angeles"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "California-Los Angeles",
+        "10+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rpgAtLeast",
+          "min": 9
+        }
+      ],
+      "labels": [
+        "9+ RPG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "NBA Champion"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "apgAtLeast",
+          "min": 9
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "9+ APG"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 25
+        }
+      ],
+      "labels": [
+        "25+ PPG"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "sixthMan"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "6th Man of the Year",
+        "15+ PPG"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
