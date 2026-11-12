@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-12",
+  "base": {
+    "playerId": "122517",
+    "playerName": "Eric Soderholm",
+    "season": "1978",
+    "stats": {
+      "hr": 20,
+      "rbi": 67,
+      "avg": 0.258,
+      "sb": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "90+ RBI",
+        "30+ HR"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "90+ RBI"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "All-Star"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ HR"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Middle Tennessee State University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Middle Tennessee State University",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ HR"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "University of Wyoming"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "University of Wyoming",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

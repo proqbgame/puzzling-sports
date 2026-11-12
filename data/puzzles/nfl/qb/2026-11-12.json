@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-11-12",
+  "base": {
+    "playerId": "00-0022942",
+    "playerName": "Philip Rivers",
+    "season": "2018",
+    "stats": {
+      "passYds": 4308,
+      "passTd": 32,
+      "compPct": 68.3,
+      "interceptions": 12
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "compPctAtLeast",
+          "min": 66
+        }
+      ],
+      "labels": [
+        "66%+"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Purdue"
+        },
+        {
+          "type": "passYdsAtLeast",
+          "min": 3500
+        }
+      ],
+      "labels": [
+        "Purdue",
+        "3500+ PASS YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ INT"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3000
+        }
+      ],
+      "labels": [
+        "3000+ PASS YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "10+ INT",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
