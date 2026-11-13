@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-11-13",
+  "base": {
+    "playerId": "00-0005668",
+    "playerName": "Oronde Gadsden",
+    "season": "1999",
+    "stats": {
+      "recYds": 803,
+      "recTd": 6,
+      "receptions": 48,
+      "targets": 89
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "5+ Seasons",
+        "Undrafted"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Kentucky"
+        }
+      ],
+      "labels": [
+        "Kentucky"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "undrafted"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Undrafted",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 120
+        }
+      ],
+      "labels": [
+        "120+ TGT"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 120
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "120+ TGT",
+        "Undrafted"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Pro Bowl"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

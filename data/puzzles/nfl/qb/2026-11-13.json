@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-11-13",
+  "base": {
+    "playerId": "00-0022803",
+    "playerName": "Eli Manning",
+    "season": "2005",
+    "stats": {
+      "passYds": 3762,
+      "passTd": 24,
+      "compPct": 52.7,
+      "interceptions": 17
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Louisiana-Lafayette"
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Louisiana-Lafayette",
+        "Undrafted"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ INT"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "MVP"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Michigan State"
+        }
+      ],
+      "labels": [
+        "Michigan State"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "passTdAtLeast",
+          "min": 30
+        },
+        {
+          "type": "passYdsAtLeast",
+          "min": 4000
+        }
+      ],
+      "labels": [
+        "30+ PASS TD",
+        "4000+ PASS YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "sbMvp"
+        }
+      ],
+      "labels": [
+        "SB MVP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 10
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "10+ INT",
+        "Undrafted"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
