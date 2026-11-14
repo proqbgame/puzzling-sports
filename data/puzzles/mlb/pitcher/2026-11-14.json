@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-11-14",
+  "base": {
+    "playerId": "110809",
+    "playerName": "Tim Belcher",
+    "season": "1988",
+    "stats": {
+      "so": 152,
+      "w": 12,
+      "ip": 179.2,
+      "era": 2.91
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 160
+        }
+      ],
+      "labels": [
+        "160+ IP"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Western Illinois University"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "Western Illinois University",
+        "15+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "All-Star"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 200
+        }
+      ],
+      "labels": [
+        "200+ IP"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        },
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.50",
+        "190+ IP"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "175+ SO"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 170
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "170+ IP",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

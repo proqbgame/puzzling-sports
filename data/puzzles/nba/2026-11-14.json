@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-11-14",
+  "base": {
+    "playerId": "949",
+    "playerName": "Shareef Abdur-Rahim",
+    "season": "2004-05",
+    "stats": {
+      "ppg": 16.8,
+      "rpg": 7.3,
+      "apg": 2.1,
+      "blk": 0.5
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "apgAtLeast",
+          "min": 9
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "9+ APG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Iowa State"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Iowa State",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "20+ PPG"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "NBA Champion",
+        "Top 5 Pick"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Baylor"
+        }
+      ],
+      "labels": [
+        "Baylor"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "NBA Champion",
+        "15+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

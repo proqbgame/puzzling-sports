@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-14",
+  "base": {
+    "playerId": "110974",
+    "playerName": "Dante Bichette",
+    "season": "1999",
+    "stats": {
+      "hr": 34,
+      "rbi": 133,
+      "avg": 0.298,
+      "sb": 6
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "90+ RBI",
+        "35+ HR"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 115
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.306
+        }
+      ],
+      "labels": [
+        "115+ SB",
+        ".306+ AVG"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Triton College"
+        }
+      ],
+      "labels": [
+        "Triton College"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "All-Star",
+        "35+ HR"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.31
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        ".310+ AVG",
+        "10+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
