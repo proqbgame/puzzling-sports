@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-11-18",
+  "base": {
+    "playerId": "430912",
+    "playerName": "Matt Cain",
+    "season": "2009",
+    "stats": {
+      "so": 171,
+      "w": 14,
+      "ip": 217.2,
+      "era": 2.89
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Silver Slugger",
+        "All-Star"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 16
+        }
+      ],
+      "labels": [
+        "16+ W"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 2.75
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "ERA ≤ 2.75",
+        "5+ Seasons"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Western Illinois University"
+        }
+      ],
+      "labels": [
+        "Western Illinois University"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 190
+        }
+      ],
+      "labels": [
+        "190+ IP"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 2.5
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "ERA ≤ 2.50"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "180+ IP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "wAtLeast",
+          "min": 14
+        },
+        {
+          "type": "soAtLeast",
+          "min": 200
+        }
+      ],
+      "labels": [
+        "14+ W",
+        "200+ SO"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}
