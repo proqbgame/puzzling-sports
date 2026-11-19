@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-19",
+  "base": {
+    "playerId": "112064",
+    "playerName": "Joe Carter",
+    "season": "1991",
+    "stats": {
+      "hr": 33,
+      "rbi": 108,
+      "avg": 0.273,
+      "sb": 20
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.34
+        }
+      ],
+      "labels": [
+        "All-Star",
+        ".340+ AVG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "80+ RBI"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 30
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "30+ HR",
+        "90+ RBI"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.29
+        }
+      ],
+      "labels": [
+        ".290+ AVG"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "mvp"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "MVP",
+        "World Series Champion"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Louisiana State University"
+        }
+      ],
+      "labels": [
+        "Louisiana State University"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "avgAtLeast",
+          "min": 0.308
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        ".308+ AVG",
+        "30+ SB"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}
