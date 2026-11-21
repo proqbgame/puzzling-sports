@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-21",
+  "base": {
+    "playerId": "120536",
+    "playerName": "Mike Piazza",
+    "season": "2004",
+    "stats": {
+      "hr": 20,
+      "rbi": 54,
+      "avg": 0.266,
+      "sb": 0
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "St. Mary's University"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.3
+        }
+      ],
+      "labels": [
+        "St. Mary's University",
+        ".300+ AVG"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "World Series Champion"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "35+ SB"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ Seasons"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 100
+        },
+        {
+          "type": "hrAtLeast",
+          "min": 45
+        }
+      ],
+      "labels": [
+        "100+ RBI",
+        "45+ HR"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Arizona State University"
+        }
+      ],
+      "labels": [
+        "Arizona State University"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "allStar"
+        },
+        {
+          "type": "avgAtLeast",
+          "min": 0.304
+        }
+      ],
+      "labels": [
+        "All-Star",
+        ".304+ AVG"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}
