@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "pitcher",
+  "date": "2026-11-24",
+  "base": {
+    "playerId": "114947",
+    "playerName": "Dwight Gooden",
+    "season": "1988",
+    "stats": {
+      "so": 175,
+      "w": 18,
+      "ip": 248.1,
+      "era": 3.19
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 210
+        },
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "210+ IP",
+        "175+ SO"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        }
+      ],
+      "labels": [
+        "Gold Glove"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "California State University Fresno"
+        },
+        {
+          "type": "eraAtMost",
+          "max": 3.5
+        }
+      ],
+      "labels": [
+        "California State University Fresno",
+        "ERA ≤ 3.50"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "soAtLeast",
+          "min": 175
+        }
+      ],
+      "labels": [
+        "175+ SO"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "eraAtMost",
+          "max": 3
+        }
+      ],
+      "labels": [
+        "ERA ≤ 3.00"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 210
+        },
+        {
+          "type": "wAtLeast",
+          "min": 14
+        }
+      ],
+      "labels": [
+        "210+ IP",
+        "14+ W"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "ipAtLeast",
+          "min": 250
+        }
+      ],
+      "labels": [
+        "250+ IP"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "tab"
+    }
+  }
+}

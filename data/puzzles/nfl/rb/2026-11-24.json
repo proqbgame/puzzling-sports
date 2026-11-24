@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-11-24",
+  "base": {
+    "playerId": "00-0026796",
+    "playerName": "Arian Foster",
+    "season": "2012",
+    "stats": {
+      "rushYds": 1424,
+      "rushTd": 15,
+      "recYds": 217,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Iowa State"
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 8
+        }
+      ],
+      "labels": [
+        "Iowa State",
+        "8+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1500
+        }
+      ],
+      "labels": [
+        "1500+ RUSH YDS"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "champion"
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "Super Bowl Champion"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 400
+        }
+      ],
+      "labels": [
+        "400+ REC YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 400
+        }
+      ],
+      "labels": [
+        "400+ REC YDS"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "Pro Bowl"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "rushYdsAtLeast",
+          "min": 1200
+        },
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "1200+ RUSH YDS",
+        "Top 5 Pick"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

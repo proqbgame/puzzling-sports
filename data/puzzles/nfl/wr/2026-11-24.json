@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-11-24",
+  "base": {
+    "playerId": "00-0038543",
+    "playerName": "Jaxon Smith-Njigba",
+    "season": "2025",
+    "stats": {
+      "recYds": 1793,
+      "recTd": 10,
+      "receptions": 119,
+      "targets": 163
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "LSU"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "LSU",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1300
+        },
+        {
+          "type": "targetsAtLeast",
+          "min": 180
+        }
+      ],
+      "labels": [
+        "1300+ REC YDS",
+        "180+ TGT"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1000
+        }
+      ],
+      "labels": [
+        "1000+ REC YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 10
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "10+ REC TD",
+        "1100+ REC YDS"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "receptionsAtLeast",
+          "min": 90
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1100
+        }
+      ],
+      "labels": [
+        "90+ REC",
+        "1100+ REC YDS"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "center": {
+      "up": "socket",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "tab"
+    }
+  }
+}

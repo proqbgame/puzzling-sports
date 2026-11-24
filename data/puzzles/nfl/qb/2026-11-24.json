@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "qb",
+  "date": "2026-11-24",
+  "base": {
+    "playerId": "00-0034855",
+    "playerName": "Baker Mayfield",
+    "season": "2024",
+    "stats": {
+      "passYds": 4500,
+      "passTd": 41,
+      "compPct": 71.4,
+      "interceptions": 16
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 20
+        },
+        {
+          "type": "passYdsAtLeast",
+          "min": 4000
+        }
+      ],
+      "labels": [
+        "20+ INT",
+        "4000+ PASS YDS"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 10
+        }
+      ],
+      "labels": [
+        "10+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "passYdsAtLeast",
+          "min": 3000
+        },
+        {
+          "type": "draftPick",
+          "pick": 1
+        }
+      ],
+      "labels": [
+        "3000+ PASS YDS",
+        "1st Pick"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "interceptionsAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ INT"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Michigan State"
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Michigan State",
+        "Undrafted"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "passTdAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "30+ PASS TD"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "center": {
+      "up": "tab",
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "socket"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "tab",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "tab",
+      "left": "socket"
+    }
+  }
+}

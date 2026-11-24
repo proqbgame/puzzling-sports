@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-24",
+  "base": {
+    "playerId": "204020",
+    "playerName": "Lance Berkman",
+    "season": "2002",
+    "stats": {
+      "hr": 42,
+      "rbi": 128,
+      "avg": 0.292,
+      "sb": 8
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "5+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 30
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "30+ HR",
+        "80+ RBI"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "35+ SB"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "sbAtLeast",
+          "min": 35
+        }
+      ],
+      "labels": [
+        "35+ SB"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "allStar"
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "All-Star"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Arizona State University"
+        }
+      ],
+      "labels": [
+        "Arizona State University"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "cyYoung"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "Cy Young",
+        "15+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

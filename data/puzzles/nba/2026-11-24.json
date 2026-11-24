@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "sport": "nba",
+  "date": "2026-11-24",
+  "base": {
+    "playerId": "2050",
+    "playerName": "Morris Peterson",
+    "season": "2005-06",
+    "stats": {
+      "ppg": 16.8,
+      "rpg": 4.6,
+      "apg": 2.3,
+      "blk": 0.2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "blkAtLeast",
+          "min": 3
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "3+ BLK",
+        "15+ Seasons"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        },
+        {
+          "type": "ppgAtLeast",
+          "min": 30
+        }
+      ],
+      "labels": [
+        "All-NBA",
+        "30+ PPG"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Arkansas"
+        }
+      ],
+      "labels": [
+        "Arkansas"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "allNba"
+        }
+      ],
+      "labels": [
+        "All-NBA"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "ppgAtLeast",
+          "min": 15
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 15
+        }
+      ],
+      "labels": [
+        "15+ PPG",
+        "15+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "topDraftPick",
+          "maxPick": 5
+        }
+      ],
+      "labels": [
+        "Top 5 Pick"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "mostImproved"
+        }
+      ],
+      "labels": [
+        "NBA Champion",
+        "Most Improved Player"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "socket",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
