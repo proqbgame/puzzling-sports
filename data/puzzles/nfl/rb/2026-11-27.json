@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "rb",
+  "date": "2026-11-27",
+  "base": {
+    "playerId": "00-0020536",
+    "playerName": "LaDainian Tomlinson",
+    "season": "2005",
+    "stats": {
+      "rushYds": 1464,
+      "rushTd": 18,
+      "recYds": 370,
+      "recTd": 2
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 8
+        },
+        {
+          "type": "rushTdAtLeast",
+          "min": 12
+        }
+      ],
+      "labels": [
+        "8+ REC TD",
+        "12+ RUSH TD"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 700
+        }
+      ],
+      "labels": [
+        "Pro Bowl",
+        "700+ REC YDS"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recTdAtLeast",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ REC TD"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Super Bowl Champion",
+        "5+ Seasons"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Miami"
+        }
+      ],
+      "labels": [
+        "Miami"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Texas"
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "Texas",
+        "Undrafted"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "tab"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "socket",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

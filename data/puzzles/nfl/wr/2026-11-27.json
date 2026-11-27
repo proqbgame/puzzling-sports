@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "nfl",
+  "position": "wr",
+  "date": "2026-11-27",
+  "base": {
+    "playerId": "00-0027265",
+    "playerName": "Victor Cruz",
+    "season": "2011",
+    "stats": {
+      "recYds": 1536,
+      "recTd": 9,
+      "receptions": 82,
+      "targets": 131
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "allPro"
+        },
+        {
+          "type": "recYdsAtLeast",
+          "min": 1200
+        }
+      ],
+      "labels": [
+        "All-Pro",
+        "1200+ REC YDS"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "allPro"
+        }
+      ],
+      "labels": [
+        "All-Pro"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "targetsAtLeast",
+          "min": 160
+        },
+        {
+          "type": "college",
+          "school": "Ohio State"
+        }
+      ],
+      "labels": [
+        "160+ TGT",
+        "Ohio State"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "recYdsAtLeast",
+          "min": 1300
+        }
+      ],
+      "labels": [
+        "1300+ REC YDS"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "proBowl"
+        }
+      ],
+      "labels": [
+        "Pro Bowl"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        },
+        {
+          "type": "undrafted"
+        }
+      ],
+      "labels": [
+        "5+ Seasons",
+        "Undrafted"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Arizona State"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Arizona State",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "tab",
+      "down": "socket"
+    },
+    "top-middle": {
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "tab",
+      "right": "tab",
+      "down": "tab"
+    },
+    "center": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "socket",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "socket",
+      "right": "socket"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "tab",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}

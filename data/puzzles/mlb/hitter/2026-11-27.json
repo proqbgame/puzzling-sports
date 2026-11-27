@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sport": "mlb",
+  "position": "hitter",
+  "date": "2026-11-27",
+  "base": {
+    "playerId": "122027",
+    "playerName": "Richie Sexson",
+    "season": "2005",
+    "stats": {
+      "hr": 39,
+      "rbi": 121,
+      "avg": 0.263,
+      "sb": 1
+    }
+  },
+  "cells": {
+    "top-left": {
+      "criteria": [
+        {
+          "type": "hrAtLeast",
+          "min": 25
+        },
+        {
+          "type": "rbiAtLeast",
+          "min": 80
+        }
+      ],
+      "labels": [
+        "25+ HR",
+        "80+ RBI"
+      ]
+    },
+    "top-middle": {
+      "criteria": [
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "5+ Seasons"
+      ]
+    },
+    "top-right": {
+      "criteria": [
+        {
+          "type": "goldGlove"
+        },
+        {
+          "type": "sbAtLeast",
+          "min": 20
+        }
+      ],
+      "labels": [
+        "Gold Glove",
+        "20+ SB"
+      ]
+    },
+    "middle-left": {
+      "criteria": [
+        {
+          "type": "rbiAtLeast",
+          "min": 90
+        }
+      ],
+      "labels": [
+        "90+ RBI"
+      ]
+    },
+    "middle-right": {
+      "criteria": [
+        {
+          "type": "silverSlugger"
+        }
+      ],
+      "labels": [
+        "Silver Slugger"
+      ]
+    },
+    "bottom-left": {
+      "criteria": [
+        {
+          "type": "champion"
+        },
+        {
+          "type": "mvp"
+        }
+      ],
+      "labels": [
+        "World Series Champion",
+        "MVP"
+      ]
+    },
+    "bottom-middle": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Auburn University"
+        }
+      ],
+      "labels": [
+        "Auburn University"
+      ]
+    },
+    "bottom-right": {
+      "criteria": [
+        {
+          "type": "college",
+          "school": "Miami University of Ohio"
+        },
+        {
+          "type": "seasonsPlayed",
+          "min": 5
+        }
+      ],
+      "labels": [
+        "Miami University of Ohio",
+        "5+ Seasons"
+      ]
+    }
+  },
+  "edges": {
+    "top-left": {
+      "right": "socket",
+      "down": "tab"
+    },
+    "top-middle": {
+      "left": "tab",
+      "right": "socket",
+      "down": "socket"
+    },
+    "top-right": {
+      "left": "tab",
+      "down": "socket"
+    },
+    "middle-left": {
+      "up": "socket",
+      "right": "tab",
+      "down": "socket"
+    },
+    "center": {
+      "up": "tab",
+      "left": "socket",
+      "right": "socket",
+      "down": "tab"
+    },
+    "middle-right": {
+      "up": "tab",
+      "left": "tab",
+      "down": "tab"
+    },
+    "bottom-left": {
+      "up": "tab",
+      "right": "tab"
+    },
+    "bottom-middle": {
+      "up": "socket",
+      "left": "socket",
+      "right": "tab"
+    },
+    "bottom-right": {
+      "up": "socket",
+      "left": "socket"
+    }
+  }
+}
